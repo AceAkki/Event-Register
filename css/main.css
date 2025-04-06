@@ -1,0 +1,320 @@
+:root {
+  --clr-dark: #0e1111;
+  --clr-dark-two: #232b2b;
+  --clr-med: #353839;
+  --clr-light: #3b444b;
+  --clr-light-two: #414a4c;
+
+  --clr-primary: #474e93;
+  --clr-primary-light: #7e5cad;
+  --clr-secondary: #a294f9;
+  --clr-secondary-light: #cdc1ff;
+  --clr-tertiary: #e5d9f2;
+  --clr-tertiary-light: #f5efff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: var(--clr-med);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+  background-color: var(--clr-secondary);
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.nav-link {
+  color: var(--clr-dark-two);
+}
+
+.nav-link:active,
+.nav-link:hover {
+  background-color: var(--clr-dark-two);
+  color: var(--clr-tertiary-light);
+  transition: 0.5s ease-in-out;
+}
+
+section {
+  margin: 6vh 0;
+}
+
+section.hero-section {
+  margin: 80px 0;
+}
+
+.main-container {
+  margin: 10px 0;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.71);
+  border-radius: 20% 10%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  backdrop-filter: blur(18.1px);
+  -webkit-backdrop-filter: blur(18.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.glass-one {
+  background: rgba(255, 255, 255, 0.11);
+  border-radius: 80% 80% 10% 10%;
+  box-shadow: 0px 9px 30px 3px rgba(162, 148, 249, 0.3),
+    28px 110px 53px -66px rgba(229, 217, 242, 0.22),
+    -88px -63px 90px -126px rgba(71, 78, 147, 1);
+  backdrop-filter: blur(18.1px);
+  -webkit-backdrop-filter: blur(18.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* hero CSS starts */
+
+.home-hero-wrapper {
+  background: linear-gradient(
+      120deg,
+      rgba(162, 148, 249, 0.9),
+      rgba(126, 92, 173, 0.7)
+    ),
+    url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2llamFteTlsN2Z6c3JzOTFocmV2ZTM2NmNucWQxYjh1c2NoOW42bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MBVRgrfOBPeH5zNWJU/giphy.gif);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(18.9px);
+  -webkit-backdrop-filter: blur(18.9px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.home-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -61px;
+}
+.hero-right {
+  /* max-width: 650px; 
+  max-height: 631px; */
+  max-width: 35%;
+  max-height: 30%;
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+}
+.hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.hero-left {
+  max-width: 700px;
+  width: 100%;
+}
+.hero-left .comm-para {
+  margin: 26px 0 51px;
+}
+.hero-left .comm-para p {
+  color: #4d5566;
+}
+.hero-title-txt {
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--clr-tertiary-light);
+  position: relative;
+}
+.hero-title-txt::before {
+  content: "";
+  background: url(../img/hero-elem-1.svg) no-repeat;
+  background-size: contain;
+  display: block;
+  width: 44.82px;
+  height: 44.16px;
+  position: absolute;
+  top: -23px;
+  left: -20px;
+}
+.hero-title-txt.hero-title-txt-2 {
+  font-size: 50px;
+}
+.highlighter {
+  font-weight: 700;
+  background-color: var(--clr-secondary-light);
+  color: var(--clr-med);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 2px 10px;
+  position: relative;
+}
+.hero-btns {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 14px;
+}
+.hero-btns .line i {
+  margin-right: 11px;
+  font-size: 22px;
+}
+
+.home-slide {
+  text-align: left !important;
+  padding: 1% 5% 5%;
+}
+
+.hero-left .comm-para {
+  margin: 15px 0 20px !important;
+  text-align: left;
+}
+
+.hero-left .comm-para p {
+  text-align: left;
+  color: var(--clr-tertiary-light);
+}
+
+.home-pagination {
+  text-align: center;
+  padding: 0px;
+  position: relative;
+  margin: 2% 0;
+}
+
+.home-hero-wrapper .button {
+  background-color: var(--clr-light-two);
+  color: var(--clr-tertiary-light);
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+/* hero CSS ends */
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--clr-tertiary) !important;
+}
+
+.logo-container {
+  max-height: 10vh;
+  max-width: 80vw;
+  margin: 1vw 10vw;
+}
+
+.logo-card {
+  max-width: 15vw;
+  margin: 0 10vh;
+}
+
+.logo-card img {
+  max-width: 200px;
+  min-width: 200px;
+  max-height: fit-content;
+}
+
+.text-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.text-card {
+  margin: 10px;
+  padding: 20px;
+  min-height: 300px;
+  border-radius: 20px;
+  background-color: var(--clr-secondary-light);
+  box-shadow: 0 0 0 2px var(--clr-secondary),
+    8px 8px 0 0 var(--clr-secondary-light);
+  color: var(--clr-med);
+}
+
+.select-card {
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15.4px);
+  -webkit-backdrop-filter: blur(15.4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-card img {
+  max-width: 250px;
+  max-height: 300px;
+}
+
+.select-card .btn {
+  background-color: var(--clr-primary);
+  color: var(--clr-tertiary-light);
+}
+
+.hidden {
+  display: none;
+}
+
+@media all and (max-width: 1368px) {
+  .home-hero {
+    margin-bottom: -56px;
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .container {
+    max-width: 90vw;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .home-hero {
+    margin-bottom: 0;
+  }
+}
+
+@media all and (max-width: 834px) {
+  .home-hero {
+    margin-bottom: 32px;
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+  .hero-title-txt {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .container,
+  .container-tiny {
+    max-width: calc(100% - 50px);
+  }
+  .home-hero {
+    gap: 10px;
+  }
+  .hero-title-txt::before {
+    top: -33px;
+  }
+  .hero-right {
+    max-width: 90%;
+    max-height: 100%;
+  }
+}
+
+@media all and (max-width: 576px) {
+  .home-hero {
+    margin-bottom: 24px;
+  }
+}
+@media all and (max-width: 393px) {
+  .home-hero {
+    margin-top: 20px;
+  }
+}

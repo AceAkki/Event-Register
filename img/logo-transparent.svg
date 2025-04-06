@@ -1,0 +1,16 @@
+<svg width="240" height="64" viewBox="0 0 240 64" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <!-- Camera "V" Icon -->
+  <path id="camera-body" d="M16 20 L26 44 L36 20 Z" fill="#474e93"/>
+  <circle id="camera-lens" cx="26" cy="32" r="4" fill="#cdc1ff"/>
+
+  <!-- Brand Text -->
+  <text id="brand-name" x="56" y="43" font-family="Segoe UI, sans-serif" font-size="26" font-weight="bold">
+    <tspan id="brand-virtu" fill="#e5d9f2">Virtu</tspan>
+    <tspan id="brand-conf" fill="#a294f9">Conf</tspan>
+  </text>
+
+  <!-- Status Dots -->
+  <circle class="status-dot" cx="190" cy="32" r="5" fill="#474e93"/>
+  <circle class="status-dot" cx="204" cy="32" r="5" fill="#7e5cad"/>
+  <circle class="status-dot" cx="218" cy="32" r="5" fill="#cdc1ff"/>
+</svg>
