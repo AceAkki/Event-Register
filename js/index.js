@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", (fn) => {
   });
 
   const swiperLogo = new Swiper(".logo-wrap", {
-    slidesPerView: 4,
-    speed: 1200,
+    speed: 900,
     loop: true,
     grabCursor: true,
     autoplay: {
@@ -38,6 +37,10 @@ document.addEventListener("DOMContentLoaded", (fn) => {
 
       640: {
         slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 4.5,
+        spaceBetween: 30,
       },
     },
   });
@@ -66,4 +69,46 @@ document.addEventListener("DOMContentLoaded", (fn) => {
       },
     },
   });
+  const swiperhighlights = new Swiper(".highlights-wrap", {
+    slidesPerView: 3,
+    spaceBetween: 40,
+    speed: 1200,
+    grabCursor: true,
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    effect: 'cube',
+    cubeEffect: {
+      slideShadows: false,
+    },
+  });
+
+  const swiperteam = new Swiper(".team-wrap", {
+    slidesPerView: 3,
+    spaceBetween: 40,
+    speed: 1200,
+    grabCursor: true,
+    loop: true,
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      360: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3.5,
+        spaceBetween: 50,
+      },
+    },
+  });
+
 });

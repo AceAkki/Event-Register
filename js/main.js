@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", (fn) => {
   $("#header").load("header.html");
+  AOS.init();
 
   const observer = new MutationObserver(() => {
     console.log("callback that runs when observer is triggered");
