@@ -1,0 +1,22 @@
+
+<svg width="240" height="64" viewBox="0 0 240 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="240" height="64" rx="12" fill="#0e1111"/>
+
+  <!-- Camera Icon shaped like "V" -->
+  <g transform="translate(16, 20)">
+    <path d="M0 0 L10 24 L20 0 Z" fill="#474e93"/>
+    <circle cx="10" cy="12" r="4" fill="#cdc1ff"/>
+  </g>
+
+  <!-- Brand Text -->
+  <text x="56" y="43" font-family="Segoe UI, sans-serif" font-size="26" font-weight="bold">
+    <tspan fill="#e5d9f2">Virtu</tspan>
+    <tspan fill="#a294f9">Conf</tspan>
+  </text>
+
+  <!-- Dots (Status) -->
+  <circle cx="190" cy="32" r="5" fill="#474e93"/>
+  <circle cx="204" cy="32" r="5" fill="#7e5cad"/>
+  <circle cx="218" cy="32" r="5" fill="#cdc1ff"/>
+</svg>
