@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", (fn) => {
   });
 
   const swiperLogo = new Swiper(".logo-wrap", {
-    speed: 900,
+    speed: 700,
     loop: true,
     grabCursor: true,
     autoplay: {
@@ -46,29 +46,37 @@ document.addEventListener("DOMContentLoaded", (fn) => {
   });
 
   const swiperJoin = new Swiper(".who-wrap", {
-    slidesPerView: 3,
-    spaceBetween: 40,
-    speed: 1200,
-    grabCursor: true,
+    direction: 'vertical',
+    slidesPerView: 2.5,
+    loop: true,
     autoplay: {
-      delay: 1000,
-      disableOnInteraction: false,
+        delay: 1500,
+        reverseDirection: true,
+        disableOnInteraction: false,
     },
     breakpoints: {
-      360: {
+      320: {
         slidesPerView: 1,
         spaceBetween: 20,
       },
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      1280: {
+
+      480: {
         slidesPerView: 3,
         spaceBetween: 30,
       },
+
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+      },
+      1024: {
+        slidesPerView: 2.5,
+        spaceBetween: 90,
+      },
     },
+  
   });
+
   const swiperhighlights = new Swiper(".highlights-wrap", {
     slidesPerView: 3,
     spaceBetween: 40,
@@ -110,5 +118,37 @@ document.addEventListener("DOMContentLoaded", (fn) => {
       },
     },
   });
+
+
+
+  (async function() {
+    const data = {
+      labels: [
+        'Industry Professionals',
+        'Academic Community',
+        'Entrepreneurs & Innovators'
+      ],
+      datasets: [{
+        data: [45, 30, 25],
+        backgroundColor: [
+          '#474e93',
+          '#7e5cad',
+          '#a294f9'
+        ],
+        hoverOffset: 4
+      }]
+    };
+  
+    new Chart(
+      document.getElementById('who-chart'),
+      {
+        type: 'pie',
+        data: data,
+      }
+    );
+  })();
+   
+
+
 
 });
