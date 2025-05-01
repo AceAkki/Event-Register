@@ -45,14 +45,25 @@ document.addEventListener("DOMContentLoaded", (fn) => {
     },
   });
 
+  const swiperhighlights = new Swiper(".highlights-wrap", {
+    effect:"cube",
+    loop: true,
+    speed: 1200,
+    grabCursor: true,
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+    },
+  });
+
   const swiperJoin = new Swiper(".who-wrap", {
-    direction: 'vertical',
+    direction: "vertical",
     slidesPerView: 2.5,
     loop: true,
     autoplay: {
-        delay: 1500,
-        reverseDirection: true,
-        disableOnInteraction: false,
+      delay: 6000,
+      reverseDirection: true,
+      disableOnInteraction: false,
     },
     breakpoints: {
       320: {
@@ -61,7 +72,7 @@ document.addEventListener("DOMContentLoaded", (fn) => {
       },
 
       480: {
-        slidesPerView: 3,
+        slidesPerView: 1.5,
         spaceBetween: 30,
       },
 
@@ -70,26 +81,13 @@ document.addEventListener("DOMContentLoaded", (fn) => {
         spaceBetween: 50,
       },
       1024: {
-        slidesPerView: 2.5,
-        spaceBetween: 90,
+        slidesPerView: 2,
+        spaceBetween: 70,
       },
     },
-  
   });
 
-  const swiperhighlights = new Swiper(".highlights-wrap", {
-    speed: 1200,
-    grabCursor: true,
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    effect: 'cube',
-    cubeEffect: {
-      slideShadows: false,
-    },
-  });
+  
 
   const swiperteam = new Swiper(".team-wrap", {
     slidesPerView: 3,
@@ -117,36 +115,25 @@ document.addEventListener("DOMContentLoaded", (fn) => {
     },
   });
 
-
-
-  (async function() {
+  (async function () {
     const data = {
       labels: [
-        'Industry Professionals',
-        'Academic Community',
-        'Entrepreneurs & Innovators'
+        "Industry Professionals",
+        "Academic Community",
+        "Entrepreneurs & Innovators",
       ],
-      datasets: [{
-        data: [45, 30, 25],
-        backgroundColor: [
-          '#474e93',
-          '#7e5cad',
-          '#a294f9'
-        ],
-        hoverOffset: 4
-      }]
+      datasets: [
+        {
+          data: [45, 30, 25],
+          backgroundColor: ["#474e93", "#7e5cad", "#a294f9"],
+          hoverOffset: 4,
+        },
+      ],
     };
-  
-    new Chart(
-      document.getElementById('who-chart'),
-      {
-        type: 'pie',
-        data: data,
-      }
-    );
+
+    new Chart(document.getElementById("who-chart"), {
+      type: "pie",
+      data: data,
+    });
   })();
-   
-
-
-
 });
