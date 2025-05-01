@@ -78,8 +78,6 @@ document.addEventListener("DOMContentLoaded", (fn) => {
   });
 
   const swiperhighlights = new Swiper(".highlights-wrap", {
-    slidesPerView: 3,
-    spaceBetween: 40,
     speed: 1200,
     grabCursor: true,
     autoplay: {
