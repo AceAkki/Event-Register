@@ -56,6 +56,15 @@ document.addEventListener("DOMContentLoaded", (fn) => {
     },
   });
 
+  document.querySelectorAll(".hightlight-cards .text-card").forEach(card => {
+    card.addEventListener("mouseover", () => {
+      card.classList.add("glow");
+    });
+    card.addEventListener("mouseout", () => {
+      card.classList.remove("glow");
+    });
+  })
+
   const swiperJoin = new Swiper(".who-wrap", {
     direction: "vertical",
     slidesPerView: 2.5,
