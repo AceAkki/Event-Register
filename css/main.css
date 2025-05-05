@@ -88,6 +88,11 @@ section.main-section {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.glow {
+  box-shadow: 0 0 5px #cdc1ff, 0 0 10px #cdc1ff, 0 0 20px #cdc1ff, 0 0 40px #cdc1ff;
+  transition: all 0.7s ease-in-out;
+}
+
 /* Index  */
 section.hero-section {
   margin: 80px 0 0;
@@ -262,7 +267,7 @@ section.logo-sec {
 .hightlight-cards .text-card {
   background: var(--clr-primary-light);
   border-radius: 20% 10%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
   backdrop-filter: blur(18.1px);
   -webkit-backdrop-filter: blur(18.1px);
   border: 1px solid var(--clr-secondary-light);
