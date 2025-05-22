@@ -61,10 +61,6 @@ section {
   padding: 20px;
 }
 
-section.main-section {
-  margin: 120px 0;
-}
-
 .main-container {
   margin: 10px 0;
 }
@@ -89,7 +85,8 @@ section.main-section {
 }
 
 .glow {
-  box-shadow: 0 0 5px #cdc1ff, 0 0 10px #cdc1ff, 0 0 20px #cdc1ff, 0 0 40px #cdc1ff;
+  box-shadow: 0 0 5px #cdc1ff, 0 0 10px #cdc1ff, 0 0 20px #cdc1ff,
+    0 0 40px #cdc1ff;
   transition: all 0.7s ease-in-out;
 }
 
@@ -514,6 +511,51 @@ section.logo-sec {
   padding: 10px 20px;
 }
 
+/* Professional Section */
+#Professional .hero-container {
+  background: #f0f0f0 url("../img/night-view-victoria-harbor-hong-kong.webp")
+    no-repeat center center / cover padding-box border-box;
+}
+
+
+.hero-container {
+  padding: 0;
+}
+
+.hero-content {
+  color: var(--clr-tertiary-light);
+  padding: 1rem;
+  margin: 2rem 0;
+  background: rgba(126, 92, 173, 0.47);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.9px);
+  -webkit-backdrop-filter: blur(10.9px);
+  border: 1px solid rgba(255, 255, 255, 0.3);  
+}
+
+.hero-container .content {
+  color: var(--clr-dark-two);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 0;
+  background: rgba(205, 193, 255, 0.77);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.9px);
+  -webkit-backdrop-filter: blur(10.9px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.hero-container .content .sec-title {
+  color: var(--clr-dark-two);
+  font-weight: 700;
+}
+.hero-container .content .sec-para {
+  color: var(--clr-dark-two);
+}
+
+
 .hidden {
   display: none;
 }
@@ -622,6 +664,14 @@ section.logo-sec {
   }
   .card-info-wrap {
     flex-direction: row;
+  }
+
+  
+.hero-container {
+  padding: 2rem;
+}
+  .hero-container .content {
+    max-width: 50vw;
   }
 }
 
