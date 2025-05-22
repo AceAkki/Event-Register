@@ -145,4 +145,27 @@ document.addEventListener("DOMContentLoaded", (fn) => {
       data: data,
     });
   })();
+
+ // document.querySelector("#join")
+ const {
+  animate,
+  createTimeline,
+  createTimer,
+} = anime;
+
+ animate('#join .sec-title', {
+  scale: [
+    { to: 1.25, ease: 'inOut(3)', duration: 200 },
+    { to: 1, ease: createSpring({ stiffness: 300 }) }
+  ],
+  loop: true,
+  loopDelay: 250,
+});
+
+// Make the logo draggable around its center
+createDraggable('.logo.js', {
+  container: [0, 0, 0, 0],
+  releaseEase: createSpring({ stiffness: 200 })
+});
+
 });
