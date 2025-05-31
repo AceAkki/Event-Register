@@ -146,26 +146,139 @@ document.addEventListener("DOMContentLoaded", (fn) => {
     });
   })();
 
- // document.querySelector("#join")
- const {
-  animate,
-  createTimeline,
-  createTimer,
-} = anime;
 
- animate('#join .sec-title', {
-  scale: [
-    { to: 1.25, ease: 'inOut(3)', duration: 200 },
-    { to: 1, ease: createSpring({ stiffness: 300 }) }
-  ],
-  loop: true,
-  loopDelay: 250,
-});
 
-// Make the logo draggable around its center
-createDraggable('.logo.js', {
-  container: [0, 0, 0, 0],
-  releaseEase: createSpring({ stiffness: 200 })
-});
+//  animate('#join .sec-title', {
+//    autoplay: onScroll({
+//     scale: [
+//     { to: 2.25, ease: 'inOut(3)', duration: 200 },
+//   ]
+//   })
+// });
 
+// // Make the logo draggable around its center
+// createDraggable('.logo.js', {
+//   container: [0, 0, 0, 0],
+//   releaseEase: createSpring({ stiffness: 200 })
+// });
+
+
+  const {
+    animate,
+    utils,
+    createDraggable,
+    createSpring,
+    createTimer,
+    createTimeline,
+    onScroll,
+    stagger,
+    engine,
+  } = anime;
+  
+  animate("#join .title-wrap .title", {
+    y: [
+      { to: "-2.75rem", ease: "outExpo", duration: 600 },
+      { to: 0, ease: "outBounce", duration: 800, delay: 100 },
+    ],
+    scale: { from: 0, to: 1 },
+    ease: "inOutCirc",
+    duration: 2000,
+    delay: stagger(100),
+    autoplay: onScroll({
+      enter: 'bottom top',
+      leave: 'top bottom',
+      sync: 'resume reset',
+    }),
+  });
+  animate("#join .join-para", {
+    scale: { from: 0, to: 1,  ease: "inOutCirc", duration: 1000, delay: 500 },
+    ease: "inOutCirc",
+    duration: 2000,
+    delay: 1000,
+    autoplay: onScroll({
+      enter: 'bottom top',
+      leave: 'top bottom',
+      sync: 'resume reset',
+    }),
+  });
+
+  class ElementViewport {
+    values(el) {
+      return [
+        el.getBoundingClientRect(),
+        window.innerHeight || document.documentElement.clientHeight,
+        window.innerWidth || document.documentElement.clientWidth,
+      ];
+    }
+    onlyValues(el) {
+      let [rect, windowHeight, windowWidth] = this.values(el);
+      return rect.top + rect.bottom + rect.height;
+    }
+    boolean(el) {
+      let [rect, windowHeight, windowWidth] = this.values(el);
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom + 35 <= windowHeight &&
+        rect.right <= windowWidth
+      );
+    }
+  }
+  const getViewPort = new ElementViewport();
+
+  Array.from(document.querySelectorAll(".join-card")).forEach((card) => {
+    let title = card.querySelector(".card-title");
+    //let glow = card.querySelector(".card-glow");
+    let bgImage = card.querySelector(".card-image img:nth-child(1)");
+    let mainImage = card.querySelector(".card-image img:nth-child(2)");
+    animate(title, {
+      y: [
+        { to: "-2.75rem", ease: "outExpo", duration: 600 },
+        { to: 0, ease: "outBounce", duration: 800, delay: 100 },
+      ],
+      rotate: {
+        from: "-1turn",
+        ease: "outBounce",
+        delay: 0,
+      },
+      scale: { from: 0, to: 1 },
+      ease: "inOutCirc",
+      autoplay: onScroll({
+        sync: "resume reset",
+      }),
+    });
+    // animate(glow, {
+    //   y: [
+    //     { to: "-2.75rem", ease: "outExpo", duration: 600 },
+    //     { to: 0, ease: "cubicBezier", duration: 1800, delay: 100 },
+    //   ],
+    //   scale: { from: 0, to: 1 },
+    //   ease: "inOutCirc",
+    //   autoplay: onScroll({
+    //     enter: "bottom top",
+    //     leave: "top bottom",
+    //     sync: "play resume reset",
+    //   }),
+    // });
+    animate(bgImage, {
+      opacity: { from: 0, to: 1 },
+      rotate: 360,
+      ease: 'out(4)',
+      duration: 1500,
+      autoplay: onScroll({
+        enter: "bottom top",
+        leave: "top bottom",
+        sync: "resume reset",
+      }),
+    });
+    animate(mainImage, {
+      scale: { from: 0, to: 1 },
+      ease: "inOutCirc",
+      autoplay: onScroll({
+        enter: "bottom top",
+        leave: "top bottom",
+        sync: "resume reset",
+      }),
+    });
+  });
 });
