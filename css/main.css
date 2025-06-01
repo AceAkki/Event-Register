@@ -535,8 +535,8 @@ section.logo-sec {
   border-radius: 50%;
   background: radial-gradient(
     #ffc58b 10%,
-    #e1a6ff 20%,
-    #e1a6ff 30%,
+    var(--clr-secondary-light) 20%,
+    var(--clr-secondary-light) 30%,
     #352cee 60%
   );
   filter: blur(40px);
@@ -565,7 +565,7 @@ section.logo-sec {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #8a7cee;
+  background: var(--clr-secondary);
   filter: blur(30px);
 }
 
@@ -719,6 +719,21 @@ section.logo-sec {
 
 .hidden {
   display: none;
+}
+
+
+@media (min-width: 390px) {
+  .join-card {
+    gap: 2rem;
+  }
+  .join-card .card-title {
+    font-size: 2.5rem;
+    margin: 4.5rem 2rem;
+  }
+
+  .join-card .card-image {
+    align-items: normal;
+  }
 }
 
 @media (min-width: 576px) {
@@ -895,3 +910,16 @@ section.logo-sec {
     margin-bottom: -56px;
   }
 }
+
+
+@media (min-width: 1400px) {
+
+  
+  .card-image img {
+    max-width: 43%;
+    position: absolute;
+  }
+}
+
+
+
