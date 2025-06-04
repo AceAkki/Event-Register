@@ -37,6 +37,12 @@ document.addEventListener("DOMContentLoaded", (fn) => {
 
       640: {
         slidesPerView: 3,
+        spaceBetween: 90,
+      },
+
+      700: {
+        slidesPerView: 2,
+        spaceBetween: 90,
       },
       1024: {
         slidesPerView: 4.5,
@@ -46,7 +52,7 @@ document.addEventListener("DOMContentLoaded", (fn) => {
   });
 
   const swiperhighlights = new Swiper(".highlights-wrap", {
-    effect:"cube",
+    effect: "cube",
     loop: true,
     speed: 1200,
     grabCursor: true,
@@ -56,14 +62,14 @@ document.addEventListener("DOMContentLoaded", (fn) => {
     },
   });
 
-  document.querySelectorAll(".hightlight-cards .text-card").forEach(card => {
+  document.querySelectorAll(".hightlight-cards .text-card").forEach((card) => {
     card.addEventListener("mouseover", () => {
       card.classList.add("glow");
     });
     card.addEventListener("mouseout", () => {
       card.classList.remove("glow");
     });
-  })
+  });
 
   const swiperJoin = new Swiper(".who-wrap", {
     direction: "vertical",
@@ -95,8 +101,6 @@ document.addEventListener("DOMContentLoaded", (fn) => {
       },
     },
   });
-
-  
 
   const swiperteam = new Swiper(".team-wrap", {
     slidesPerView: 3,
@@ -146,23 +150,6 @@ document.addEventListener("DOMContentLoaded", (fn) => {
     });
   })();
 
-
-
-//  animate('#join .sec-title', {
-//    autoplay: onScroll({
-//     scale: [
-//     { to: 2.25, ease: 'inOut(3)', duration: 200 },
-//   ]
-//   })
-// });
-
-// // Make the logo draggable around its center
-// createDraggable('.logo.js', {
-//   container: [0, 0, 0, 0],
-//   releaseEase: createSpring({ stiffness: 200 })
-// });
-
-
   const {
     animate,
     utils,
@@ -174,7 +161,7 @@ document.addEventListener("DOMContentLoaded", (fn) => {
     stagger,
     engine,
   } = anime;
-  
+
   animate("#join .title-wrap .title", {
     y: [
       { to: "-2.75rem", ease: "outExpo", duration: 600 },
@@ -185,20 +172,34 @@ document.addEventListener("DOMContentLoaded", (fn) => {
     duration: 2000,
     delay: stagger(100),
     autoplay: onScroll({
-      enter: 'bottom top',
-      leave: 'top bottom',
-      sync: 'resume reset',
+      enter: "bottom top",
+      leave: "top bottom",
+      sync: "resume reset",
     }),
   });
   animate("#join .join-para", {
-    scale: { from: 0, to: 1,  ease: "inOutCirc", duration: 1000, delay: 500 },
+    scale: { from: 0, to: 1, ease: "inOutCirc", duration: 1000, delay: 500 },
     ease: "inOutCirc",
     duration: 2000,
     delay: 1000,
     autoplay: onScroll({
-      enter: 'bottom top',
-      leave: 'top bottom',
-      sync: 'resume reset',
+      enter: "bottom top",
+      leave: "top bottom",
+      sync: "resume reset",
+    }),
+  });
+
+  let secondTitle = document.querySelector("#join .title-que-wrap .title");
+
+  animate("#join .title-que-wrap h4", {
+    y: { to: "-2.75rem", to: 0, ease: "outExpo", duration: 600 },
+    scale: { from: 0, to: 1 },
+    ease: "inOutCirc",
+    duration: 1000,
+    autoplay: onScroll({
+      enter: "bottom top",
+      leave: "top bottom",
+      sync: "resume reset",
     }),
   });
 
@@ -262,8 +263,8 @@ document.addEventListener("DOMContentLoaded", (fn) => {
     // });
     animate(bgImage, {
       opacity: { from: 0, to: 1 },
-      rotate: 360,
-      ease: 'out(4)',
+      scale: { from: 0, to: 1 },
+      ease: "inOutCirc",
       duration: 1500,
       autoplay: onScroll({
         enter: "bottom top",
@@ -277,6 +278,39 @@ document.addEventListener("DOMContentLoaded", (fn) => {
       autoplay: onScroll({
         enter: "bottom top",
         leave: "top bottom",
+        sync: "resume reset",
+      }),
+    });
+  });
+
+  Array.from(document.querySelectorAll(".join-btns .button")).forEach((btn) => {
+    animate(btn, {
+      y: [
+        { from: "-2.75rem", to:"0", ease: "outExpo", duration: 600 },
+      ],
+      scale: { from: 0, to: 1 },
+      background: { to: "transparent" },
+      "--empty--": [
+        "#a294f9",
+        "#414a4c",
+        "#a294f9",
+        "#414a4c",
+        "#a294f9",
+        "#414a4c",
+        "#a294f9",
+        "#a294f9",
+        "#414a4c",
+        "#a294f9",
+        "#414a4c",
+        "#a294f9",
+        "#414a4c",
+        "#a294f9",
+      ],
+      duration: 1500,
+      delay:1000,
+      stagger: 100,
+      ease: "inOutCirc",
+      autoplay: onScroll({
         sync: "resume reset",
       }),
     });
