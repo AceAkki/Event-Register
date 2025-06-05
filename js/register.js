@@ -95,4 +95,75 @@ document.addEventListener("DOMContentLoaded", (fn) => {
       },
     },
   });
+
+  
+  const {
+    animate,
+    utils,
+    createDraggable,
+    createSpring,
+    createTimer,
+    createTimeline,
+    onScroll,
+    stagger,
+    engine,
+  } = anime;
+
+  
+  Array.from(document.querySelectorAll(".select-card")).forEach((card) => {
+    let title = card.querySelector(".card-title");
+    //let glow = card.querySelector(".card-glow");
+    let bgImage = card.querySelector(".img-wrap");
+    let mainImage = card.querySelector(".img");
+    animate(title, {
+      y: [
+        { to: "-2.75rem", ease: "outExpo", duration: 600 },
+        { to: 0, ease: "outBounce", duration: 800, delay: 100 },
+      ],
+      rotate: {
+        from: "-1turn",
+        ease: "outBounce",
+        delay: 0,
+      },
+      scale: { from: 0, to: 1 },
+      ease: "inOutCirc",
+      autoplay: onScroll({
+        sync: "resume reset",
+      }),
+    });
+    // animate(glow, {
+    //   y: [
+    //     { to: "-2.75rem", ease: "outExpo", duration: 600 },
+    //     { to: 0, ease: "cubicBezier", duration: 1800, delay: 100 },
+    //   ],
+    //   scale: { from: 0, to: 1 },
+    //   ease: "inOutCirc",
+    //   autoplay: onScroll({
+    //     enter: "bottom top",
+    //     leave: "top bottom",
+    //     sync: "play resume reset",
+    //   }),
+    // });
+    animate(bgImage, {
+      opacity: { from: 0, to: 1 },
+      scale: { from: 0, to: 1 },
+      rotate: 360,
+      ease: "inOutCirc",
+      duration: 2500,
+      autoplay: onScroll({
+        enter: "bottom top",
+        leave: "top bottom",
+        sync: "resume reset",
+      }),
+    });
+    animate(mainImage, {
+      scale: { from: 0, to: 1 },
+      ease: "inOutCirc",
+      autoplay: onScroll({
+        enter: "bottom top",
+        leave: "top bottom",
+        sync: "resume reset",
+      }),
+    });
+  });
 });
