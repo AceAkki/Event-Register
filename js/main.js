@@ -1,10 +1,8 @@
-import { NAVBTN } from "./navBTN.js";
-
-document.addEventListener("DOMContentLoaded", ()=> {
+document.addEventListener("DOMContentLoaded", () => {
+  
   $("#header").load("header.html", function () {
-
-    //console.log(document.querySelector("#highBtn"));
-   // NAVBTN.check(document.querySelector("#highBtn"));
+    let headerHeight = document.querySelector(".container-fluid").getBoundingClientRect().height + 20;
+    document.documentElement.style.setProperty("--header-height", `${Math.round(headerHeight)}px`);
   });
 
   AOS.init();
