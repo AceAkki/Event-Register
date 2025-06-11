@@ -18,7 +18,7 @@ class NavBTN {
     });
 
   }
-
+ // just because of tre
   paramScroll(params, param, paramArr) {
     if (params.get(param) === paramArr[0]) {
       scrollTo(document.querySelector("#highlights"));
