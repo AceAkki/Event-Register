@@ -154,7 +154,47 @@
     outline: none;
     margin: 0.5rem 0;
     border: 2px solid var(--clr-secondary-light);
+    min-width: 100%;
 }
+
+.application-form-wrapper .radio-grp-wrap {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem;
+}
+
+.radio-grp-wrap .radio-grp {
+  display: flex;
+  background-color: var(--clr-tertiary-light);
+  color: var(--clr-dark-two);
+  padding: 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+}
+
+.radio-grp-wrap .radio-grp:nth-child(2) {
+  display: flex;
+  background-color: var(--clr-primary-light);
+  color: var(--clr-tertiary-light);
+  padding: 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+}
+
+
+.radio-grp-wrap .radio-grp-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--clr-tertiary-light);
+  color: var(--clr-dark-two);
+  padding: 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+}
+
 
 @media (min-width: 1024px) {
   .hero-container {
