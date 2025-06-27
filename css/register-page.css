@@ -117,6 +117,7 @@
 
 .container-sec-wrapper {
   display: flex;
+  flex-direction: column;
 }
 
 .container-sec-wrapper .section-para-wrap {
@@ -144,17 +145,18 @@
 }
 
 .container-sec-wrapper .application-form-wrapper form {
-    position: relative;
-    padding: 3rem;
+  position: relative;
+  padding: 3rem;
 }
 
-.application-form-wrapper input, select {
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    outline: none;
-    margin: 0.5rem 0;
-    border: 2px solid var(--clr-secondary-light);
-    min-width: 100%;
+.application-form-wrapper input,
+select {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  outline: none;
+  margin: 0.5rem 0;
+  border: 2px solid var(--clr-secondary-light);
+  min-width: 100%;
 }
 
 .application-form-wrapper .radio-grp-wrap {
@@ -183,7 +185,6 @@
   border-radius: 0.6rem;
 }
 
-
 .radio-grp-wrap .radio-grp-card {
   display: flex;
   flex-direction: column;
@@ -194,7 +195,6 @@
   justify-content: center;
   border-radius: 0.6rem;
 }
-
 
 @media (min-width: 1024px) {
   .hero-container {
@@ -208,6 +208,10 @@
   }
   .hero-container .content {
     max-width: 60vw;
+  }
+
+  .container-sec-wrapper {
+    flex-direction: row;
   }
 
   .container-sec-wrapper .section-para-wrap {
