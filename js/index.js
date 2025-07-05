@@ -27,8 +27,6 @@ const getViewPort = new ElementViewport();
 (function init() {
   document.addEventListener("DOMContentLoaded", (fn) => {
     animeIntiate.initiateAnimation();
-
-  
   });
 
     window.addEventListener("load", (event) => {
