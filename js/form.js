@@ -235,8 +235,7 @@
 
   
   let msg = document.querySelector("#lblmsg");  
-  
-setTimeout(()=> {
+  setTimeout(()=> {
     //msg.textContent = "Form Submitted Successfully!"
     if (msg.textContent.length > 1) {
       scrollTo(msg);

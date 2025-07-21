@@ -27,10 +27,12 @@ const getViewPort = new ElementViewport();
 (function init() {
   document.addEventListener("DOMContentLoaded", (fn) => {
     animeIntiate.initiateAnimation();
+
+  
   });
 
     window.addEventListener("load", (event) => {
-     // console.log("page is fully loaded");
+      console.log("page is fully loaded");
      
        document
       .querySelectorAll(".hightlight-cards .text-card")
