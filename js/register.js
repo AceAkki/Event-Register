@@ -5,9 +5,9 @@ import { formClass } from "./classForm.js";
 
 (function init () {
   document.addEventListener("DOMContentLoaded", (fn) => { 
-    URLParamClass.setURL();
     URLParamClass.checkURL();
-  
+    URLParamClass.setURL();
+    
     const swiperSelect = new Swiper(".select-wrap", {
       slidesPerView: 3,
       spaceBetween: 60,
