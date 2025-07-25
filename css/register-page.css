@@ -43,6 +43,31 @@
   padding: 10px 20px;
 }
 
+.event-item-card {
+  background-color: var(--clr-secondary);
+  padding: 1rem;
+  border-radius: 1rem;
+  max-height: 400px;
+  min-height: 400px;
+}
+
+.event-title {
+  font-weight: 700;
+}
+
+.event-speaker {
+  font-weight: 600;
+}
+
+.event-category {
+  background-color: var(--clr-dark-two);
+  color: var(--clr-tertiary);
+  max-width: fit-content;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+
 /* Professional Section */
 #Professional .hero-container {
   background: #f0f0f0 url("../img/night-view-victoria-harbor-hong-kong.webp")
