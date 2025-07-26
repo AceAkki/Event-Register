@@ -1,0 +1,902 @@
+[
+  {
+    "id": "pro-001",
+    "track": "Professionals",
+    "title": "Optimize growth culture through technology",
+    "description": "Enhance executive leadership by learning advanced methods in AI and team collaboration to stay ahead in business strategy.",
+    "speaker": "Dr. Vanessa Clarke",
+    "category": "Leadership",
+    "date": "2025-09-06"
+  },
+  {
+    "id": "stu-002",
+    "track": "Students",
+    "title": "Kickstart your coding journey today",
+    "description": "Explore interactive coding tutorials and build your confidence through small guided projects and live mentorship.",
+    "speaker": "Jake Liu",
+    "category": "Coding",
+    "date": "2025-09-11"
+  },
+  {
+    "id": "sta-003",
+    "track": "Startups",
+    "title": "How to pitch to global investors",
+    "description": "Learn what makes a successful pitch with real feedback from VCs and startup coaches. Practice in our mock pitch arena.",
+    "speaker": "Nadia Rahim",
+    "category": "Pitching",
+    "date": "2025-09-19"
+  },
+  {
+    "id": "pro-004",
+    "track": "Professionals",
+    "title": "Cybersecurity in the AI age",
+    "description": "Discuss how AI is transforming threat detection, and what C-level leaders must do to secure digital infrastructure.",
+    "speaker": "Erik Johansson",
+    "category": "Cybersecurity",
+    "date": "2025-09-10"
+  },
+  {
+    "id": "stu-005",
+    "track": "Students",
+    "title": "Hackathon prep: win like a pro",
+    "description": "Tips and tools for success in your first hackathon. Get insights from past winners and mentors.",
+    "speaker": "Ayesha Menon",
+    "category": "Hackathons",
+    "date": "2025-09-08"
+  },
+  {
+    "id": "pro-006",
+    "track": "Professionals",
+    "title": "Leadership in digital transformation",
+    "description": "How senior managers can drive successful tech adoption in their organizations.",
+    "speaker": "James O'Connell",
+    "category": "Leadership",
+    "date": "2025-09-20"
+  },
+  {
+    "id": "sta-007",
+    "track": "Startups",
+    "title": "Growth hacking 101 for startups",
+    "description": "Creative marketing tactics that drive user acquisition and retention.",
+    "speaker": "Lina Gomez",
+    "category": "Growth",
+    "date": "2025-09-15"
+  },
+  {
+    "id": "stu-008",
+    "track": "Students",
+    "title": "Research methods in computer science",
+    "description": "Learn effective research strategies and academic writing skills.",
+    "speaker": "Dr. Rahul Kapoor",
+    "category": "Research",
+    "date": "2025-09-22"
+  },
+  {
+    "id": "sta-009",
+    "track": "Startups",
+    "title": "Funding strategies for early-stage startups",
+    "description": "Explore different funding sources and prepare winning applications.",
+    "speaker": "Emily Chen",
+    "category": "Funding",
+    "date": "2025-09-18"
+  },
+  {
+    "id": "pro-010",
+    "track": "Professionals",
+    "title": "Executive presence and communication",
+    "description": "Boost your leadership influence through effective communication techniques.",
+    "speaker": "Monica Li",
+    "category": "Career Development",
+    "date": "2025-09-07"
+  },
+  {
+    "id": "pro-011",
+    "track": "Professionals",
+    "title": "AI in business strategy",
+    "description": "Integrate AI-powered decision-making into your strategic plans.",
+    "speaker": "Martin Hughes",
+    "category": "AI",
+    "date": "2025-09-12"
+  },
+  {
+    "id": "stu-012",
+    "track": "Students",
+    "title": "Career development for tech students",
+    "description": "Learn how to position yourself for top internships and entry-level roles.",
+    "speaker": "Laura Campos",
+    "category": "Career Development",
+    "date": "2025-09-14"
+  },
+  {
+    "id": "sta-013",
+    "track": "Startups",
+    "title": "Product development cycles",
+    "description": "From MVP to market fit: build products your customers love.",
+    "speaker": "Jason Myers",
+    "category": "Product Development",
+    "date": "2025-09-21"
+  },
+  {
+    "id": "pro-014",
+    "track": "Professionals",
+    "title": "Navigating cybersecurity risks",
+    "description": "Protect your company from emerging digital threats.",
+    "speaker": "Natalie Chen",
+    "category": "Cybersecurity",
+    "date": "2025-09-09"
+  },
+  {
+    "id": "stu-015",
+    "track": "Students",
+    "title": "Mentorship opportunities",
+    "description": "Connect with industry mentors for career guidance and skill-building.",
+    "speaker": "Sophia Turner",
+    "category": "Mentorship",
+    "date": "2025-09-13"
+  },
+  {
+    "id": "sta-016",
+    "track": "Startups",
+    "title": "Networking for founders",
+    "description": "Build strong relationships with investors, partners, and peers.",
+    "speaker": "Daniel White",
+    "category": "Networking",
+    "date": "2025-09-23"
+  },
+  {
+    "id": "pro-017",
+    "track": "Professionals",
+    "title": "Effective leadership during crisis",
+    "description": "Lead your teams confidently through uncertainty and change.",
+    "speaker": "Karen Patel",
+    "category": "Leadership",
+    "date": "2025-09-17"
+  },
+  {
+    "id": "stu-018",
+    "track": "Students",
+    "title": "Coding bootcamp essentials",
+    "description": "What you need to know to succeed in immersive coding programs.",
+    "speaker": "Ethan Park",
+    "category": "Coding",
+    "date": "2025-09-19"
+  },
+  {
+    "id": "sta-019",
+    "track": "Startups",
+    "title": "Investor pitch best practices",
+    "description": "Craft your story and financials to impress investors.",
+    "speaker": "Olivia King",
+    "category": "Pitching",
+    "date": "2025-09-20"
+  },
+  {
+    "id": "pro-020",
+    "track": "Professionals",
+    "title": "Strategic planning with AI insights",
+    "description": "Use data-driven AI tools to enhance strategic decision-making.",
+    "speaker": "Ahmed Rahman",
+    "category": "AI",
+    "date": "2025-09-21"
+  },
+  {
+    "id": "stu-021",
+    "track": "Students",
+    "title": "Hackathons for beginners",
+    "description": "Step-by-step guide to your first hackathon experience.",
+    "speaker": "Maria Lopez",
+    "category": "Hackathons",
+    "date": "2025-09-25"
+  },
+  {
+    "id": "sta-022",
+    "track": "Startups",
+    "title": "Funding your startup",
+    "description": "Explore venture capital, angel investors, and crowdfunding options.",
+    "speaker": "Steven Clark",
+    "category": "Funding",
+    "date": "2025-09-24"
+  },
+  {
+    "id": "pro-023",
+    "track": "Professionals",
+    "title": "Leading distributed teams",
+    "description": "Best practices for managing remote and hybrid teams effectively.",
+    "speaker": "Lila Matthews",
+    "category": "Leadership",
+    "date": "2025-09-08"
+  },
+  {
+    "id": "stu-024",
+    "track": "Students",
+    "title": "Resume building workshop",
+    "description": "Craft a resume that stands out to tech recruiters.",
+    "speaker": "Chris Nguyen",
+    "category": "Career Development",
+    "date": "2025-09-26"
+  },
+  {
+    "id": "sta-025",
+    "track": "Startups",
+    "title": "Scaling your product",
+    "description": "Techniques to handle rapid user growth without downtime.",
+    "speaker": "Patricia Gomez",
+    "category": "Growth",
+    "date": "2025-09-28"
+  },
+  {
+    "id": "pro-026",
+    "track": "Professionals",
+    "title": "Workplace diversity and inclusion",
+    "description": "Strategies to foster a more inclusive corporate culture.",
+    "speaker": "Robert Lee",
+    "category": "Leadership",
+    "date": "2025-09-27"
+  },
+  {
+    "id": "stu-027",
+    "track": "Students",
+    "title": "Research paper writing",
+    "description": "Tips for writing clear and impactful academic papers.",
+    "speaker": "Emily Rogers",
+    "category": "Research",
+    "date": "2025-09-29"
+  },
+  {
+    "id": "sta-028",
+    "track": "Startups",
+    "title": "Product-market fit",
+    "description": "How to validate your product with real customers.",
+    "speaker": "John Kim",
+    "category": "Product Development",
+    "date": "2025-09-30"
+  },
+  {
+    "id": "pro-029",
+    "track": "Professionals",
+    "title": "Business analytics essentials",
+    "description": "Understand key analytics tools to drive data-informed decisions.",
+    "speaker": "Helen Brooks",
+    "category": "Strategy",
+    "date": "2025-09-15"
+  },
+  {
+    "id": "stu-030",
+    "track": "Students",
+    "title": "Building your personal brand",
+    "description": "Leverage LinkedIn and other platforms to stand out to employers.",
+    "speaker": "Marcus Reed",
+    "category": "Career Development",
+    "date": "2025-09-17"
+  },
+  {
+    "id": "sta-031",
+    "track": "Startups",
+    "title": "Investor relations management",
+    "description": "Maintain strong communication and relationships with investors.",
+    "speaker": "Sandra Holt",
+    "category": "Funding",
+    "date": "2025-09-20"
+  },
+  {
+    "id": "pro-032",
+    "track": "Professionals",
+    "title": "Cyber threat intelligence",
+    "description": "Stay updated with latest cybersecurity threats and prevention techniques.",
+    "speaker": "David Yates",
+    "category": "Cybersecurity",
+    "date": "2025-09-12"
+  },
+  {
+    "id": "stu-033",
+    "track": "Students",
+    "title": "Data structures and algorithms basics",
+    "description": "Build a strong foundation to ace coding interviews and exams.",
+    "speaker": "Grace Li",
+    "category": "Coding",
+    "date": "2025-09-13"
+  },
+  {
+    "id": "sta-034",
+    "track": "Startups",
+    "title": "Creating a business model canvas",
+    "description": "Visualize and plan your startup’s business model.",
+    "speaker": "Tommy Nguyen",
+    "category": "Strategy",
+    "date": "2025-09-14"
+  },
+  {
+    "id": "pro-035",
+    "track": "Professionals",
+    "title": "Scaling AI initiatives",
+    "description": "How to grow AI projects from pilot to enterprise-wide adoption.",
+    "speaker": "Rachel Adams",
+    "category": "AI",
+    "date": "2025-09-22"
+  },
+  {
+    "id": "stu-036",
+    "track": "Students",
+    "title": "Introduction to machine learning",
+    "description": "Basic concepts and hands-on projects to start with ML.",
+    "speaker": "Anil Kumar",
+    "category": "AI",
+    "date": "2025-09-23"
+  },
+  {
+    "id": "sta-037",
+    "track": "Startups",
+    "title": "Legal basics for startups",
+    "description": "Understand contracts, IP, and compliance essentials.",
+    "speaker": "Julia Park",
+    "category": "Legal",
+    "date": "2025-09-25"
+  },
+  {
+    "id": "pro-038",
+    "track": "Professionals",
+    "title": "Negotiation skills for executives",
+    "description": "Master negotiation tactics to close high-stake deals.",
+    "speaker": "James Carter",
+    "category": "Leadership",
+    "date": "2025-09-28"
+  },
+  {
+    "id": "stu-039",
+    "track": "Students",
+    "title": "Internship search strategies",
+    "description": "Find and secure internships that kickstart your career.",
+    "speaker": "Nina Chen",
+    "category": "Career Development",
+    "date": "2025-09-26"
+  },
+  {
+    "id": "sta-040",
+    "track": "Startups",
+    "title": "Building a winning startup team",
+    "description": "Hire, retain, and motivate your early team members.",
+    "speaker": "Samuel Lee",
+    "category": "HR",
+    "date": "2025-09-27"
+  },
+  {
+    "id": "pro-041",
+    "track": "Professionals",
+    "title": "Executive coaching fundamentals",
+    "description": "How coaching improves leadership and company culture.",
+    "speaker": "Karen Brown",
+    "category": "Leadership",
+    "date": "2025-09-24"
+  },
+  {
+    "id": "stu-042",
+    "track": "Students",
+    "title": "Open source contribution guide",
+    "description": "Start contributing to open source projects to build your portfolio.",
+    "speaker": "Michael Singh",
+    "category": "Coding",
+    "date": "2025-09-29"
+  },
+  {
+    "id": "sta-043",
+    "track": "Startups",
+    "title": "Creating MVPs fast",
+    "description": "Develop minimum viable products efficiently to test ideas quickly.",
+    "speaker": "Alice Murphy",
+    "category": "Product Development",
+    "date": "2025-09-30"
+  },
+  {
+    "id": "pro-044",
+    "track": "Professionals",
+    "title": "Data privacy regulations overview",
+    "description": "Understand GDPR, CCPA, and other privacy laws impacting your business.",
+    "speaker": "Robert Wilson",
+    "category": "Cybersecurity",
+    "date": "2025-09-25"
+  },
+  {
+    "id": "stu-045",
+    "track": "Students",
+    "title": "Preparing for coding interviews",
+    "description": "Practice common problems and interview techniques.",
+    "speaker": "Emily Chen",
+    "category": "Coding",
+    "date": "2025-09-27"
+  },
+  {
+    "id": "sta-046",
+    "track": "Startups",
+    "title": "Startup marketing fundamentals",
+    "description": "Build your brand and acquire customers on a budget.",
+    "speaker": "Jason Brooks",
+    "category": "Growth",
+    "date": "2025-09-28"
+  },
+  {
+    "id": "pro-047",
+    "track": "Professionals",
+    "title": "Innovation leadership",
+    "description": "Drive innovation and change in your organization.",
+    "speaker": "Jessica Turner",
+    "category": "Leadership",
+    "date": "2025-09-29"
+  },
+  {
+    "id": "stu-048",
+    "track": "Students",
+    "title": "Building tech portfolios",
+    "description": "Showcase your skills with projects that impress recruiters.",
+    "speaker": "David Kim",
+    "category": "Career Development",
+    "date": "2025-09-30"
+  },
+  {
+    "id": "sta-049",
+    "track": "Startups",
+    "title": "Fundraising pitfalls to avoid",
+    "description": "Common mistakes founders make during fundraising and how to avoid them.",
+    "speaker": "Maya Singh",
+    "category": "Funding",
+    "date": "2025-10-01"
+  },
+  {
+    "id": "pro-050",
+    "track": "Professionals",
+    "title": "Building resilient teams",
+    "description": "Create teams that thrive under pressure and change.",
+    "speaker": "Steven Clark",
+    "category": "Leadership",
+    "date": "2025-10-02"
+  },
+  {
+    "id": "stu-051",
+    "track": "Students",
+    "title": "Exploring cloud computing basics",
+    "description": "Introduction to cloud platforms, services, and deployment models.",
+    "speaker": "Sophia Bennett",
+    "category": "Cloud Computing",
+    "date": "2025-10-03"
+  },
+  {
+    "id": "sta-052",
+    "track": "Startups",
+    "title": "User acquisition strategies",
+    "description": "Learn cost-effective ways to attract and retain users.",
+    "speaker": "Carlos Hernandez",
+    "category": "Growth",
+    "date": "2025-10-04"
+  },
+  {
+    "id": "pro-053",
+    "track": "Professionals",
+    "title": "Managing cross-functional teams",
+    "description": "Tips and tools to lead diverse teams to success.",
+    "speaker": "Monica Taylor",
+    "category": "Leadership",
+    "date": "2025-10-05"
+  },
+  {
+    "id": "stu-054",
+    "track": "Students",
+    "title": "Introduction to AI ethics",
+    "description": "Explore ethical considerations in AI development.",
+    "speaker": "Kevin Zhou",
+    "category": "AI",
+    "date": "2025-10-06"
+  },
+  {
+    "id": "sta-055",
+    "track": "Startups",
+    "title": "Effective startup branding",
+    "description": "Create a memorable brand that resonates with your audience.",
+    "speaker": "Jessica Lee",
+    "category": "Marketing",
+    "date": "2025-10-07"
+  },
+  {
+    "id": "pro-056",
+    "track": "Professionals",
+    "title": "AI-driven market analysis",
+    "description": "Leverage AI tools for competitive market insights.",
+    "speaker": "Daniel Roberts",
+    "category": "AI",
+    "date": "2025-10-08"
+  },
+  {
+    "id": "stu-057",
+    "track": "Students",
+    "title": "Building RESTful APIs",
+    "description": "Learn how to design and implement RESTful services.",
+    "speaker": "Hannah Kim",
+    "category": "Coding",
+    "date": "2025-10-09"
+  },
+  {
+    "id": "sta-058",
+    "track": "Startups",
+    "title": "Managing startup finances",
+    "description": "Essential financial skills to keep your startup healthy.",
+    "speaker": "Matthew Johnson",
+    "category": "Finance",
+    "date": "2025-10-10"
+  },
+  {
+    "id": "pro-059",
+    "track": "Professionals",
+    "title": "Strategic partnerships and alliances",
+    "description": "How to identify and build mutually beneficial partnerships.",
+    "speaker": "Olivia Martin",
+    "category": "Strategy",
+    "date": "2025-10-11"
+  },
+  {
+    "id": "stu-060",
+    "track": "Students",
+    "title": "Version control with Git",
+    "description": "Master essential Git commands for collaboration and code management.",
+    "speaker": "Ryan Lee",
+    "category": "Coding",
+    "date": "2025-10-12"
+  },
+  {
+    "id": "sta-061",
+    "track": "Startups",
+    "title": "Legal structures for startups",
+    "description": "Choosing the right legal entity and understanding implications.",
+    "speaker": "Emma Thompson",
+    "category": "Legal",
+    "date": "2025-10-13"
+  },
+  {
+    "id": "pro-062",
+    "track": "Professionals",
+    "title": "Building a culture of innovation",
+    "description": "Foster an environment where creativity thrives.",
+    "speaker": "James Wilson",
+    "category": "Leadership",
+    "date": "2025-10-14"
+  },
+  {
+    "id": "stu-063",
+    "track": "Students",
+    "title": "Introduction to DevOps",
+    "description": "Understand continuous integration, delivery, and deployment.",
+    "speaker": "Lisa Anderson",
+    "category": "Coding",
+    "date": "2025-10-15"
+  },
+  {
+    "id": "sta-064",
+    "track": "Startups",
+    "title": "Effective user feedback loops",
+    "description": "How to collect, analyze, and implement user feedback.",
+    "speaker": "Kevin Brooks",
+    "category": "Product Development",
+    "date": "2025-10-16"
+  },
+  {
+    "id": "pro-065",
+    "track": "Professionals",
+    "title": "Risk management strategies",
+    "description": "Identify, assess, and mitigate business risks effectively.",
+    "speaker": "Laura King",
+    "category": "Strategy",
+    "date": "2025-10-17"
+  },
+  {
+    "id": "stu-066",
+    "track": "Students",
+    "title": "Python programming fundamentals",
+    "description": "Hands-on introduction to Python for beginners.",
+    "speaker": "Ethan White",
+    "category": "Coding",
+    "date": "2025-10-18"
+  },
+  {
+    "id": "sta-067",
+    "track": "Startups",
+    "title": "Growth metrics to track",
+    "description": "Key performance indicators for startup success.",
+    "speaker": "Isabella Moore",
+    "category": "Growth",
+    "date": "2025-10-19"
+  },
+  {
+    "id": "pro-068",
+    "track": "Professionals",
+    "title": "Digital transformation roadmap",
+    "description": "Plan and execute successful digital initiatives.",
+    "speaker": "Michael Scott",
+    "category": "Leadership",
+    "date": "2025-10-20"
+  },
+  {
+    "id": "stu-069",
+    "track": "Students",
+    "title": "Building responsive web apps",
+    "description": "Learn to design apps that work on all devices.",
+    "speaker": "Samantha Green",
+    "category": "Coding",
+    "date": "2025-10-21"
+  },
+  {
+    "id": "sta-070",
+    "track": "Startups",
+    "title": "Customer acquisition channels",
+    "description": "Discover the best ways to reach your target audience.",
+    "speaker": "Christopher Taylor",
+    "category": "Marketing",
+    "date": "2025-10-22"
+  },
+  {
+    "id": "pro-071",
+    "track": "Professionals",
+    "title": "Agile project management",
+    "description": "Implement agile methods for faster product delivery.",
+    "speaker": "Sarah Walker",
+    "category": "Leadership",
+    "date": "2025-10-23"
+  },
+  {
+    "id": "stu-072",
+    "track": "Students",
+    "title": "Database basics",
+    "description": "Introduction to relational databases and SQL.",
+    "speaker": "Daniel Martinez",
+    "category": "Coding",
+    "date": "2025-10-24"
+  },
+  {
+    "id": "sta-073",
+    "track": "Startups",
+    "title": "Pitch deck essentials",
+    "description": "Create compelling pitch decks that capture investor interest.",
+    "speaker": "Olivia Davis",
+    "category": "Pitching",
+    "date": "2025-10-25"
+  },
+  {
+    "id": "pro-074",
+    "track": "Professionals",
+    "title": "Corporate social responsibility",
+    "description": "Integrate CSR into your business strategy.",
+    "speaker": "George King",
+    "category": "Leadership",
+    "date": "2025-10-26"
+  },
+  {
+    "id": "stu-075",
+    "track": "Students",
+    "title": "Introduction to cybersecurity",
+    "description": "Learn the basics of securing networks and data.",
+    "speaker": "Natalie Evans",
+    "category": "Cybersecurity",
+    "date": "2025-10-27"
+  },
+  {
+    "id": "sta-076",
+    "track": "Startups",
+    "title": "Lean startup methodology",
+    "description": "Use lean principles to validate ideas quickly.",
+    "speaker": "Henry White",
+    "category": "Strategy",
+    "date": "2025-10-28"
+  },
+  {
+    "id": "pro-077",
+    "track": "Professionals",
+    "title": "Executive decision-making",
+    "description": "Tools and frameworks to make better decisions under pressure.",
+    "speaker": "Linda Clark",
+    "category": "Leadership",
+    "date": "2025-10-29"
+  },
+  {
+    "id": "stu-078",
+    "track": "Students",
+    "title": "Data visualization basics",
+    "description": "Create impactful visual stories with data.",
+    "speaker": "Mark Johnson",
+    "category": "Research",
+    "date": "2025-10-30"
+  },
+  {
+    "id": "sta-079",
+    "track": "Startups",
+    "title": "Customer retention strategies",
+    "description": "Keep your users engaged and loyal.",
+    "speaker": "Laura Robinson",
+    "category": "Growth",
+    "date": "2025-10-31"
+  },
+  {
+    "id": "pro-080",
+    "track": "Professionals",
+    "title": "Building high-performing teams",
+    "description": "Strategies to increase team productivity and morale.",
+    "speaker": "James Nelson",
+    "category": "Leadership",
+    "date": "2025-11-01"
+  },
+  {
+    "id": "stu-081",
+    "track": "Students",
+    "title": "Machine learning algorithms overview",
+    "description": "Understand common ML algorithms and their applications.",
+    "speaker": "Rachel Kim",
+    "category": "AI",
+    "date": "2025-11-02"
+  },
+  {
+    "id": "sta-082",
+    "track": "Startups",
+    "title": "Social media marketing",
+    "description": "Leverage social platforms to grow your startup brand.",
+    "speaker": "Jason Adams",
+    "category": "Marketing",
+    "date": "2025-11-03"
+  },
+  {
+    "id": "pro-083",
+    "track": "Professionals",
+    "title": "Future of work trends",
+    "description": "Prepare your organization for changes in workforce dynamics.",
+    "speaker": "Melissa Brown",
+    "category": "Leadership",
+    "date": "2025-11-04"
+  },
+  {
+    "id": "stu-084",
+    "track": "Students",
+    "title": "Introduction to blockchain",
+    "description": "Basics of blockchain technology and use cases.",
+    "speaker": "Samuel Clark",
+    "category": "Coding",
+    "date": "2025-11-05"
+  },
+  {
+    "id": "sta-085",
+    "track": "Startups",
+    "title": "Building a startup culture",
+    "description": "Create values and environment that attract talent.",
+    "speaker": "Natalie Perez",
+    "category": "HR",
+    "date": "2025-11-06"
+  },
+  {
+    "id": "pro-086",
+    "track": "Professionals",
+    "title": "Change management",
+    "description": "Lead successful organizational change initiatives.",
+    "speaker": "Robert Martin",
+    "category": "Leadership",
+    "date": "2025-11-07"
+  },
+  {
+    "id": "stu-087",
+    "track": "Students",
+    "title": "Cloud security essentials",
+    "description": "Protect cloud assets and understand common risks.",
+    "speaker": "Linda Moore",
+    "category": "Cybersecurity",
+    "date": "2025-11-08"
+  },
+  {
+    "id": "sta-088",
+    "track": "Startups",
+    "title": "Building strategic roadmaps",
+    "description": "Plan your startup’s growth path effectively.",
+    "speaker": "John Harris",
+    "category": "Strategy",
+    "date": "2025-11-09"
+  },
+  {
+    "id": "pro-089",
+    "track": "Professionals",
+    "title": "Developing emotional intelligence",
+    "description": "Improve leadership through emotional awareness.",
+    "speaker": "Michelle Turner",
+    "category": "Leadership",
+    "date": "2025-11-10"
+  },
+  {
+    "id": "stu-090",
+    "track": "Students",
+    "title": "Introduction to APIs",
+    "description": "Understand APIs and how to use them.",
+    "speaker": "Ethan Brooks",
+    "category": "Coding",
+    "date": "2025-11-11"
+  },
+  {
+    "id": "sta-091",
+    "track": "Startups",
+    "title": "Building minimum viable teams",
+    "description": "Assemble the core team to execute your startup idea.",
+    "speaker": "Angela White",
+    "category": "HR",
+    "date": "2025-11-12"
+  },
+  {
+    "id": "pro-092",
+    "track": "Professionals",
+    "title": "Crisis communication",
+    "description": "Manage communication during business disruptions.",
+    "speaker": "Steven Lewis",
+    "category": "Leadership",
+    "date": "2025-11-13"
+  },
+  {
+    "id": "stu-093",
+    "track": "Students",
+    "title": "Data science introduction",
+    "description": "Explore data analysis and visualization techniques.",
+    "speaker": "Sofia Hernandez",
+    "category": "Research",
+    "date": "2025-11-14"
+  },
+  {
+    "id": "sta-094",
+    "track": "Startups",
+    "title": "Effective customer onboarding",
+    "description": "Design processes that keep users engaged from day one.",
+    "speaker": "Mark Thompson",
+    "category": "Product Development",
+    "date": "2025-11-15"
+  },
+  {
+    "id": "pro-095",
+    "track": "Professionals",
+    "title": "Leveraging big data",
+    "description": "Use big data insights to drive business decisions.",
+    "speaker": "Karen Wilson",
+    "category": "Strategy",
+    "date": "2025-11-16"
+  },
+  {
+    "id": "stu-096",
+    "track": "Students",
+    "title": "Introduction to software testing",
+    "description": "Learn the fundamentals of QA and testing methodologies.",
+    "speaker": "Jason Kim",
+    "category": "Coding",
+    "date": "2025-11-17"
+  },
+  {
+    "id": "sta-097",
+    "track": "Startups",
+    "title": "Growth hacking techniques",
+    "description": "Creative ways to accelerate user growth.",
+    "speaker": "Emily Parker",
+    "category": "Growth",
+    "date": "2025-11-18"
+  },
+  {
+    "id": "pro-098",
+    "track": "Professionals",
+    "title": "Digital ethics and governance",
+    "description": "Ethical frameworks for digital leadership.",
+    "speaker": "Paul Carter",
+    "category": "Leadership",
+    "date": "2025-11-19"
+  },
+  {
+    "id": "stu-099",
+    "track": "Students",
+    "title": "Fundamentals of UX design",
+    "description": "Design user-friendly digital experiences.",
+    "speaker": "Laura Chen",
+    "category": "Product Development",
+    "date": "2025-11-20"
+  },
+  {
+    "id": "sta-100",
+    "track": "Startups",
+    "title": "Startup valuation basics",
+    "description": "Understand how investors value startups.",
+    "speaker": "Brian Johnson",
+    "category": "Funding",
+    "date": "2025-11-21"
+  }
+]
