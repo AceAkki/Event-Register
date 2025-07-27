@@ -24,7 +24,7 @@ export class Pagination {
   initiatePagination(data, pageNavElm, container) {
     // emptied for multiple initialisations of the method 
     this.paginatedData = [];
-    this.navigationArrays = [];  
+    this.navigationArrays = []; 
 
     if ((Array.isArray(data)) && data.length > 0 ) {
       (this.enableSortList) ? this.sortList(data) : console.log("Data Not Sorted, Enable with [ enableSortList:true ]"); 

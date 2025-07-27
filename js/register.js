@@ -14,8 +14,10 @@ import { Pagination } from "./classPagination.js";
       .then((response) => response.json())
       .then((data) => {
         const paginationMain = new Pagination({
+          pageSize: 8,
+          maxPageNum: 3,
           headerClassSelector : "navbar",
-          pageSize:12,
+          itemClassSelector : "event-item-card",
           enableSortList: true,
           itemCreator: generateItems,
         });
@@ -92,6 +94,7 @@ import { Pagination } from "./classPagination.js";
       }
     }
   }
+
   function setTrackURL (param = "track") {
   // maps with buttons 
   const btnMap = {
@@ -105,8 +108,7 @@ import { Pagination } from "./classPagination.js";
     // adds event listener to all buttons
     btnMap[key].addEventListener("click", () => {
       // sets URL param with destructured getURL()
-      classURLParam.setURL(param, key)
-      ();
+      classURLParam.setURL(param, key);
     });
   });
   }
@@ -120,7 +122,7 @@ function generateItems (data) {
   item.classList.add("col", "col-lg-3", "col-med-3", "col-sm-12", "my-3");
   item.innerHTML =`
   <div class="event-item-card">
-    <h3 class="event-title"> ${data.title}</h5>
+    <h3 class="event-title"> ${data.title}</h3>
       <p class="event-desc">
         ${data.description}
       </p>
