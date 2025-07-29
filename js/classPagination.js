@@ -7,6 +7,7 @@ export class Pagination {
     this.pageSize = pageSize || 10;   // page elements count
     this.currentPage = 0; // starts with 0    
     this.defaultPage = 1;  
+
     this.maxPageNum = maxPageNum || 4;  // max page numbers visible to users    
     this.enableSortList = enableSortList || false; // enable for String based sort
     this.itemClassSelector = itemClassSelector || "univ-list-item"; // uni item class
@@ -25,6 +26,7 @@ export class Pagination {
     // emptied for multiple initialisations of the method 
     this.paginatedData = [];
     this.navigationArrays = []; 
+    this.currentPage = 0;
 
     if ((Array.isArray(data)) && data.length > 0 ) {
       (this.enableSortList) ? this.sortList(data) : console.log("Data Not Sorted, Enable with [ enableSortList:true ]"); 
@@ -55,12 +57,13 @@ export class Pagination {
     }
   }
 
-  checkURL(pageNavElm, container) {
+  checkURL(pageNavElm, container, getParam) {
     let [windowPath, params] = classURLParam.getURL();
-    if (params.has(this.param)) {
+    if (params.has(this.param) && pageNavElm && container) {
       let currentParam = parseInt(params.get(this.param));
-      isNaN(currentParam) || currentParam <= 0 ? currentParam = 1 : currentParam = currentParam;
+      if (isNaN(currentParam) || currentParam <= 0) { currentParam = 1 };
       let getActivePg = Array.from(pageNavElm.querySelectorAll("li a.page-num")).find(elm => parseInt(elm.dataset.value) === currentParam);
+
       if (getActivePg) {
         pageNavElm.querySelectorAll("a.active").forEach((elm) => elm.classList.remove("active"));
         getActivePg.classList.add("active");  
@@ -83,20 +86,25 @@ export class Pagination {
           this.populateSections(pageNavElm, container, this.currentPage, this.currentPage);
         }
       };
+
+      if (getParam === "getParam") {
+        return currentParam;
+      }
     }
   }
 
-  populateSections (pageNavElm, container, indexNum, indexNum1) {
-    this.populateItems(container, indexNum1);
-    this.populatePageNums(pageNavElm, indexNum);
+  populateSections (pageNavElm, container, sectionIndex, pageIndex) {
+    this.populateItems(container, pageIndex);
+    this.populatePageNums(pageNavElm, sectionIndex);
     this.addEventListenerPageNav(pageNavElm, container);
+    // recursive issue - (priority - Medium)
     this.checkURL(pageNavElm, container);  
     this.scrollToElement(container.querySelector(`.${this.itemClassSelector}`));
   }
 
   populateAll(pageNavElm, container) {
     // adds prev Nav button
-    this.addPrevNav(pageNavElm);
+    this.addNav(pageNavElm, "prev");
     for (let i = 0; i < this.paginatedData.length; i += this.maxPageNum) {
       // creates array from length size of paginatedData then pushes mini array's to navigationArrays
       this.navigationArrays.push(Array.from(Array(this.paginatedData.length).keys()).slice(i, i + this.maxPageNum));
@@ -121,7 +129,7 @@ export class Pagination {
         // creates fragment & callback function creates all elements adds it to fragment then we add fragment to container this saves memory usage and increases overall speed
         const fragment = new DocumentFragment ();
         itemArray.forEach((item) => {
-          let createItem = this.itemCreator(item, this.itemClassSelector);
+          let createItem = this.itemCreator(item, this.itemClassSelector); // callback function that needs to be created 
           fragment.appendChild(createItem);
         });
         container.appendChild(fragment);
@@ -134,14 +142,14 @@ export class Pagination {
   // populate page nums
   populatePageNums(pageNavElm, num) {
     // remove all li elems
-    pageNavElm.querySelectorAll("li").forEach((liElm) => liElm.remove());
+    pageNavElm.innerHTML = "";
     let indexNum = num;
     if (num <= 0 || num > this.paginatedData.length) { indexNum = 0 };
     // if num is bigger add prevNav button    
-    if (indexNum > 0) { this.addPrevNav(pageNavElm) };
+    if (indexNum > 0) { this.addNav(pageNavElm, "prev") };
     // craeted nav from navigationArrays based on indexNum value
+    this.currentPage = indexNum;
     this.navigationArrays[indexNum].forEach((a, index) => {
-        this.currentPage = indexNum;
         let createLi = document.createElement("li");
         let createHref = document.createElement("a");
         createLi.style.cursor = "pointer";
@@ -155,42 +163,57 @@ export class Pagination {
         createLi.appendChild(createHref);
     });
     // num + 2 to match 0 index with navigationArrays length, adds next Button 
-    if (indexNum + 2 <= this.navigationArrays.length) { this.addNextNav(pageNavElm) };
+    if (indexNum + 2 <= this.navigationArrays.length) { this.addNav(pageNavElm, "next") };
   }
 
   // add page navigation
   addEventListenerPageNav(pageNavElm, container)  {
     // selects all li elements of page navigation
     pageNavElm.querySelectorAll("li").forEach((liElm) => {
-        // adds click event listener
-        liElm.addEventListener("click", () => {        
+      // adds click event listener
+      liElm.addEventListener("click", () => {
         // removes all active classes
         pageNavElm.querySelectorAll("a.active").forEach((elm) => elm.classList.remove("active"));
         // if it's left arrow or back arrow
-        if (liElm.querySelector("i") && liElm.querySelector("i").classList.contains("ph-arrow-left")) {
-            liElm.remove(); // removes it
-            // populates all page nums with parameter that minus 1 from current page value        
-            this.populatePageNums(pageNavElm, this.currentPage - 1);
-            // adds page navigation
-            this.addEventListenerPageNav(pageNavElm, container);
-            // scrolls to first element of the list
-            this.scrollToElement(container.querySelector(`.${this.itemClassSelector}`));
-        }
+        this.arrowNavigation (pageNavElm, container, liElm, "ph-arrow-left", "minus");
         // if it's right arrow or next arrow
-        if (liElm.querySelector("i") && liElm.querySelector("i").classList.contains("ph-arrow-right")) {
-            liElm.remove();            
-            this.populatePageNums(pageNavElm, this.currentPage + 1);
-            this.addEventListenerPageNav(pageNavElm, container);
-            this.scrollToElement(container.querySelector(`.${this.itemClassSelector}`));
+        this.arrowNavigation (pageNavElm, container, liElm, "ph-arrow-right", "add");
+        if (liElm.querySelector(".page-num")) {
+          // adds active class to the element
+          liElm.querySelector("a").classList.add("active");
+          classURLParam.setURL(this.param, this.getActivePage(pageNavElm));
+          this.populateItems(container, this.getActivePage(pageNavElm));
         }
-        // adds active class to the element
-        liElm.querySelector("a").classList.add("active");
         // populate unis based on the active num
-        this.populateItems(container,  this.getActivePage(pageNavElm));
-        this.scrollToElement(container.querySelector(`.${this.itemClassSelector}`));
-        classURLParam.setURL(this.param, this.getActivePage(pageNavElm));
-        });
+        setTimeout( ()=> {
+          this.checkURL(pageNavElm, container);
+        }, 20)
+      });
     });
+  }
+
+  async arrowNavigation (pageNavElm, container, liElm, selector, operation) {
+    if (liElm.querySelector("i") &&liElm.querySelector("i").classList.contains(selector)) {
+      //liElm.remove();
+      let paramNum = this.checkURL(pageNavElm, container, "getParam");
+      if (isNaN(paramNum)) paramNum = 1; 
+
+      switch (operation) {
+        case "add":
+          setTimeout( ()=> {
+            classURLParam.setURL(this.param, paramNum + 1);
+          }, 10);
+        break;
+        case "minus" :
+          setTimeout( ()=> {
+            classURLParam.setURL(this.param, paramNum - 1);
+          }, 10);
+        break;
+        default:
+          console.log("Failed to match Operations")
+        break;
+      }
+    }
   }
 
   // scrolls to the element
@@ -213,16 +236,25 @@ export class Pagination {
     }    
   }
 
-  addPrevNav(pageNavElm) {
+  addNav(pageNavElm, type) {
     let createLi = document.createElement("li");
-    createLi.innerHTML = `<a class="nav"><i class="ph ph-arrow-left"></i> </a>`;
-    pageNavElm.appendChild(createLi);
-  }
-
-  addNextNav(pageNavElm){
-    let createLi1 = document.createElement("li");
-    createLi1.innerHTML = `<a class="nav"><i class="ph ph-arrow-right"></i></a>`;
-    pageNavElm.appendChild(createLi1);
+    switch (type) {
+      case "prev":
+        createLi.setAttribute("title","Previous Section");
+        createLi.innerHTML = `<a class="nav"><i class="ph ph-arrow-left"></i> </a>`;
+        // pageNavElm.appendChild(createLi);        
+        break;
+      case "next":
+        createLi.setAttribute("title","Next Section");
+        createLi.innerHTML = `<a class="nav"><i class="ph ph-arrow-right"></i></a>`;
+        // pageNavElm.appendChild(createLi);    
+        break;    
+      default:
+        createLi.setAttribute("title","Section");
+        createLi.innerHTML = `<a class="nav"><i class="ph ph-arrow-u-up-left"></i></a>`;
+        break;
+      }
+    pageNavElm.appendChild(createLi);   
   }
 
   // returns active page's data-value as Int
