@@ -5,7 +5,7 @@ const classURLParam = new URLParam ();
 export class Pagination {
   constructor({pageSize, maxPageNum, enableSortList, itemCreator, itemClassSelector, headerClassSelector, param}) {
     this.pageSize = pageSize || 10;   // page elements count
-    this.sectionIndex = 0; // starts with 0    
+    this.currentPage = 0; // starts with 0    
     this.defaultPage = 1;  
 
     this.maxPageNum = maxPageNum || 4;  // max page numbers visible to users    
@@ -26,7 +26,7 @@ export class Pagination {
     // emptied for multiple initialisations of the method 
     this.paginatedData = [];
     this.navigationArrays = []; 
-    this.sectionIndex = 0;
+    this.currentPage = 0;
 
     if ((Array.isArray(data)) && data.length > 0 ) {
       (this.enableSortList) ? this.sortList(data) : console.log("Data Not Sorted, Enable with [ enableSortList:true ]"); 
@@ -88,10 +88,10 @@ export class Pagination {
                   indexNum = index;
                 }
               });
-              this.renderPageSections(pageNavElm, container, indexNum, parseInt(params.get(this.param)));
+              this.populateSections(pageNavElm, container, indexNum, parseInt(params.get(this.param)));
             } else {
               classURLParam.setURL(this.param, this.getActivePage(pageNavElm));
-              this.renderPageSections(pageNavElm, container, this.sectionIndex, this.sectionIndex);
+              this.populateSections(pageNavElm, container, this.currentPage, this.currentPage);
             }
           };
 
@@ -101,7 +101,7 @@ export class Pagination {
 
   }
 
-  renderPageSections (pageNavElm, container, sectionIndex, pageIndex) {
+  populateSections (pageNavElm, container, sectionIndex, pageIndex) {
     this.populateItems(container, pageIndex);
     this.renderPageNavigation(pageNavElm, sectionIndex);
     this.addEventListenerPageNav(pageNavElm, container);
@@ -118,7 +118,7 @@ export class Pagination {
       this.navigationArrays.push(Array.from(Array(this.paginatedData.length).keys()).slice(i, i + this.maxPageNum));
     }
     // pageNums are created, initiatin with 0
-    this.renderPageNavigation(pageNavElm, this.sectionIndex);
+    this.renderPageNavigation(pageNavElm, this.currentPage);
     // unis are poppulated based on the number provided by active class's textcontent
     this.populateItems(container, this.getActivePage(pageNavElm));
     // adds page Nav
@@ -156,7 +156,7 @@ export class Pagination {
     // if num is bigger add prevNav button    
     if (indexNum > 0) { this.addNav(pageNavElm, "prev") };
     // craeted nav from navigationArrays based on indexNum value
-    this.sectionIndex = indexNum;
+    this.currentPage = indexNum;
     this.navigationArrays[indexNum].forEach((a, index) => {
         let createLi = document.createElement("li");
         let createHref = document.createElement("a");
@@ -194,9 +194,9 @@ export class Pagination {
           this.populateItems(container, this.getActivePage(pageNavElm));
         }
         // populate unis based on the active num
-        this.checkURL(pageNavElm, container);
-        // setTimeout( ()=> {
-        // }, 20)
+        setTimeout( ()=> {
+          this.checkURL(pageNavElm, container);
+        }, 20)
       });
     });
   }
@@ -206,20 +206,24 @@ export class Pagination {
       //liElm.remove();
       let paramNum = this.checkURL(pageNavElm, container, "getParam");
       if (isNaN(paramNum)) paramNum = 1; 
-
       switch (operation) {
         case "add":
-          this.renderPageSections (pageNavElm, container, this.sectionIndex, paramNum + 1)
-          classURLParam.setURL(this.param, paramNum + 1);
+          console.log(this.currentPage);
+          this.populateSections(pageNavElm,container,this.currentPage,paramNum + 1);
+          setTimeout(() => {
+            classURLParam.setURL(this.param, paramNum + 1);
+          }, 10);
         break;
-        case "minus" :
-          this.renderPageSections (pageNavElm, container, this.sectionIndex, paramNum - 1)
-          classURLParam.setURL(this.param, paramNum - 1);
+        case "minus":
+          this.populateSections(pageNavElm,container,this.currentPage,paramNum - 1);
+          setTimeout(() => {
+            classURLParam.setURL(this.param, paramNum - 1);
+          }, 10);
         break;
         default:
-          console.log("Failed to match Operations")
+          console.log("Failed to match Operations");
         break;
-      }
+      }    
     }
   }
 
