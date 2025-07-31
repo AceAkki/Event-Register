@@ -13,6 +13,7 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
+  min-width: max-content;
 }
 
 .select-card .card-title {
@@ -40,6 +41,30 @@
   color: var(--clr-primary);
   font-weight: 600;
   font-size: 20px;
+  padding: 10px 20px;
+}
+
+.search-wrap {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  max-width: 100%;
+}
+
+.search-wrap select {
+  background-color: var(--clr-tertiary);
+  border-radius: 0.5rem;
+  padding: 0.4rem 1rem;
+  min-width: 40%;
+  max-width: 40%;
+}
+
+.search-wrap button {
+  background-color: var(--clr-secondary-light);
+  color: var(--clr-primary);
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 0.5rem;
   padding: 10px 20px;
 }
 
@@ -226,7 +251,7 @@
 }
 
 .application-form-wrapper input,
-select {
+.application-form-wrapper select {
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   outline: none;
