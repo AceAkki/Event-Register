@@ -166,7 +166,7 @@ export class Pagination {
         createHref.classList.add("page-num");
         pageNavElm.appendChild(createLi);
         createLi.appendChild(createHref);
-        if (a+1 === this.checkURL(undefined, pageNavElm, "getParam")) {
+        if (a+1 === this.checkURL(null, pageNavElm, "getParam")) {
           createHref.classList.add("active");
         }
 
