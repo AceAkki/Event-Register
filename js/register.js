@@ -22,6 +22,9 @@ import { Pagination } from "./classPagination.js";
           itemCreator: generateItems,
         });
 
+        searchFeature(data, "track", "#eventTrack", `#searchBtn`); 
+        searchFeature(data, "category", "#eventCategory", `#searchBtn`); 
+
         paginationMain.initiatePagination(
           data,
           document.querySelector(".pagination"),
@@ -145,6 +148,39 @@ function generateItems (data) {
   </div>
   ` 
   return item;
+}
+
+
+function searchFeature(data, parameter, inputElem, buttonElem) {
+  let array = [];
+  data.forEach(obj => {
+    console.log(obj)
+    array.push(obj[parameter]);
+  });
+  let uniqueArray = [...new Set(array)];
+  uniqueArray.forEach(arr => {
+    let option = document.createElement("option");
+    option.textContent = arr;
+    document.querySelector(inputElem).appendChild(option)
+  })
+  document.querySelector(buttonElem).addEventListener("click", ()=> {
+    let value = document.querySelector(inputElem).value;
+    let searchData = data.filter(obj => obj[parameter] === value);
+    console.log(value)
+    const paginationMain = new Pagination({
+          pageSize: 8,
+          maxPageNum: 3,
+          headerClassSelector : "navbar",
+          itemClassSelector : "event-item-card",
+          enableSortList: true,
+          itemCreator: generateItems,
+        });
+    paginationMain.initiatePagination(
+          searchData,
+          document.querySelector(".pagination"),
+          document.querySelector(".event-wrap")
+        );
+  });
 }
 
 
