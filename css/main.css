@@ -91,7 +91,8 @@ section {
   transition: all 0.7s ease-in-out;
 }
 
-#highlights, #sectionJoin {
+#highlights,
+#sectionJoin {
   scroll-margin-top: var(--header-height);
   /* scroll-margin-top: 200px; */
 }
@@ -552,7 +553,7 @@ section.logo-sec {
 .join-card {
   display: flex;
   flex-direction: column;
-  gap: 10rem;
+  gap: 2rem;
   min-height: 80vh;
   max-height: 80vh;
   background: rgba(255, 255, 255, 0.15);
@@ -575,9 +576,9 @@ section.logo-sec {
 }
 
 .join-card .card-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin: 2rem;
+  margin: 4.5rem 2rem;
 }
 
 .title-que-wrap .title {
@@ -587,9 +588,9 @@ section.logo-sec {
   margin: 0;
 }
 
-.card-image {
+.join-card .card-image {
   display: flex;
-  align-items: center;
+  align-items: normal;
   justify-content: center;
 }
 
@@ -646,25 +647,7 @@ section.logo-sec {
   display: none;
 }
 
-@media (min-width: 390px) {
-  .join-card {
-    gap: 2rem;
-  }
-  .join-card .card-title {
-    font-size: 2.2rem;
-    margin: 4.5rem 2rem;
-  }
 
-  .join-card .card-image {
-    align-items: normal;
-  }
-}
-
-@media (min-width: 410px) {
-  .join-card .card-title {
-    font-size: 2.5rem;
-  }
-}
 
 @media (min-width: 576px) {
   .home-hero {
@@ -796,6 +779,7 @@ section.logo-sec {
   .join-card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 10rem;
     min-height: 80vh;
     max-height: 80vh;
     background: var(--clr-secondary-light);
@@ -805,9 +789,14 @@ section.logo-sec {
 
   .join-card .card-title {
     font-size: 3.5rem;
+    margin: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .join-card .card-image {
+    align-items: center;
   }
 
   .card-image img {
@@ -830,7 +819,6 @@ section.logo-sec {
   }
 
   /* join section */
-
 }
 
 @media (min-width: 1280px) {

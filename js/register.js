@@ -86,6 +86,7 @@ import { Pagination } from "./classPagination.js";
 
     if (params.has(param)) {
       let value = params.get(param);
+      console.log(value)
       let selectedDoc = docMap[value];
       if (selectedDoc) {
         selectedDoc.classList.remove("hidden");
@@ -112,6 +113,7 @@ import { Pagination } from "./classPagination.js";
     btnMap[key].addEventListener("click", () => {
       // sets URL param with destructured getURL()
       classURLParam.setURL(param, key);
+      checkTrackURL ();
     });
   });
   }
@@ -154,7 +156,7 @@ function generateItems (data) {
 function searchFeature(data, parameter, inputElem, buttonElem) {
   let array = [];
   data.forEach(obj => {
-    console.log(obj)
+    //console.log(obj)
     array.push(obj[parameter]);
   });
   let uniqueArray = [...new Set(array)];
