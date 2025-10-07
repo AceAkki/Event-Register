@@ -238,8 +238,16 @@ content: "";
   position: relative;
 }
 
-.section-para-wrap > .sec-title {
+.sec-title {
   font-size: 2.5rem;
+}
+
+.section-para-wrap h3 {
+  color: var(--clr-tertiary-light);
+}
+
+.section-para-wrap hr {
+  color: var(--clr-tertiary);
 }
 
 .hero-banner-wrapper {
@@ -269,6 +277,7 @@ content: "";
   backdrop-filter: blur(14.2px);
   -webkit-backdrop-filter: blur(14.2px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  margin: -20px;
 }
 
 .container-sec-wrapper .application-form-wrapper::before {
@@ -359,6 +368,37 @@ content: "";
   border-radius: 1rem;
 }
 
+.who-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.who-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  background: var(--clr-primary);
+  color: var(--clr-tertiary-light);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.who-card .icon i {
+  font-size: 5rem;
+}
+
+.who-card .card-title {
+  font-size: 2rem;
+}
+
+.who-card p {
+  margin: 0;
+}
+
 @media (min-width: 1024px) {
   .hero-container {
     padding: 2rem;
@@ -386,5 +426,13 @@ content: "";
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-content: center;
+  }
+
+  .who-cards-wrapper {
+    margin: 3rem 2rem;
+  }
+
+  .who-card {
+    flex-direction: row;
   }
 }

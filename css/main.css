@@ -91,6 +91,14 @@ section {
   transition: all 0.7s ease-in-out;
 }
 
+.primary-font {
+  color: var(--clr-primary)!important;
+}
+
+.light-font {
+  color: var(--clr-tertiary-light)!important;
+}
+
 #highlights,
 #sectionJoin {
   scroll-margin-top: var(--header-height);

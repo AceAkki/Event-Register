@@ -36,18 +36,16 @@ import { Pagination } from "./classPagination.js";
       });
 
     const swiperSelect = new Swiper(".select-wrap", {
-      slidesPerView: 3,
-      spaceBetween: 60,
       speed: 1200,
       grabCursor: true,
-      autoplay: {
-        delay: 1000,
-        disableOnInteraction: false,
-      },
+      // autoplay: {
+      //   delay: 1000,
+      //   disableOnInteraction: false,
+      // },
       breakpoints: {
         360: {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 50,
         },
         640: {
           slidesPerView: 1,
