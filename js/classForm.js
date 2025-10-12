@@ -1,4 +1,4 @@
-export class formMain {
+export class DynamicFormValidator {
     constructor({formElem, progressSection, progressSelector, errFieldClass, errMessageClass}) {
         this.form = formElem;
         this.sectionParent = progressSection;
@@ -8,10 +8,10 @@ export class formMain {
     }
 
     initForm() {
-        let optionMap = this.addRadioCheckBoxEvent(this.form);
-        this.progressForm({})
+        let radioCheckboxGroups = this.initializeRadioCheckboxEvents(this.form);
+        this.initializeFormProgress({})
         this.form.addEventListener("submit", (event)=> {
-            this.formValidation({section: this.form, bool: true, func: this.ePreventDefault, funcParams:event, radioArr: optionMap.get("radio"), checkboxArr:optionMap.get("checkbox")});
+            this.validateForm({section: this.form, bool: true, func: this.preventFormSumbmission, funcParams:event, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox")});
         })
     }
 
@@ -48,7 +48,7 @@ export class formMain {
     }
 
     // method creates buttons to navigate between forms
-    progressForm({sectionParent, sectionSelector}) {
+    initializeFormProgress({sectionParent, sectionSelector}) {
         let secParent = sectionParent;
         let secSelector = sectionSelector;
         if (this.sectionParent && this.sectionSelector) {
@@ -60,10 +60,10 @@ export class formMain {
         sectionArray.forEach((section, index) => {
             //console.log(index < sectionArray.length, index , sectionArray.length, index > 0)
             if (index + 1 < sectionArray.length) {
-                this.createBtn(section, "Next")
+                this.createNavigationBtn(section, "Next")
             }
             if  (index > 0) {
-                this.createBtn(section, "Previous")
+                this.createNavigationBtn(section, "Previous")
             }
             if (index > 0) {
                 section.classList.add("hide")
@@ -73,7 +73,7 @@ export class formMain {
     }
 
     // adds event listeners to radio and checkbox and also returns groups
-    addRadioCheckBoxEvent(section) {
+    initializeRadioCheckboxEvents(section) {
         let returnMap = new Map();
         let radioElemArr = [];
         if (section.querySelector("input[type=radio]")) {
@@ -111,13 +111,13 @@ export class formMain {
         return returnMap;
     }
     
-    formValidation({section, bool, func, funcParams, checkboxArr, radioArr}) {
+    validateForm({section, bool, func, funcParams, checkboxArr, radioArr}) {
         if (typeof(func) !== "function") { console.log("func parameter should be a function"); return }
         let isValid = true;                
         const fields = section.querySelectorAll("input, select");
         fields.forEach((field) => {
             let hasError = false;
-            let emptyOption = false;
+            let isEmptyOption = false;
             if (field.value.trim() === "" || field.value === "0") {
                 hasError = true;
             }            
@@ -137,7 +137,7 @@ export class formMain {
             if (hasError && field.type !== "radio") {
                 field.classList.add(this.errClass);
                 if (!field.parentNode.querySelector(this.errMsgClass)) {
-                  this.adderrMsg(field);
+                  this.addErrorMessage(field);
                 }
             }
 
@@ -158,22 +158,22 @@ export class formMain {
               section.getElementsByClassName("error-field")[0].focus();     
               isValid = false;
               hasError = true;
-              emptyOption = true;   
+              isEmptyOption = true;   
             }
 
             // if error exists and options are empty then runs provided function
-            if (bool && hasError && emptyOption) {
+            if (bool && hasError && isEmptyOption) {
                 func(funcParams);
             }
       
         })
 
         if (radioArr) {
-            this.arrGrpValidation(radioArr, emptyOption);
+            this.validateGroupSection(radioArr, emptyOption);
         }
         
         if (checkboxArr) {
-            this.arrGrpValidation(checkboxArr, emptyOption);
+            this.validateGroupSection(checkboxArr, emptyOption);
         }
         
         // if all is valid and bool is false
@@ -189,16 +189,16 @@ export class formMain {
     --------------------------------------------------------------------
     */
 
-    // helper method being used in progressForm to create buttons - next and previous that helps with navigation on form
-    createBtn(section, type) {
-        let optionMap = this.addRadioCheckBoxEvent(section);
+    // helper method being used in initializeFormProgress to create buttons - next and previous that helps with navigation on form
+    createNavigationBtn(section, type) {
+        let radioCheckboxGroups = this.initializeRadioCheckboxEvents(section);
         let navBtn = document.createElement("div");
         navBtn.classList.add("btn", type);
         navBtn.textContent = type;
         section.appendChild(navBtn);
         if (type.toLowerCase() === "next") {
             navBtn.addEventListener("click", ()=> {
-                this.formValidation({section:section, bool: false, func:this.nextBtnEvent, funcParams:{btn: navBtn}, radioArr: optionMap.get("radio"), checkboxArr:optionMap.get("checkbox") })
+                this.validateForm({section:section, bool: false, func:this.goToNextSection, funcParams:{btn: navBtn}, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox") })
             })
         } else if (type.toLowerCase() === "previous") {
             navBtn.addEventListener("click", ()=> {
@@ -209,13 +209,13 @@ export class formMain {
 
     }
     
-    // helper method being used in createBtn
-    nextBtnEvent({btn}){
+    // helper method being used in createNavigationBtn
+    goToNextSection({btn}){
         btn.parentNode.classList.add("hide");
         btn.parentNode.nextElementSibling.classList.remove("hide");
     }
 
-    arrGrpValidation(arrayGroup, flag) {
+    validateGroupSection(arrayGroup, flag) {
         arrayGroup.forEach(arrGrp => {
             let checkedElem = arrGrp.find(elem => elem.hasAttribute("checked"));
             let grpParent = arrGrp[0].parentNode.parentNode;
@@ -227,18 +227,18 @@ export class formMain {
             if (!checkedElem) {
                 flag = true;
                 grpParent.classList.add(this.errClass);
-                if (!grpParent.querySelector(this.errMsgClass)) this.adderrMsg(arrGrp[0]);
+                if (!grpParent.querySelector(this.errMsgClass)) this.addErrorMessage(arrGrp[0]);
             }
         })
     }
 
     // helper method being used for Form Validation to prevent form being submitted
-    ePreventDefault(event) {
+    preventFormSumbmission(event) {
         event.preventDefault();
     }
 
     // helper method being used in Form Validation method
-    adderrMsg(field) {
+    addErrorMessage(field) {
         let fieldtype = field.type;
         let errMsg = document.createElement("p");
         errMsg.classList.add("error-msg");
