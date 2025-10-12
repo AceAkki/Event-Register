@@ -82,8 +82,8 @@ export class formMain {
                 let radioGroup = Array.from(section.querySelectorAll(`input[type=radio][name=${group}]`));
                 radioGroup.forEach(radio => {
                     radio.addEventListener("click", ()=> {
-                        radioGroup.forEach(radio => radio.removeAttribute("checked", ""))
-                        radio.setAttribute("checked", "");
+                        radioGroup.forEach(radio => radio.checked = false);
+                        radio.checked = true;
                     })    
                 })
                 radioElemArr.push(radioGroup);
@@ -99,13 +99,7 @@ export class formMain {
                 let checkBoxGroup = Array.from(section.querySelectorAll(`input[type=checkbox][name=${group}]`));
                 checkBoxGroup.forEach(checkBox => {
                     checkBox.addEventListener("click", ()=> {
-                        console.log (checkBox, checkBox.hasAttribute("checked"))
-                        debugger
-                        if (checkBox.hasAttribute("checked")) {
-                            checkBox.removeAttribute("checked");
-                        } else {
-                            checkBox.setAttribute("checked", "");
-                        }
+                        checkBox.checked = !checkBox.checked;
                     })    
                 })
                 checkBoxElemArr.push(checkBoxGroup);
@@ -137,15 +131,7 @@ export class formMain {
                 !/^[\]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(field.value)) {
                     hasError = true;
                 }
-            }
-
-            if (radioArr) {
-                this.arrGrpValidation(radioArr, emptyOption);
-            }
-
-            if (checkboxArr) {
-                this.arrGrpValidation(checkboxArr, emptyOption);
-            }
+            }         
 
             // shows error message
             if (hasError && field.type !== "radio") {
@@ -182,6 +168,14 @@ export class formMain {
       
         })
 
+        if (radioArr) {
+            this.arrGrpValidation(radioArr, emptyOption);
+        }
+        
+        if (checkboxArr) {
+            this.arrGrpValidation(checkboxArr, emptyOption);
+        }
+        
         // if all is valid and bool is false
         if (isValid && !bool) {
             func(funcParams);
