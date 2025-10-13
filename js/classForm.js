@@ -1,3 +1,6 @@
+// importing methods from anime.js for smoother animated transitions
+import { animate, createTimeline, createTimer, text, stagger} from 'https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.esm.min.js'; 
+
 export class DynamicFormValidator {
     constructor({formElem, progressSection, progressSelector, errFieldClass, errMessageClass}) {
         this.form = formElem;
@@ -7,11 +10,12 @@ export class DynamicFormValidator {
         this.errMsgClass = errMessageClass || ".error-msg";
     }
 
+    // initializes validation for the form including radio and checkbox events and form progress feature
     initForm() {
         let radioCheckboxGroups = this.initializeRadioCheckboxEvents(this.form);
         this.initializeFormProgress({})
         this.form.addEventListener("submit", (event)=> {
-            this.validateForm({section: this.form, bool: true, func: this.preventFormSumbmission, funcParams:event, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox")});
+            this.validateForm({section: this.form, onInvalidFn: this.preventFormSumbmission, fnParam:event, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox")});
         })
     }
 
@@ -45,6 +49,73 @@ export class DynamicFormValidator {
                 div.appendChild(label);
             })
         }
+    }
+
+    initializeSelectEvent({selectElem, parentElem}) {
+        selectElem.addEventListener("input", (fn) => {
+            let elmValue = selectElem.value; // gets value
+            this.addInputField({parentElem:parentElem, value:elmValue});
+        });
+    }
+
+    addInputField({parentElem, value, fieldClasslist, }){
+        if (!(value === "0")) {
+            // if element with id of value doesnt exist it creates it
+            if (!document.getElementById(value)) {
+              // create main div
+              let div = document.createElement("div");
+              div.classList.add("w25", "w-1200-100");
+              parentElem.parentNode.appendChild(div);
+              div.parentNode.insertBefore(div, parentElem.nextSibling); // insert after the div that exists
+      
+              let divGrp = document.createElement("div");
+              divGrp.classList.add("form-grp", "inputURL-main");
+              div.appendChild(divGrp);
+              let divWrap = document.createElement("div");
+              divWrap.classList.add("form-field", "inputURL-wrap");
+              divGrp.appendChild(divWrap);
+      
+              let inputElem = document.createElement("input");
+              inputElem.setAttribute("type", "text");
+              inputElem.classList.add("form-field");
+              inputElem.setAttribute("id", value);
+              inputElem.setAttribute("name", value);
+              inputElem.setAttribute("placeholder", `Type ${value} URL/ID`);
+              let spanElem = document.createElement("span");
+              let iElem = document.createElement("i");
+              spanElem.setAttribute("title", "Cancel");
+              iElem.classList.add("ph", "ph-x-circle");
+              divWrap.appendChild(inputElem);
+              divWrap.appendChild(spanElem);
+              spanElem.appendChild(iElem);
+      
+              // animates div on creation
+              animate(div, {
+                scale: { from: 0.0, to: 1 },
+                ease: "outCubic",
+                duration: 300,
+              });
+      
+              spanElem.addEventListener("click", (fn) => {
+                // animates div before deletion
+                animate(div, {
+                  scale: { from: 1, to: 0 },
+                  ease: "outCubic",
+                  duration: 500,
+                });
+                // deletes the div soon after
+                setTimeout((one) => {
+                  spanElem.parentNode.parentNode.parentNode.remove();
+                }, 200);
+              });
+              document.getElementById(value).focus();
+            }
+            // else it focus on that element
+            else {
+              document.getElementById(value).focus();
+              // console.log(document.getElementById(value));
+            }
+          }
     }
 
     // method creates buttons to navigate between forms
@@ -99,7 +170,7 @@ export class DynamicFormValidator {
                 let checkBoxGroup = Array.from(section.querySelectorAll(`input[type=checkbox][name=${group}]`));
                 checkBoxGroup.forEach(checkBox => {
                     checkBox.addEventListener("click", ()=> {
-                        checkBox.checked = !checkBox.checked;
+                        checkBox.checked ? !checkBox.checked : checkBox.checked;
                     })    
                 })
                 checkBoxElemArr.push(checkBoxGroup);
@@ -111,13 +182,20 @@ export class DynamicFormValidator {
         return returnMap;
     }
     
-    validateForm({section, bool, func, funcParams, checkboxArr, radioArr}) {
-        if (typeof(func) !== "function") { console.log("func parameter should be a function"); return }
-        let isValid = true;                
+    validateForm({section, onValidFn, onInvalidFn, fnParam, checkboxArr, radioArr}) {
+        //if (typeof(func) !== "function") { console.log("func parameter should be a function"); return }
+        let isValid = true;  
+
+        if (radioArr) {
+            this.validateGroupSection(radioArr, isValid);
+        }
+        if (checkboxArr) {
+            this.validateGroupSection(checkboxArr, isValid);
+        }
+        
         const fields = section.querySelectorAll("input, select");
         fields.forEach((field) => {
             let hasError = false;
-            let isEmptyOption = false;
             if (field.value.trim() === "" || field.value === "0") {
                 hasError = true;
             }            
@@ -134,13 +212,13 @@ export class DynamicFormValidator {
             }         
 
             // shows error message
-            if (hasError && field.type !== "radio") {
+            if (hasError && field.type !== "radio" && field.type !== "checkbox") {
                 field.classList.add(this.errClass);
                 if (!field.parentNode.querySelector(this.errMsgClass)) {
                   this.addErrorMessage(field);
                 }
             }
-
+            
             // on input removes the error message
             field.addEventListener("input", () => {
                 if (!(field.value.trim() === "")) {
@@ -158,27 +236,15 @@ export class DynamicFormValidator {
               section.getElementsByClassName("error-field")[0].focus();     
               isValid = false;
               hasError = true;
-              isEmptyOption = true;   
-            }
-
+            }            
             // if error exists and options are empty then runs provided function
-            if (bool && hasError && isEmptyOption) {
-                func(funcParams);
+            if (hasError && onInvalidFn && typeof(onInvalidFn) === "function") {
+                onInvalidFn(fnParam);
             }
-      
-        })
+        });
 
-        if (radioArr) {
-            this.validateGroupSection(radioArr, emptyOption);
-        }
-        
-        if (checkboxArr) {
-            this.validateGroupSection(checkboxArr, emptyOption);
-        }
-        
-        // if all is valid and bool is false
-        if (isValid && !bool) {
-            func(funcParams);
+        if (isValid && onValidFn && typeof(onValidFn) === "function") {
+            onValidFn(fnParam);
         }
     }
 
@@ -198,7 +264,7 @@ export class DynamicFormValidator {
         section.appendChild(navBtn);
         if (type.toLowerCase() === "next") {
             navBtn.addEventListener("click", ()=> {
-                this.validateForm({section:section, bool: false, func:this.goToNextSection, funcParams:{btn: navBtn}, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox") })
+                this.validateForm({section:section, onValidFn:this.goToNextSection, fnParam:{btn:navBtn}, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox") })
             })
         } else if (type.toLowerCase() === "previous") {
             navBtn.addEventListener("click", ()=> {
@@ -217,7 +283,7 @@ export class DynamicFormValidator {
 
     validateGroupSection(arrayGroup, flag) {
         arrayGroup.forEach(arrGrp => {
-            let checkedElem = arrGrp.find(elem => elem.hasAttribute("checked"));
+            let checkedElem = arrGrp.find(elem => elem.checked);
             let grpParent = arrGrp[0].parentNode.parentNode;
             if (checkedElem && grpParent.classList.contains(this.errClass)) {
                 grpParent.classList.remove(this.errClass);
@@ -225,7 +291,7 @@ export class DynamicFormValidator {
             }
 
             if (!checkedElem) {
-                flag = true;
+                flag = false;
                 grpParent.classList.add(this.errClass);
                 if (!grpParent.querySelector(this.errMsgClass)) this.addErrorMessage(arrGrp[0]);
             }
