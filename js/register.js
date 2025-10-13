@@ -1,3 +1,5 @@
+// importing methods from anime.js for smoother animated transitions
+import { animate, createTimeline, createTimer, text, stagger} from 'https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.esm.min.js'; 
 import { URLParam } from "./classURLParam.js";
 import { animeIntiate } from "./animeInIt.js";
 import { DynamicFormValidator } from "./classForm.js";
@@ -60,7 +62,7 @@ import { Pagination } from "./classPagination.js";
 
     animeIntiate.animateRegister();
 
-    const formClass = new DynamicFormValidator ({
+     const formClass = new DynamicFormValidator ({
       formElem :document.querySelector("#application-form"),
       progressSection : document.querySelector("#application-form .comm-form"),
       progressSelector : ".form-section",
@@ -72,9 +74,9 @@ import { Pagination } from "./classPagination.js";
     formClass.addOptions(document.querySelector("#formIndustry"), industryOpt);
     formClass.addCheckBox({checkboxGrp: document.querySelector("#keyFocus"), array:focusAreaOpt, name:"focusArea"});
     formClass.initializeSelectEvent({selectElem:document.querySelector("#socialHandle"), parentElem:document.querySelector("#socialGrp")})
-    formClass.initForm() 
+    formClass.initForm();
 
-    
+    faq({faqElem:document.querySelector(".faq-container"), selectorClass:"faq-item", answerClass:"faq-ans", hideClass:"hide"})
   });
   
   
@@ -195,4 +197,29 @@ function searchFeature(data, parameter, inputElem, buttonElem) {
 }
 
 
+function faq({faqElem, selectorClass, answerClass, hideClass}){  
+  Array.from(faqElem.getElementsByClassName(`${answerClass}`)).forEach((elem,index) => { if (index > 0) elem.classList.add(hideClass)});
+  faqElem.addEventListener("click", (event)=> {
+    if (event.target.closest(`.${selectorClass}`)) {
+      Array.from(faqElem.getElementsByClassName(`${answerClass}`)).forEach(elem =>  elem.classList.add(hideClass));
+      let ansElm = event.target.closest(`.${selectorClass}`).getElementsByClassName(answerClass)[0];
+      if (ansElm.classList.contains(hideClass)) {
+        animate(ansElm, {
+          opacity:[{from:0, to:1, ease: 'inOutSine', duration: 900 }],
+        });
+        // animate(event.target.closest(`.${selectorClass}`), {
+        //   height:[{to:150, ease: 'inOutSine', duration: 900 }],
+         
+        // })
+        setTimeout( ()=> {
+          ansElm.classList.remove(hideClass)
+        }, 200)
+      }  
+      else {
+        ansElm.classList.add(hideClass);
+
+      }
+    }
+  });
+}
 
