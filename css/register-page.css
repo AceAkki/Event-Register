@@ -175,7 +175,8 @@ content: "";
 
 .hero-content {
   position: relative;
-  padding: 1rem;
+  margin: auto 1rem;
+  padding: 2rem 1rem;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -184,8 +185,14 @@ content: "";
 
 .hero-content > .sec-title {
   font-size: 3.5rem;
-  font-weight: 900;
+  font-weight: 800;
 }
+
+.hero-content .sec-sub-title {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
 
 .hero-banner-wrapper {
   display: flex;

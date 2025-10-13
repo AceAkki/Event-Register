@@ -91,6 +91,10 @@ section {
   transition: all 0.7s ease-in-out;
 }
 
+.hide {
+  display: none!important;
+}
+
 .primary-font {
   color: var(--clr-primary)!important;
 }
@@ -103,6 +107,42 @@ section {
 #sectionJoin {
   scroll-margin-top: var(--header-height);
   /* scroll-margin-top: 200px; */
+}
+
+
+.h-light {
+  position: relative;
+  font-weight: 700;
+  padding: 0 10px;
+}
+.h-light:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the pseudo element right under the content */
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background: linear-gradient(to top, var(--clr-primary) 100%, transparent 50%);
+  animation-name: highlight;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  /* Make the animation run back and forth */
+}
+
+@keyframes highlight {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
 }
 
 /* Index  */
@@ -266,7 +306,7 @@ section.logo-sec {
 
 /* Logo swiper ends */
 
-.sec-title,
+.sec-title, .sec-sub-title,
 .sec-para {
   color: var(--clr-tertiary-light);
 }
@@ -648,6 +688,32 @@ section.logo-sec {
 
 /* join section end */
 
+/* FAQ start */
+
+.faq-container {
+  padding: 0.5rem;
+}
+
+.faq-item {
+  background: var(--clr-secondary);
+  padding: 1.2rem 1rem;
+  margin: 1rem 0;
+  border: 2px solid;
+  border-color: var(--clr-dark-two);
+  border-radius: 1rem;
+}
+
+.faq-item h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem;
+}
+
+.faq-item .faq-ans {
+  margin: 1rem;
+}
+/* FAQ end */
+
 /* ----------------------------------------------------------------- 
  */
 
@@ -827,6 +893,13 @@ section.logo-sec {
   }
 
   /* join section */
+
+  /* FAQ section */
+
+  .faq-item h3 {
+    font-size: 1.5rem;
+  }
+  /* FAQ section */
 }
 
 @media (min-width: 1280px) {
