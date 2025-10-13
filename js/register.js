@@ -1,6 +1,6 @@
 import { URLParam } from "./classURLParam.js";
 import { animeIntiate } from "./animeInIt.js";
-import { formClass } from "./classForm.js";
+import { DynamicFormValidator } from "./classForm.js";
 import { Pagination } from "./classPagination.js";
 
 (function init() {
@@ -60,10 +60,21 @@ import { Pagination } from "./classPagination.js";
 
     animeIntiate.animateRegister();
 
-    formClass.proForm(
-      document.querySelector("#formIndustry"),
-      document.querySelector("#keyFocus")
-    );
+    const formClass = new DynamicFormValidator ({
+      formElem :document.querySelector("#application-form"),
+      progressSection : document.querySelector("#application-form .comm-form"),
+      progressSelector : ".form-section",
+    });
+
+    let industryOpt = [ "Technology", "Finance", "Healthcare", "Education", "Manufacturing", "Consulting", "Other"];        
+    let focusAreaOpt = ["AI & Innovation", "Cybersecurity", "Strategy & Leadership", "Digital Transformation", "Change Management", "Other"];
+    
+    formClass.addOptions(document.querySelector("#formIndustry"), industryOpt);
+    formClass.addCheckBox({checkboxGrp: document.querySelector("#keyFocus"), array:focusAreaOpt, name:"focusArea"});
+    formClass.initializeSelectEvent({selectElem:document.querySelector("#socialHandle"), parentElem:document.querySelector("#socialGrp")})
+    formClass.initForm() 
+
+    
   });
   
   
@@ -182,5 +193,6 @@ function searchFeature(data, parameter, inputElem, buttonElem) {
         );
   });
 }
+
 
 
