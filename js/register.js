@@ -9,8 +9,8 @@ import { Pagination } from "./classPagination.js";
   const classURLParam = new URLParam ();
 
   document.addEventListener("DOMContentLoaded", (fn) => {
-    checkTrackURL ()
-    setTrackURL ()
+    checkTrackURL ();
+    setTrackURL ();
 
     fetch(`json/data-JSON.json`)
       .then((response) => response.json())
@@ -222,4 +222,5 @@ function faq({faqElem, selectorClass, answerClass, hideClass}){
     }
   });
 }
+
 
