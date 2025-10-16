@@ -2,12 +2,14 @@
 Author : Akshay P
 Last Modified On :  2025 Sept 24th
 Last Modified By : Akshay P
+
 Important : 
   -  needs constructor parameters filled to work properly, 
   -  depends on URLParam class for state management, 
   -  need item creator function that will create the elements and return it, 
   -  needs phosphor-icons library for icons
 Comments : pagesize, max page navigation, sorting list can be controlled with constructor params 
+
 Change Log : 
   [2025-09-24] - Added this.stringParam parameter to avoid mistakes in future 
   [2025-09-24] - Updated logic for fallback if page limit is large, now takes user to the last page  
@@ -322,4 +324,5 @@ export class Pagination {
 
 
 }
+
 
