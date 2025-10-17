@@ -103,6 +103,7 @@ section {
   color: var(--clr-tertiary-light)!important;
 }
 
+
 #highlights,
 #sectionJoin {
   scroll-margin-top: var(--header-height);

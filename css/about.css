@@ -1,0 +1,10 @@
+.title-wrap {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+.title-wrap .title {
+    color: var(--clr-tertiary-light);
+    font-size: 4.2rem;
+    font-weight: 700;
+}
