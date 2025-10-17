@@ -58,7 +58,7 @@ export class DynamicFormValidator {
         });
     }
 
-    addInputField({parentElem, value, fieldClasslist, }){
+    addInputField({parentElem, value, fieldClasslist}){
         if (!(value === "0")) {
             // if element with id of value doesnt exist it creates it
             if (!document.getElementById(value)) {

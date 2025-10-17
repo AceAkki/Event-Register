@@ -202,14 +202,14 @@ function faq({faqElem, selectorClass, answerClass, hideClass}){
   Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem,index) => { if (index > 0) elem.classList.add(hideClass)});
   // event is deleagated to parent element of faq container
   faqElem.addEventListener("click", (event)=> {
+    Array.from(faqElem.getElementsByClassName(answerClass)).forEach(elem => {
+      elem.classList.add(hideClass);
+      //elem.closest(`.${selectorClass}`).removeAttribute("style");
+      animate(elem.closest(`.${selectorClass}`), {
+        height:[{to: 86, ease: 'inOutSine', duration: 900 }],
+      })
+    });
     if (event.target.closest(`.${selectorClass}`)) {
-      Array.from(faqElem.getElementsByClassName(answerClass)).forEach(elem => {
-        elem.classList.add(hideClass);
-        //elem.closest(`.${selectorClass}`).removeAttribute("style");
-        animate(elem.closest(`.${selectorClass}`), {
-          height:[{to: 86, ease: 'inOutSine', duration: 900 }],
-        })
-      });
       
       let mainElm = event.target.closest(`.${selectorClass}`);
       let mainHeight = Math.round(mainElm.getBoundingClientRect().height);
@@ -217,14 +217,13 @@ function faq({faqElem, selectorClass, answerClass, hideClass}){
       let ansHeight;
       let targetHeight = mainHeight + 20;
 
-      
       if (ansElm.classList.contains(hideClass)) {
         ansElm.classList.remove(hideClass);
         ansHeight = Math.round(ansElm.getBoundingClientRect().height);
         animate(ansElm, {
           opacity:[{from:0, to:1, ease: 'inOutSine', duration: 900 }],
         });
-        animate(event.target.closest(`.${selectorClass}`), {
+        animate(mainElm, {
           height:[{from: mainHeight ,to: targetHeight + ansHeight, ease: 'inOutSine', duration: 900 }],
         })
       }  
