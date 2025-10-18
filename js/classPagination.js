@@ -3,7 +3,6 @@ Author : Akshay P
 Last Modified On :  2025 Sept 24th
 Last Modified By : Akshay P
 
-
 Important : 
   -  needs constructor parameters filled to work properly, 
   -  depends on URLParam class for state management, 
@@ -325,6 +324,7 @@ export class Pagination {
 
 
 }
+
 
 
 
