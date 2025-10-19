@@ -6,9 +6,12 @@
   --clr-light-two: #414a4c;
 
   --clr-primary: #474e93;
+  /* --clr-primary: #5c6bc0; */
   --clr-primary-light: #7e5cad;
-  --clr-secondary: #a294f9;
-  --clr-secondary-light: #cdc1ff;
+  /* --clr-secondary: #a294f9; */
+  /* --clr-secondary-light: #cdc1ff; */
+  --clr-secondary: #8c9eff;
+  --clr-secondary-light: #b3b7ff;
   --clr-tertiary: #e5d9f2;
   --clr-tertiary-light: #f5efff;
 }
@@ -92,24 +95,22 @@ section {
 }
 
 .hide {
-  display: none!important;
+  display: none !important;
 }
 
 .primary-font {
-  color: var(--clr-primary)!important;
+  color: var(--clr-primary) !important;
 }
 
 .light-font {
-  color: var(--clr-tertiary-light)!important;
+  color: var(--clr-tertiary-light) !important;
 }
-
 
 #highlights,
 #sectionJoin {
   scroll-margin-top: var(--header-height);
   /* scroll-margin-top: 200px; */
 }
-
 
 .h-light {
   position: relative;
@@ -307,7 +308,8 @@ section.logo-sec {
 
 /* Logo swiper ends */
 
-.sec-title, .sec-sub-title,
+.sec-title,
+.sec-sub-title,
 .sec-para {
   color: var(--clr-tertiary-light);
 }
@@ -715,15 +717,73 @@ section.logo-sec {
 }
 /* FAQ end */
 
-/* ----------------------------------------------------------------- 
- */
+/* Testime start */
+
+.testimonial-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.testim-card-wrap {
+  background: transparent;
+  display: flex;
+}
+
+.testim-card {
+  background: var(--clr-tertiary-light);
+  border-radius: 0.8rem;
+  max-width: 100%;
+  max-height: 100%;
+  gap: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-image-wrap {
+  position: relative;
+  display: inline-block; /* Or block depending on layout */
+  border-radius: 10px;
+  overflow: hidden; /* Clips pseudo-element and image to border radius */
+}
+
+.card-image-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.card-image-wrap::after {
+  content: "";
+  position: absolute;
+  max-width: 80%;
+  max-height: 80%;
+  top: 20%;
+  bottom: -20%;
+  left: 10%;
+  right: 10%;
+  z-index: 1;
+  border-radius: 100%;
+  background: var(--clr-secondary);
+  pointer-events: none;
+}
+
+.card-content-wrap {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+/* Testime end */
 
 .hidden {
   display: none;
 }
 
-
-
+/* ----------------------------------------------------------------- 
+ */
 @media (min-width: 576px) {
   .home-hero {
     margin-bottom: 24px;
@@ -901,6 +961,19 @@ section.logo-sec {
     font-size: 1.5rem;
   }
   /* FAQ section */
+
+  /* Testim start */
+
+  .testimonial-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .testim-card {
+    gap: 0.5rem;
+  }
+
+  /* Testim end */
 }
 
 @media (min-width: 1280px) {
