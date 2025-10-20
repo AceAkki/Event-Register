@@ -6,11 +6,10 @@
   --clr-light-two: #414a4c;
 
   --clr-primary: #474e93;
-  /* --clr-primary: #5c6bc0; */
   --clr-primary-light: #7e5cad;
-  /* --clr-secondary: #a294f9; */
+  --clr-secondary: #a294f9;
   /* --clr-secondary-light: #cdc1ff; */
-  --clr-secondary: #8c9eff;
+  /* --clr-secondary: #8c9eff; */
   --clr-secondary-light: #b3b7ff;
   --clr-tertiary: #e5d9f2;
   --clr-tertiary-light: #f5efff;
@@ -33,19 +32,22 @@ body {
 }
 
 .navbar-nav {
-  background-color: var(--clr-secondary);
-  border-radius: 20px;
+  /* background-color: var(--clr-tertiary-light); */
+  border-radius: 10px;
   padding: 0 20px;
 }
 
 .nav-link {
-  color: var(--clr-dark-two);
-}
+  color: var(--clr-secondary);
+  font-weight: 500;
+  margin: 0 0.1rem;
+  transition: all 0.2s ease-in;
+} 
 
 .nav-link:active,
 .nav-link:hover {
-  background-color: var(--clr-dark-two);
-  color: var(--clr-tertiary-light);
+  /* background-color: var(--clr-secondary); */
+  color: var(--clr-secondary-light);
   transition: 0.5s ease-in-out;
 }
 
@@ -192,9 +194,9 @@ section.hero-section {
   color: #4d5566;
 }
 .hero-title-txt {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.4;
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.1;
   color: var(--clr-tertiary-light);
   position: relative;
 }
@@ -215,10 +217,10 @@ section.hero-section {
 }
 .highlighter {
   font-weight: 700;
-  background-color: var(--clr-secondary-light);
+  background-color: var(--clr-secondary);
   color: var(--clr-med);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--clr-secondary-light);
   border-radius: 16px;
   padding: 2px 10px;
   position: relative;
@@ -256,9 +258,9 @@ section.hero-section {
   margin: 2% 0;
 }
 
-.home-hero-wrapper .button {
-  background-color: var(--clr-light-two);
-  color: var(--clr-tertiary-light);
+.hero-btns .button {
+  background-color: var(--clr-tertiary-light);
+  color: var(--clr-primary-light);
   border-radius: 15px;
   padding: 15px;
   font-size: 24px;
@@ -290,10 +292,10 @@ section.logo-sec {
 
 .logo-card {
   padding: 20px;
-  border: 2px solid var(--clr-secondary);
+  /* border: 2px solid var(--clr-secondary);
   border-radius: 5px;
   box-shadow: inset 0 0 10px var(--clr-tertiary), 0 0 10px var(--clr-tertiary),
-    0 0 10px var(--clr-tertiary), 0 0 10px var(--clr-tertiary);
+    0 0 10px var(--clr-tertiary), 0 0 10px var(--clr-tertiary); */
 
   display: flex;
   align-items: center;
@@ -308,6 +310,14 @@ section.logo-sec {
 
 /* Logo swiper ends */
 
+.sec-title {
+  font-size: 2.4rem;
+}
+
+.sec-sub-title {
+  font-size: 1.7rem;
+}
+
 .sec-title,
 .sec-sub-title,
 .sec-para {
@@ -321,16 +331,21 @@ section.logo-sec {
 }
 
 .hightlight-cards .text-card {
-  background: var(--clr-primary-light);
+  background: var(--clr-secondary);
   border-radius: 20% 10%;
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
   backdrop-filter: blur(18.1px);
   -webkit-backdrop-filter: blur(18.1px);
   border: 1px solid var(--clr-secondary-light);
-  color: var(--clr-tertiary);
+  color: var(--clr-dark-two);
 
   margin: 20px 0;
   padding: 40px 25px;
+  transition: all 0.1s ease-in;
+}
+
+.hightlight-cards .text-card h4{
+  font-weight: 600;
 }
 
 .hightlight-cards .bg {
@@ -363,12 +378,19 @@ section.logo-sec {
   padding: 20px 30px;
   min-height: 300px;
   border-radius: 20px;
-  background-color: var(--clr-primary-light);
-  box-shadow: 0 0 0 2px var(--clr-secondary-light),
-    8px 8px 0 0 var(--clr-secondary-light);
-  color: var(--clr-tertiary);
+  background-color: var(--clr-secondary);
+  /* box-shadow: 0 0 0 2px var(--clr-secondary-light),
+    8px 8px 0 0 var(--clr-secondary-light); */
+  color: var(--clr-dark-two);
 }
 
+.who-wrap .text-card h4{ 
+  font-weight: 600;
+}
+
+.who-wrap .text-card p{ 
+  margin: 0 0 0.5rem;
+}
 .who-wrap .bg {
   background-image: url("../img/virtuconf-bg-dark.svg");
   background-position: bottom right;
@@ -828,10 +850,10 @@ section.logo-sec {
     max-width: 40%;
   }
   .hero-title-txt {
-    font-size: 50px;
+    font-size: 3rem;
   }
   .hero-left .comm-para p {
-    font-size: 20px;
+    font-size: 1.1rem;
   }
   .home-slide {
     padding: 1% 5% 0.5%;

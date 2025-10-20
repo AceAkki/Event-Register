@@ -37,7 +37,7 @@
 }
 
 .select-card .btn {
-  background-color: var(--clr-secondary-light);
+  background-color: var(--clr-tertiary-light);
   color: var(--clr-dark-two);
   font-weight: 500;
   font-size: 20px;
@@ -373,6 +373,11 @@ content: "";
   min-height: 1.5rem;
   max-height: 1.5rem;
   border-radius: 1rem;
+}
+
+.error-msg {
+  color: var(--clr-tertiary-light);
+  font-weight: 300;
 }
 
 .who-cards-wrapper {
