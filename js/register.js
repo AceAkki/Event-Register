@@ -68,6 +68,7 @@ import { Pagination } from "./classPagination.js";
 
     animeIntiate.animateRegister();
     await loadHTML("./pro-sec.html", "#Professional");
+    await loadHTML("./stud-sec.html", "#Student");
 
     const formClass = new DynamicFormValidator({
       formElem: document.querySelector("#application-form"),

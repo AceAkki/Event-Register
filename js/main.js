@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("scroll", ()=>{
       if (scrollY > 20) {
-        this.querySelector(".navbar").classList.add("glass-dark");
+        this.querySelector(".navbar").classList.add("glass-dark", "scroll-nav");
       } else {
-        this.querySelector(".navbar").classList.remove("glass-dark");        
+        this.querySelector(".navbar").classList.remove("glass-dark", "scroll-nav");        
       }
     })
   });
