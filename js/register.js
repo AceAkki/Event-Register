@@ -1,16 +1,22 @@
 // importing methods from anime.js for smoother animated transitions
-import { animate, createTimeline, createTimer, text, stagger} from 'https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.esm.min.js'; 
+import {
+  animate,
+  createTimeline,
+  createTimer,
+  text,
+  stagger,
+} from "https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.esm.min.js";
 import { URLParam } from "./classURLParam.js";
 import { animeIntiate } from "./animeInIt.js";
 import { DynamicFormValidator } from "./classForm.js";
 import { Pagination } from "./classPagination.js";
 
 (function init() {
-  const classURLParam = new URLParam ();
+  const classURLParam = new URLParam();
 
-  document.addEventListener("DOMContentLoaded", (fn) => {
-    checkTrackURL ()
-    setTrackURL ()
+  document.addEventListener("DOMContentLoaded", async (fn) => {
+    checkTrackURL();
+    setTrackURL();
 
     fetch(`json/data-JSON.json`)
       .then((response) => response.json())
@@ -18,14 +24,14 @@ import { Pagination } from "./classPagination.js";
         const paginationMain = new Pagination({
           pageSize: 8,
           maxPageNum: 3,
-          headerClassSelector : "navbar",
-          itemClassSelector : "event-item-card",
+          headerClassSelector: "navbar",
+          itemClassSelector: "event-item-card",
           enableSortList: true,
           itemCreator: generateItems,
         });
 
-        searchFeature(data, "track", "#eventTrack", `#searchBtn`); 
-        searchFeature(data, "category", "#eventCategory", `#searchBtn`); 
+        searchFeature(data, "track", "#eventTrack", `#searchBtn`);
+        searchFeature(data, "category", "#eventCategory", `#searchBtn`);
 
         paginationMain.initiatePagination(
           data,
@@ -61,26 +67,53 @@ import { Pagination } from "./classPagination.js";
     });
 
     animeIntiate.animateRegister();
+    await loadHTML("./pro-sec.html", "#Professional");
 
-     const formClass = new DynamicFormValidator ({
-      formElem :document.querySelector("#application-form"),
-      progressSection : document.querySelector("#application-form .comm-form"),
-      progressSelector : ".form-section",
+    const formClass = new DynamicFormValidator({
+      formElem: document.querySelector("#application-form"),
+      progressSection: document.querySelector("#application-form .comm-form"),
+      progressSelector: ".form-section",
     });
 
-    let industryOpt = [ "Technology", "Finance", "Healthcare", "Education", "Manufacturing", "Consulting", "Other"];        
-    let focusAreaOpt = ["AI & Innovation", "Cybersecurity", "Strategy & Leadership", "Digital Transformation", "Change Management", "Other"];
-    
+    let industryOpt = [
+      "Technology",
+      "Finance",
+      "Healthcare",
+      "Education",
+      "Manufacturing",
+      "Consulting",
+      "Other",
+    ];
+    let focusAreaOpt = [
+      "AI & Innovation",
+      "Cybersecurity",
+      "Strategy & Leadership",
+      "Digital Transformation",
+      "Change Management",
+      "Other",
+    ];
+
     formClass.addOptions(document.querySelector("#formIndustry"), industryOpt);
-    formClass.addCheckBox({checkboxGrp: document.querySelector("#keyFocus"), array:focusAreaOpt, name:"focusArea"});
-    formClass.initializeSelectEvent({selectElem:document.querySelector("#socialHandle"), parentElem:document.querySelector("#socialGrp")})
+    formClass.addCheckBox({
+      checkboxGrp: document.querySelector("#keyFocus"),
+      array: focusAreaOpt,
+      name: "focusArea",
+    });
+    formClass.initializeSelectEvent({
+      selectElem: document.querySelector("#socialHandle"),
+      parentElem: document.querySelector("#socialGrp"),
+    });
     formClass.initForm();
 
-    faq({faqElem:document.querySelector(".faq-container"), selectorClass:"faq-item", answerClass:"faq-ans", hideClass:"hide"})
+    faq({
+      faqElem: document.querySelector(".faq-container"),
+      selectorClass: "faq-item",
+      answerClass: "faq-ans",
+      hideClass: "hide",
+    });
   });
-  
-  
-  function checkTrackURL (param = "track") {
+
+  function checkTrackURL(param = "track") {
     let [windowPath, params] = classURLParam.getURL();
     const selectCards = document.querySelector("#select-cards");
     const docMap = {
@@ -97,7 +130,7 @@ import { Pagination } from "./classPagination.js";
 
     if (params.has(param)) {
       let value = params.get(param);
-      console.log(value)
+      console.log(value);
       let selectedDoc = docMap[value];
       if (selectedDoc) {
         selectedDoc.classList.remove("hidden");
@@ -110,33 +143,50 @@ import { Pagination } from "./classPagination.js";
     }
   }
 
-  function setTrackURL (param = "track") {
-  // maps with buttons 
-  const btnMap = {
-    Pros: document.querySelector("#Pros"),
-    Students: document.querySelector("#Students"),
-    StartUps: document.querySelector("#StartUps"),
-  };
-  
-  // gets all keys of btnMap
-  Object.keys(btnMap).forEach((key) => {
-    // adds event listener to all buttons
-    btnMap[key].addEventListener("click", () => {
-      // sets URL param with destructured getURL()
-      classURLParam.setURL(param, key);
-      checkTrackURL ();
-    });
-  });
-  }
+  function setTrackURL(param = "track") {
+    // maps with buttons
+    const btnMap = {
+      Pros: document.querySelector("#Pros"),
+      Students: document.querySelector("#Students"),
+      StartUps: document.querySelector("#StartUps"),
+    };
 
+    // gets all keys of btnMap
+    Object.keys(btnMap).forEach((key) => {
+      // adds event listener to all buttons
+      btnMap[key].addEventListener("click", () => {
+        // sets URL param with destructured getURL()
+        classURLParam.setURL(param, key);
+        checkTrackURL();
+      });
+    });
+  }
 })();
 
+async function loadHTML(apiURL, selector) {
+  let htmlTxt = await fetchFile(apiURL);
+  console.log(htmlTxt);
+  document.querySelector(selector).innerHTML = htmlTxt;
+}
+
+async function fetchFile(apiURL) {
+  try {
+    const response = await fetch(apiURL);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const data = await response.text();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 // callback function to create Items
-function generateItems (data) {
+function generateItems(data) {
   let item = document.createElement("div");
   item.classList.add("col", "col-lg-3", "col-med-3", "col-sm-12", "my-3");
-  item.innerHTML =`
+  item.innerHTML = `
   <div class="event-item-card">
     <h3 class="event-title"> ${data.title}</h3>
       <p class="event-desc">
@@ -159,58 +209,59 @@ function generateItems (data) {
         </h5>
       </div>
   </div>
-  ` 
+  `;
   return item;
 }
 
-
 function searchFeature(data, parameter, inputElem, buttonElem) {
   let array = [];
-  data.forEach(obj => {
+  data.forEach((obj) => {
     //console.log(obj)
     array.push(obj[parameter]);
   });
   let uniqueArray = [...new Set(array)];
-  uniqueArray.forEach(arr => {
+  uniqueArray.forEach((arr) => {
     let option = document.createElement("option");
     option.textContent = arr;
-    document.querySelector(inputElem).appendChild(option)
-  })
-  document.querySelector(buttonElem).addEventListener("click", ()=> {
+    document.querySelector(inputElem).appendChild(option);
+  });
+  document.querySelector(buttonElem).addEventListener("click", () => {
     let value = document.querySelector(inputElem).value;
-    let searchData = data.filter(obj => obj[parameter] === value);
-    console.log(value)
+    let searchData = data.filter((obj) => obj[parameter] === value);
+    console.log(value);
     const paginationMain = new Pagination({
-          pageSize: 8,
-          maxPageNum: 3,
-          headerClassSelector : "navbar",
-          itemClassSelector : "event-item-card",
-          enableSortList: true,
-          itemCreator: generateItems,
-        });
+      pageSize: 8,
+      maxPageNum: 3,
+      headerClassSelector: "navbar",
+      itemClassSelector: "event-item-card",
+      enableSortList: true,
+      itemCreator: generateItems,
+    });
     paginationMain.initiatePagination(
-          searchData,
-          document.querySelector(".pagination"),
-          document.querySelector(".event-wrap")
-        );
+      searchData,
+      document.querySelector(".pagination"),
+      document.querySelector(".event-wrap")
+    );
   });
 }
 
-
-function faq({faqElem, selectorClass, answerClass, hideClass}){  
+function faq({ faqElem, selectorClass, answerClass, hideClass }) {
   //selects all answer class and except the first one rest are hidden
-  Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem,index) => { if (index > 0) elem.classList.add(hideClass)});
+  Array.from(faqElem.getElementsByClassName(answerClass)).forEach(
+    (elem, index) => {
+      if (index > 0) elem.classList.add(hideClass);
+    }
+  );
   // event is deleagated to parent element of faq container
-  faqElem.addEventListener("click", (event)=> {
-    Array.from(faqElem.getElementsByClassName(answerClass)).forEach(elem => {
+  faqElem.addEventListener("click", (event) => {
+    Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem) => {
       elem.classList.add(hideClass);
       //elem.closest(`.${selectorClass}`).removeAttribute("style");
       animate(elem.closest(`.${selectorClass}`), {
-        height:[{to: 86, ease: 'inOutSine', duration: 900 }],
-      })
+        height: [{ to: 150, ease: "inOutSine", duration: 900 }],
+      });
     });
     if (event.target.closest(`.${selectorClass}`)) {
-      
       let mainElm = event.target.closest(`.${selectorClass}`);
       let mainHeight = Math.round(mainElm.getBoundingClientRect().height);
       let ansElm = mainElm.getElementsByClassName(answerClass)[0];
@@ -221,12 +272,19 @@ function faq({faqElem, selectorClass, answerClass, hideClass}){
         ansElm.classList.remove(hideClass);
         ansHeight = Math.round(ansElm.getBoundingClientRect().height);
         animate(ansElm, {
-          opacity:[{from:0, to:1, ease: 'inOutSine', duration: 900 }],
+          opacity: [{ from: 0, to: 1, ease: "inOutSine", duration: 900 }],
         });
         animate(mainElm, {
-          height:[{from: mainHeight ,to: targetHeight + ansHeight, ease: 'inOutSine', duration: 900 }],
-        })
-      }  
+          height: [
+            {
+              from: mainHeight,
+              to: targetHeight + ansHeight,
+              ease: "inOutSine",
+              duration: 900,
+            },
+          ],
+        });
+      }
     }
   });
 }
