@@ -90,6 +90,14 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.glass-dark {
+  background: rgba(0, 0, 0, 0.71);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  backdrop-filter: blur(18.1px);
+  -webkit-backdrop-filter: blur(18.1px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
 .glow {
   box-shadow: 0 0 5px #cdc1ff, 0 0 10px #cdc1ff, 0 0 20px #cdc1ff,
     0 0 40px #cdc1ff;
