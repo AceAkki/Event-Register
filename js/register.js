@@ -166,7 +166,6 @@ import { Pagination } from "./classPagination.js";
 
 async function loadHTML(apiURL, selector) {
   let htmlTxt = await fetchFile(apiURL);
-  console.log(htmlTxt);
   document.querySelector(selector).innerHTML = htmlTxt;
 }
 
@@ -248,44 +247,50 @@ function searchFeature(data, parameter, inputElem, buttonElem) {
 
 function faq({ faqElem, selectorClass, answerClass, hideClass }) {
   //selects all answer class and except the first one rest are hidden
-  Array.from(faqElem.getElementsByClassName(answerClass)).forEach(
-    (elem, index) => {
+  Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem, index) => {
       if (index > 0) elem.classList.add(hideClass);
     }
   );
+
   // event is deleagated to parent element of faq container
   faqElem.addEventListener("click", (event) => {
-    Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem) => {
-      elem.classList.add(hideClass);
-      //elem.closest(`.${selectorClass}`).removeAttribute("style");
-      animate(elem.closest(`.${selectorClass}`), {
-        height: [{ to: 150, ease: "inOutSine", duration: 900 }],
-      });
-    });
-    if (event.target.closest(`.${selectorClass}`)) {
-      let mainElm = event.target.closest(`.${selectorClass}`);
-      let mainHeight = Math.round(mainElm.getBoundingClientRect().height);
-      let ansElm = mainElm.getElementsByClassName(answerClass)[0];
+    let baseHeight = 20;
+    
+
+    let clickedFAQ = event.target.closest(`.${selectorClass}`);
+    if (clickedFAQ) {
+      let mainHeight = Math.round(clickedFAQ.getBoundingClientRect().height);
+      let ansElm = clickedFAQ.getElementsByClassName(answerClass)[0];
       let ansHeight;
-      let targetHeight = mainHeight + 20;
+      let targetHeight = mainHeight  + baseHeight;
 
       if (ansElm.classList.contains(hideClass)) {
         ansElm.classList.remove(hideClass);
         ansHeight = Math.round(ansElm.getBoundingClientRect().height);
         animate(ansElm, {
-          opacity: [{ from: 0, to: 1, ease: "inOutSine", duration: 900 }],
+          opacity: [{ from: 0, to: 1, ease: "inOutCirc", duration: 900 }],
         });
-        animate(mainElm, {
+        animate(clickedFAQ, {
           height: [
             {
               from: mainHeight,
               to: targetHeight + ansHeight,
               ease: "inOutSine",
-              duration: 900,
+              duration: 700,
             },
           ],
         });
       }
+    } else {
+Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem) => {
+      let faqItem = elem.closest(`.${selectorClass}`);
+      console.log(faqItem.getBoundingClientRect().height)
+      elem.classList.add(hideClass);
+      // animate(faqItem, {
+      //   height: [{ to: totalHeight, ease: "inOutSine", duration: 900 }],
+      // });
+    });
     }
+
   });
 }
