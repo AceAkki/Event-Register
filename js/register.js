@@ -254,6 +254,12 @@ function faq({ faqElem, selectorClass, answerClass, hideClass }) {
 
   // event is deleagated to parent element of faq container
   faqElem.addEventListener("click", (event) => {
+    Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem) => {
+      let faqItem = elem.closest(`.${selectorClass}`);
+      elem.classList.add(hideClass);
+      faqItem.removeAttribute("style");
+    });
+
     let baseHeight = 20;
     
 
@@ -281,15 +287,6 @@ function faq({ faqElem, selectorClass, answerClass, hideClass }) {
           ],
         });
       }
-    } else {
-Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem) => {
-      let faqItem = elem.closest(`.${selectorClass}`);
-      console.log(faqItem.getBoundingClientRect().height)
-      elem.classList.add(hideClass);
-      // animate(faqItem, {
-      //   height: [{ to: totalHeight, ease: "inOutSine", duration: 900 }],
-      // });
-    });
     }
 
   });
