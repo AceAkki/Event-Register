@@ -69,13 +69,25 @@ import { Pagination } from "./classPagination.js";
     animeIntiate.animateRegister();
     await loadHTML("./pro-sec.html", "#Professional");
     await loadHTML("./stud-sec.html", "#Student");
-
+    await loadHTML("./startup-sec.html", "#Startup");
+    //initForms() 
+    
     const formClass = new DynamicFormValidator({
-      formElem: document.querySelector("#application-form"),
-      progressSection: document.querySelector("#application-form .comm-form"),
+      formElem: document.querySelector("#application-form-pros"),
+      progressSection: document.querySelector("#application-form-pros .comm-form"),
       progressSelector: ".form-section",
     });
-
+    const formClassOne = new DynamicFormValidator({
+      formElem: document.querySelector("#application-form-students"),
+      progressSection: document.querySelector("#application-form-students .comm-form"),
+      progressSelector: ".form-section",
+    });
+    const formClassTwo = new DynamicFormValidator({
+      formElem: document.querySelector("#application-form-startups"),
+      progressSection: document.querySelector("#application-form-startups .comm-form"),
+      progressSelector: ".form-section",
+    });
+    
     let industryOpt = [
       "Technology",
       "Finance",
@@ -105,6 +117,8 @@ import { Pagination } from "./classPagination.js";
       parentElem: document.querySelector("#socialGrp"),
     });
     formClass.initForm();
+    formClassOne.initForm();
+    formClassTwo.initForm();
 
     faq({
       faqElem: document.querySelector(".faq-container"),
@@ -161,6 +175,11 @@ import { Pagination } from "./classPagination.js";
         checkTrackURL();
       });
     });
+  }
+  
+  function initForms() {
+    let [windowPath, params] = classURLParam.getURL();
+    console.log(params.get("track"))
   }
 })();
 
@@ -254,22 +273,35 @@ function faq({ faqElem, selectorClass, answerClass, hideClass }) {
 
   // event is deleagated to parent element of faq container
   faqElem.addEventListener("click", (event) => {
+     let baseHeight = 20;
+    
     Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem) => {
       let faqItem = elem.closest(`.${selectorClass}`);
+      let faqHeight = faqItem.getBoundingClientRect().height;
+      let ansHeight = elem.getBoundingClientRect().height;
+      let targetHeight = (ansHeight === 0) ? faqHeight : faqHeight - ansHeight - baseHeight;
       elem.classList.add(hideClass);
-      faqItem.removeAttribute("style");
+      animate(faqItem, {
+         height: [
+           {
+             to: targetHeight,
+             ease: "inOutSine",
+             duration: 700,
+           },
+         ],
+      });
     });
 
-    let baseHeight = 20;
-    
+   
 
     let clickedFAQ = event.target.closest(`.${selectorClass}`);
+    //console.log(clickedFAQ, !clickedFAQ.getElementsByClassName(hideClass)[0], hideClass)
     if (clickedFAQ) {
       let mainHeight = Math.round(clickedFAQ.getBoundingClientRect().height);
       let ansElm = clickedFAQ.getElementsByClassName(answerClass)[0];
       let ansHeight;
       let targetHeight = mainHeight  + baseHeight;
-
+      console.log(ansElm)
       if (ansElm.classList.contains(hideClass)) {
         ansElm.classList.remove(hideClass);
         ansHeight = Math.round(ansElm.getBoundingClientRect().height);
