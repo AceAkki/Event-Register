@@ -17,7 +17,7 @@
                         supercharge your journey!
 
                         <a target="_blank" rel="noreferrer">Register with your .edu email for a student
-                                discount!</em>
+                            discount!</em>
                     </p>
                 </div>
 
@@ -41,25 +41,26 @@
                     <div class="hero-banner-wrapper">
                         <div class="hero-banner-wrap">
                             <div class="icon-wrap">
-                                <i class="ph ph-users-three"></i>
+                                <i class="ph ph-graduation-cap"></i>
                             </div>
                             <p>
-                                <strong>2,0000+ Students from 50+ countries. </strong> <br>
-                                Join students today.
+                                <strong>50,000+ Students from 100+ countries. </strong> <br>
+                                Join a global network of future leaders.
                             </p>
                         </div>
                     </div>
                     <div class="hero-banner-wrapper mt-5">
                         <div class="hero-banner-wrap">
                             <div class="icon-wrap">
-                                <i class="ph ph-currency-circle-dollar"></i>
+                                <i class="ph ph-book-open"></i>
                             </div>
                             <p>
-                                <strong>60% represent $500M+ companies. </strong> <br>
-                                Join top industry leaders today.
+                                <strong>80% excel in STEM fields. </strong> <br>
+                                Prepare for the future with the best in education.
                             </p>
                         </div>
                     </div>
+
 
                     <div class="section-para-wrap pt-5 mt-5">
                         <h2 class="sec-title"><strong>Why Join the Students &amp; Academia Track?</strong></h2>
@@ -113,32 +114,54 @@
             <div class="application-form-wrap">
                 <div class="application-form-wrapper">
                     <!-- form validation handle through JS -->
-                    <form id="application-form" class="form" action="" method="post">
+                    <form id="application-form-students" class="form" action="" method="post">
                         <div class="application-form">
                             <div class="comm-form">
                                 <div class="row form-section">
+                                    <!-- First Name and Last Name -->
                                     <div class="col col-sm-12 col-lg-6">
-                                        <label for="summaryFName">First Name </label>
+                                        <label for="summaryFName">First Name</label>
                                         <div class="form-grp">
                                             <input type="text" class="form-field" id="summaryFName" name="summaryFName"
                                                 placeholder="Type First Name" />
                                         </div>
                                     </div>
 
-
-
                                     <div class="col col-sm-12 col-lg-6">
-                                        <label for="summaryLName">Last Name </label>
+                                        <label for="summaryLName">Last Name</label>
                                         <div class="form-grp">
                                             <input type="text" class="form-field" id="summaryLName" name="summaryLName"
                                                 placeholder="Type Last Name" />
                                         </div>
                                     </div>
 
+                                    <!-- Date of Birth -->
+                                    <div class="col col-sm-12 col-lg-6">
+                                        <label for="dob">Date of Birth</label>
+                                        <div class="form-grp">
+                                            <input type="date" class="form-field" id="dob" name="dob"
+                                                placeholder="Select your Date of Birth" />
+                                        </div>
+                                    </div>
+
+                                    <!-- Gender -->
+                                    <div class="col col-sm-12 col-lg-6">
+                                        <label for="gender">Gender</label>
+                                        <div class="form-grp">
+                                            <select class="select-field" id="gender" name="gender">
+                                                <option value="0">Select Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <hr>
 
+                                    <!-- Email and Mobile Number -->
                                     <div class="col col-sm-12 col-lg-6">
-                                        <label for="formEmail">Email ID </label>
+                                        <label for="formEmail">Email ID</label>
                                         <div class="form-grp">
                                             <input type="email" class="form-field" id="formEmail" name="formEmail"
                                                 placeholder="Type Email ID" />
@@ -146,7 +169,7 @@
                                     </div>
 
                                     <div class="col col-sm-12 col-lg-6">
-                                        <label for="formEmail">Mobile Number </label>
+                                        <label for="formMobile">Mobile Number</label>
                                         <div class="form-grp">
                                             <input type="tel" class="form-field" id="formMobile" name="formMobile"
                                                 maxlength="12" placeholder="Type Mobile Number" />
@@ -157,116 +180,110 @@
 
                                 </div>
 
-
                                 <div class="row form-section">
-
-                                    <div class="col col-sm-12 col-lg-6">
-                                        <label for="jobTitle"> Job Title </label>
+                                    <!-- Educational Institution -->
+                                    <div class="col col-sm-12 col-lg-12">
+                                        <label for="eduInstitution">Educational Institution</label>
                                         <div class="form-grp">
-                                            <input type="text" class="form-field" id="jobTitle" name="jobTitle"
-                                                placeholder="Type Job Title" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col col-sm-12 col-lg-6">
-                                        <label for="CompanyOrg"> Company/Organization </label>
-                                        <div class="form-grp">
-                                            <input type="text" class="form-field" id="CompanyOrg" name="CompanyOrg"
-                                                placeholder="Type Company/Organization" />
+                                            <input type="text" class="form-field" id="eduInstitution"
+                                                name="eduInstitution" placeholder="Type Your Educational Institution" />
                                         </div>
                                     </div>
 
                                     <hr>
 
-
-
-
-                                    <div class="col col-sm-12 col-lg-12">
-                                        <label for="formIndustry"> Industry</label>
+                                    <!-- Major and Current Year -->
+                                    <div class="col col-sm-12 col-lg-6">
+                                        <label for="major">Major</label>
                                         <div class="form-grp">
-                                            <select class="select-field" id="formIndustry" name="Industry">
-                                                <option value="0">Select Industry
-                                                </option>
+                                            <input type="text" class="form-field" id="major" name="major"
+                                                placeholder="Type Your Major" />
+                                        </div>
+                                    </div>
 
-                                            </select>
+                                    <div class="col col-sm-12 col-lg-6">
+                                        <label for="currentYear">Current Year of Study</label>
+                                        <div class="form-grp">
+                                            <input type="text" class="form-field" id="currentYear" name="currentYear"
+                                                placeholder="Type Current Year (e.g. Freshman, Sophomore)" />
                                         </div>
                                     </div>
 
                                     <hr>
 
+                                    <!-- Industry and Leadership Experience -->
                                     <div class="col col-sm-12 col-lg-12">
-                                        <label for="LeadExp"> Years of Leadership Experience</label>
+                                        <label for="LeadExp">Leadership Experience</label>
                                         <div class="form-grp">
                                             <select class="select-field" id="LeadExp" name="LeadExp">
-                                                <option value="0">Select Years Of Exp
-                                                </option>
-                                                <option value="0-2"> 0–2 </option>
-                                                <option value="3-5"> 3-5 </option>
-                                                <option value="6-10"> 6–10 </option>
-                                                <option value="10+"> 10+ </option>
+                                                <option value="0">Select Leadership Experience</option>
+                                                <option value="0-2">0–2 Years</option>
+                                                <option value="3-5">3–5 Years</option>
+                                                <option value="5+">5+ Years</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <hr>
+
                                 </div>
 
                                 <div class="row form-section">
-
+                                    <!-- Key Focus Areas -->
                                     <div class="col col-sm-12 col-lg-6">
-                                        <label>
-                                            Key Focus Areas (Select all that apply):
-                                        </label>
+                                        <label for="keyFocus">Key Focus Areas (Select all that apply):</label>
                                         <div class="form-grp" id="keyFocus">
-
+                                            <!-- Dynamic focus areas can be added here -->
+                                            <input type="checkbox" name="focusAreas" value="Tech"> Tech<br>
+                                            <input type="checkbox" name="focusAreas" value="Entrepreneurship">
+                                            Entrepreneurship<br>
+                                            <input type="checkbox" name="focusAreas" value="Marketing"> Marketing<br>
+                                            <input type="checkbox" name="focusAreas" value="Leadership"> Leadership
                                         </div>
                                     </div>
 
-
+                                    <!-- Social Media Handles -->
                                     <div class="col col-sm-12 col-lg-6" id="socialGrp">
                                         <label for="socialHandle">Social Media Handles
-                                            (Insta/Linkedin/Twitter) </label>
+                                            (Instagram/LinkedIn/Twitter)</label>
                                         <div class="form-grp">
                                             <select class="select-field" id="socialHandle" name="socialHandle">
                                                 <option value="0">Add Social Handle</option>
-                                                <option value="Instagram"> Instagram </option>
-                                                <option value="LinkedIn"> LinkedIn </option>
-                                                <option value="Twitter"> Twitter </option>
-                                                <option value="Other"> Other </option>
+                                                <option value="Instagram">Instagram</option>
+                                                <option value="LinkedIn">LinkedIn</option>
+                                                <option value="Twitter">Twitter</option>
+                                                <option value="Other">Other</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <hr>
 
+                                    <!-- Reason for Joining -->
                                     <div class="col col-sm-12 col-lg-12">
-                                        <label for="whyWant">What do you hope to gain from the Professionals
-                                            Track?
-                                        </label>
+                                        <label for="whyWant">Why do you want to join the Student Track?</label>
                                         <div class="form-grp">
-                                            <input type="text" class="form-field" id="whyWant" name="whyWant"
-                                                placeholder="Type your Reason" />
+                                            <textarea class="form-field" id="whyWant" name="whyWant"
+                                                placeholder="Type your Reason"></textarea>
                                         </div>
                                     </div>
 
                                     <hr>
                                 </div>
 
-
                                 <div class="row form-section">
+                                    <!-- Interest in Roundtables -->
                                     <div class="col col-sm-12 col-lg-12">
-                                        <label>
-                                            Are you interested in participating in private executive
-                                            roundtables?
-                                        </label>
+                                        <label for="roundTableInterest">Are you interested in participating in student
+                                            roundtables?</label>
                                         <div class="radio-grp-wrap">
                                             <div class="radio-grp">
-                                                <label for="roundTable"> Yes</label>
+                                                <label for="roundTable">Yes</label>
                                                 <input type="radio" class="form-field" id="roundTable"
                                                     name="roundTable" />
                                             </div>
                                             <div class="radio-grp">
-                                                <label for="roundTable"> No</label>
+                                                <label for="roundTable">No</label>
                                                 <input type="radio" class="form-field" id="roundTableTwo"
                                                     name="roundTable" />
                                             </div>
@@ -275,17 +292,17 @@
 
                                     <hr>
 
+                                    <!-- Email Updates -->
                                     <div class="col col-sm-12 col-lg-12">
-                                        <label for="preEmail">
-                                            Would you like to receive updates and premium content via email?
-                                        </label>
+                                        <label for="preEmail">Would you like to receive updates and premium content via
+                                            email?</label>
                                         <div class="radio-grp-wrap">
                                             <div class="radio-grp">
-                                                <label for="preEmail"> Yes</label>
+                                                <label for="preEmail">Yes</label>
                                                 <input type="radio" class="form-field" id="preEmail" name="preEmail" />
                                             </div>
                                             <div class="radio-grp">
-                                                <label for="preEmail"> No</label>
+                                                <label for="preEmail">No</label>
                                                 <input type="radio" class="form-field" id="preEmailTwo"
                                                     name="preEmail" />
                                             </div>
@@ -294,80 +311,74 @@
 
                                     <hr>
 
+                                    <!-- Pass Option -->
                                     <div class="col col-sm-12 col-lg-12">
-                                        <label for="passOpt">
-                                            Select Your Upgrade Option:
-                                        </label>
+                                        <label for="passOpt">Select Your Pass Option:</label>
                                         <div class="radio-grp-wrap">
                                             <div class="radio-grp-card">
-                                                <label for="passOpt"> Professional Pass – $499 (Full Access +
-                                                    Certification)</label>
+                                                <label for="passOpt">Student Pass – $199 (Full Access)</label>
                                                 <input type="radio" class="form-field" id="passOpt" name="passOpt" />
                                             </div>
                                             <div class="radio-grp-card">
-                                                <label for="passOpt"> Professional Pass + 1:1 Coaching – $699
-                                                    (Includes private session)</label>
+                                                <label for="passOpt">Student Pass + 1:1 Mentorship – $299 (Includes
+                                                    private session)</label>
                                                 <input type="radio" class="form-field" id="passOptTwo" name="passOpt" />
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="checkbox-grp-wrap">
-                                            <div class="form-grp">
-                                                <input type="checkbox" name="termsCero">
-                                            </div>
-                                            <label for="terms">
-                                                I confirm that the information provided is accurate.
-                                            </label>
+                                    <!-- Terms Confirmation -->
+                                    <div class="checkbox-grp-wrap">
+                                        <div class="form-grp">
+                                            <input type="checkbox" name="termsCero" />
                                         </div>
+                                        <label for="terms">
+                                            I confirm that the information provided is accurate.
+                                        </label>
+                                    </div>
 
-                                        <div class="checkbox-grp-wrap">
-                                            <div class="form-grp">
-                                                <input type="checkbox" name="termsOne">
-                                            </div>
-                                            <label for="termsOne">
-                                                I understand that Professional Pass availability is limited and
-                                                subject to confirmation.
-                                            </label>
-
+                                    <div class="checkbox-grp-wrap">
+                                        <div class="form-grp">
+                                            <input type="checkbox" name="termsOne" />
                                         </div>
-
-
-
-
+                                        <label for="termsOne">
+                                            I understand that availability is limited and subject to confirmation.
+                                        </label>
                                     </div>
 
                                     <hr>
 
+                                    <!-- Payment Method -->
                                     <div class="col col-sm-12 col-lg-6" id="paymentGrp">
                                         <label for="paymentMethod">Payment Method: </label>
                                         <div class="form-grp">
                                             <select class="select-field" id="paymentMethod" name="paymentMethod">
                                                 <option value="0">Select Payment Method</option>
-                                                <option value="Credit"> Credit Card </option>
-                                                <option value="PayPal"> PayPal </option>
-                                                <option value="Invoice"> Invoice My Company</option>
+                                                <option value="Credit">Credit Card</option>
+                                                <option value="PayPal">PayPal</option>
+                                                <option value="Invoice">Invoice My School</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <hr>
 
+                                    <!-- Submit Button -->
                                     <div class="w100">
                                         <div class="btn-grp">
-                                            <button type="submit" id="submitApplication" class="button submit-btn"><i
-                                                    class="ph ph-paper-plane-tilt"></i>
-                                                &nbsp; Upgrade Now</button>
-
+                                            <button type="submit" id="submitApplication" class="button submit-btn">
+                                                <i class="ph ph-paper-plane-tilt"></i> &nbsp; Apply Now
+                                            </button>
                                         </div>
-
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
+
         </div>
 
     </div>
@@ -442,12 +453,14 @@
 
                     <div class="card-content-wrap">
                         <p class="testim-para">
-                            <em>"I attended the workshops last year and learned so much! The instructors were
-                                knowledgeable and patient, and the hands-on sessions helped me gain real-world
-                                experience. Highly recommend!"</em>
+                            <em>"I attended the student workshops last year, and it was an amazing experience! The
+                                instructors were incredibly knowledgeable, and the interactive sessions gave me
+                                real-world insights that I can apply in my studies and future career. I highly recommend
+                                it!"</em>
                         </p>
-                        <strong>Sarah L., Software Developer</strong>
+                        <strong>Julia M., Computer Science Student</strong>
                     </div>
+
                 </div>
             </div>
             <div class="testim-card-wrap">
@@ -475,12 +488,13 @@
 
                     <div class="card-content-wrap">
                         <p class="testim-para">
-                            <em>"I attended a couple of advanced workshops, and they really opened my eyes to the latest
-                                technologies and best practices in the field. I feel much more confident in my skills
-                                now!"</em>
+                            <em>"Attending the student workshops was a game-changer for me! The hands-on sessions helped
+                                me grasp complex concepts, and I gained invaluable insights into the industry. I'm now
+                                more confident about my future career."</em>
                         </p>
-                        <strong>Mark B., Senior Software Engineer</strong>
+                        <strong>Sam L., Computer Science Student</strong>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -561,29 +575,24 @@
 
     </div>
 
+
     <div class="container pt-5 mt-5">
-        <h2 class="sec-title"><strong>Unlock Your Full Potential with a Professional Pass</strong></h2>
-        <p class="sec-sub-title">Take the Next Step in Advancing Your Career</p>
+        <h2 class="sec-title"><strong>Unlock Your Full Potential with a Student Pass</strong></h2>
+        <p class="sec-sub-title">Take the Next Step in Shaping Your Future</p>
         <hr />
-        <p class="sec-para"><strong>Seats are filling up fast</strong> — don’t miss your chance to join an exclusive
-            group of professionals gaining <strong>insider knowledge, invaluable connections, and powerful career
-                tools</strong>. <strong><a target="_blank" rel="noreferrer">Reserve Your Spot Today</a></strong>
-            <em>(Early-bird pricing available for a limited time!)</em>
+        <p class="sec-para"><strong>Spaces are limited</strong> — don’t miss out on joining an exclusive group of
+            students gaining <strong>expert insights, valuable networks, and essential career-building tools</strong>.
+            <strong><a target="_blank" rel="noreferrer">Reserve Your Spot Today</a></strong>
+            <em>(Special student pricing available for a limited time!)</em>
         </p>
-        <p class="sec-para">The <strong>Professionals Track</strong> is your ticket to <strong>cutting-edge learning,
-                high-level networking, and unmatched career growth opportunities</strong>. <strong><a target="_blank"
+        <p class="sec-para">The <strong>Student Track</strong> is your gateway to <strong>innovative learning, industry
+                connections, and future career opportunities</strong>. <strong><a target="_blank"
                     rel="noreferrer">Upgrade Your Pass Now &amp; Secure Your Spot</a></strong> <em>(Only a few spots
                 left!)</em></p>
         <hr />
     </div>
 
-    <h2><strong>Register Now &amp; Jumpstart Your Future</strong></h2>
-    <p> <strong><a target="_blank" rel="noreferrer">Claim your student discount</a></strong> (Limited seats
-        available!)</p>
-    <hr />
 
-    <h2><strong>Don’t Miss This Chance to Accelerate Your Tech Journey</strong></h2>
-    <p> <strong><a target="_blank" rel="noreferrer">Register Now &amp; Secure Your Spot</a></strong></p>
 
 
 
