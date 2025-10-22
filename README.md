@@ -26,7 +26,7 @@ A responsive and visually appealing landing page for a fictional virtual tech co
 
 You can view a live demo of the project here:
 
-[**\https://aceakki.github.io/Event-Register/**](https://aceakki.github.io/Event-Register/)
+[**https://aceakki.github.io/Event-Register/**](https://aceakki.github.io/Event-Register/)
 
 ---
 
