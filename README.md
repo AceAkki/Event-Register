@@ -1,6 +1,6 @@
 # 💻 Event-Register: Virtual Conference Landing Page
 
-A responsive and visually appealing landing page for a fictional virtual tech conference, complete with a registration form. This project serves as a demonstration of modern HTML and CSS skills, and the foundation for a full-stack implementation.
+A responsive and visually appealing landing page for a fictional virtual tech conference, complete with a registration form. This project serves as a demonstration of modern JS, HTML and CSS skills, and the foundation for a full-stack implementation.
 
 ---
 
