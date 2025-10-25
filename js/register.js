@@ -12,7 +12,7 @@ const classURLParam = new URLParam();
   
   document.addEventListener("DOMContentLoaded", async (fn) => {
     const classURLContent = new URLBasedContent({cardsElmSelector:"#select-cards",
-      proElmSelector:"#Professional", studElmSelector:"#Student", startElmSelector:"#Startup", hideClass:"hidden", 
+      proElmSelector:"#Professional", studElmSelector:"#Student", startElmSelector:"#Startup", hiddenClass:"hidden", 
       proBtnSelector:"#Pros", studBtnSelector:"#Students", startBtnSelector:"#StartUps"});
     classURLContent.initURLTracking();
 
