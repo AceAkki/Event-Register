@@ -128,7 +128,8 @@ function initForms({param = "track", addOptionsSelector, checkboxSelector, socia
       name: "focusArea",
     });
   }
-  if (document.querySelector(socialSelector) && document.querySelector(socialParent)) {
+  if (document.querySelector(socialSelector) && document.querySelector(socialParent) ? true : false) {
+    console.log(document.querySelector(socialSelector) && document.querySelector(socialParent) ? true : false)
     formClass.initializeSelectEvent({
       selectElem: document.querySelector(socialSelector),
       parentElem: document.querySelector(socialParent),
