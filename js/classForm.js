@@ -15,8 +15,9 @@ export class DynamicFormValidator {
         let radioCheckboxGroups = this.initializeRadioCheckboxEvents(this.form);
         this.initializeFormProgress({})
         this.form.addEventListener("submit", (event)=> {
-            this.validateForm({section: this.form, onInvalidFn: this.preventFormSumbmission, fnParam:event, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox")});
-        })
+            this.validateForm({section: this.form, onValidFn:this.formSubmission, validfnParam: this.form, onInvalidFn: this.preventFormSumbmission, invalidfnParam:event, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox")});
+        });
+
     }
 
     // creates option elems from array provided
@@ -58,7 +59,7 @@ export class DynamicFormValidator {
         });
     }
 
-    addInputField({parentElem, value, fieldClasslist}){
+    addInputField({parentElem, value, fieldClasslist, }){
         if (!(value === "0")) {
             // if element with id of value doesnt exist it creates it
             if (!document.getElementById(value)) {
@@ -182,7 +183,7 @@ export class DynamicFormValidator {
         return returnMap;
     }
     
-    validateForm({section, onValidFn, onInvalidFn, fnParam, checkboxArr, radioArr}) {
+    validateForm({section, onValidFn, validfnParam, onInvalidFn, invalidfnParam, checkboxArr, radioArr}) {
         //if (typeof(func) !== "function") { console.log("func parameter should be a function"); return }
         let isValid = true;  
 
@@ -239,15 +240,33 @@ export class DynamicFormValidator {
             }            
             // if error exists and options are empty then runs provided function
             if (hasError && onInvalidFn && typeof(onInvalidFn) === "function") {
-                onInvalidFn(fnParam);
+                onInvalidFn(invalidfnParam);
             }
         });
 
         if (isValid && onValidFn && typeof(onValidFn) === "function") {
-            onValidFn(fnParam);
+            onValidFn(validfnParam);
         }
     }
 
+    async formSubmission(form) {
+        let formData = new FormData(form)
+        try {
+            const response = await fetch("./json/empty.json", {
+              method: "POST",
+              body: formData,
+            });
+            console.log(await response.json());
+            if (response.success) {
+                console.log("Form submitted successfully!");
+            
+            } else {
+                console.log("Form submission failed. Please try again.");
+            }
+          } catch (e) {
+            console.log("An error occurred. Please try again.");   
+          }
+    }
 
     /* 
     --------------------------------------------------------------------
@@ -258,27 +277,33 @@ export class DynamicFormValidator {
     // helper method being used in initializeFormProgress to create buttons - next and previous that helps with navigation on form
     createNavigationBtn(section, type) {
         let radioCheckboxGroups = this.initializeRadioCheckboxEvents(section);
+        let btnWrap; 
+        if (!section.querySelector("btn-wrap")) {
+            btnWrap = document.createElement("div");
+            btnWrap.classList.add("btn-wrap");
+            section.appendChild(btnWrap);
+        } else { btnWrap = section.querySelector("btn-wrap") };
         let navBtn = document.createElement("div");
         navBtn.classList.add("btn", type);
         navBtn.textContent = type;
-        section.appendChild(navBtn);
+        btnWrap.appendChild(navBtn);
         if (type.toLowerCase() === "next") {
             navBtn.addEventListener("click", ()=> {
-                this.validateForm({section:section, onValidFn:this.goToNextSection, fnParam:{btn:navBtn}, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox") })
+                this.validateForm({section:section, onValidFn:this.goToNextSection, validfnParam:{parentElm:section}, radioArr: radioCheckboxGroups.get("radio"), checkboxArr:radioCheckboxGroups.get("checkbox") })
             })
         } else if (type.toLowerCase() === "previous") {
             navBtn.addEventListener("click", ()=> {
-                navBtn.parentNode.classList.add("hide");
-                navBtn.parentNode.previousElementSibling.classList.remove("hide");
+                section.classList.add("hide");
+                section.previousElementSibling.classList.remove("hide");
             })  
         }
 
     }
     
     // helper method being used in createNavigationBtn
-    goToNextSection({btn}){
-        btn.parentNode.classList.add("hide");
-        btn.parentNode.nextElementSibling.classList.remove("hide");
+    goToNextSection({parentElm}){
+        parentElm.classList.add("hide");
+        parentElm.nextElementSibling.classList.remove("hide");
     }
 
     validateGroupSection(arrayGroup, flag) {
