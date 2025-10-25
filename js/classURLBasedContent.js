@@ -63,7 +63,7 @@ export class URLBasedContent {
             selectCards.classList.add(this.hideClass);
           }
         } else if (selectCards.classList.contains(this.hideClass)) {
-            selectCards.classList.remove(this.hideClass);
+          selectCards.classList.remove(this.hideClass);
         }
     }
 
@@ -85,5 +85,4 @@ export class URLBasedContent {
           });
         });
       }
-
 }
