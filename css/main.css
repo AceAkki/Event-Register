@@ -62,8 +62,12 @@ body {
   box-shadow: 0 0 0 var(--clr-tertiary-light);
 }
 
+.dropdown-menu {
+  background: var(--clr-secondary);
+}
+
 .dropdown-item {
-  color: var(--clr-secondary-light);
+  color: var(--clr-dark);
 }
 /* navbar */
 
@@ -101,6 +105,16 @@ section {
   backdrop-filter: blur(18.1px);
   -webkit-backdrop-filter: blur(18.1px);
   border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.11);
+  box-shadow: 0px 9px 30px 3px rgba(162, 148, 249, 0.3),
+    28px 110px 53px -66px rgba(229, 217, 242, 0.22),
+    -88px -63px 90px -126px rgba(71, 78, 147, 1);
+  backdrop-filter: blur(18.1px);
+  -webkit-backdrop-filter: blur(18.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .scroll-nav {
