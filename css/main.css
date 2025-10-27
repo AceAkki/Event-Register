@@ -61,6 +61,10 @@ body {
   outline: var(--clr-tertiary-light);
   box-shadow: 0 0 0 var(--clr-tertiary-light);
 }
+
+.dropdown-item {
+  color: var(--clr-secondary-light);
+}
 /* navbar */
 
 section {
