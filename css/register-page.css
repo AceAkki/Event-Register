@@ -143,7 +143,7 @@
   /* background: #f0f0f0 url("../img/night-view-victoria-harbor-hong-kong.webp")
   no-repeat center center / cover padding-box border-box; */
 }
-#Professional .hero-container::before {
+.hero-container::before {
 content: "";
   position: absolute;
   top: 0;
@@ -374,6 +374,19 @@ content: "";
   max-height: 1.5rem;
   border-radius: 1rem;
 }
+
+.application-form
+.btn-wrap {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+}
+
+.application-form
+.btn-wrap .btn {
+  background: var(--clr-tertiary-light);
+}
+
 
 .error-msg {
   color: var(--clr-tertiary-light);
