@@ -278,11 +278,11 @@ export class DynamicFormValidator {
     createNavigationBtn(section, type) {
         let radioCheckboxGroups = this.initializeRadioCheckboxEvents(section);
         let btnWrap; 
-        if (!section.querySelector("btn-wrap")) {
+        if (!section.querySelector(".btn-wrap")) {
             btnWrap = document.createElement("div");
             btnWrap.classList.add("btn-wrap");
             section.appendChild(btnWrap);
-        } else { btnWrap = section.querySelector("btn-wrap") };
+        } else { btnWrap = section.querySelector(".btn-wrap") };
         let navBtn = document.createElement("div");
         navBtn.classList.add("btn", type);
         navBtn.textContent = type;
