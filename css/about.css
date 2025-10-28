@@ -8,3 +8,39 @@
     font-size: 4.2rem;
     font-weight: 700;
 }
+
+.swiper-slide {
+    align-items: stretch;
+}
+
+.core-card {
+    background: var(--clr-tertiary-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 2rem;
+}
+
+.core-icon {
+    margin: 1rem 0;
+}
+
+.core-card i {
+    font-size: 8rem;
+    background: var(--clr-secondary);
+    color: var(--clr-tertiary-light);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.core-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.core-title {
+    font-weight: 600;
+}

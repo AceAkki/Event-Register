@@ -1,4 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const swiperteam = new Swiper(".team-wrap", {
+    slidesPerView: 3,
+    spaceBetween: 40,
+    speed: 1200,
+    grabCursor: true,
+    loop: true,
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      360: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3.5,
+        spaceBetween: 50,
+      },
+    },
+  });
+
+  var coreSwiper = new Swiper(".core-wrap", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+
+    breakpoints: {
+      360: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+
+      565: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      835: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+
+      1025: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+    },
+  });
+
   const {
     animate,
     utils,
@@ -55,9 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const container = document.getElementById("myCarousel");
-  let arr =  Array.from({ length: 13 }, (value, index) => index + 2);
+  let arr = Array.from({ length: 13 }, (value, index) => index + 2);
   const fragment = new DocumentFragment();
-  arr.forEach(elm => {
+  arr.forEach((elm) => {
     let createNew = document.createElement("div");
     createNew.classList.add("f-carousel__slide");
     createNew.setAttribute("data-fancybox", "gallery");
@@ -67,21 +119,24 @@ document.addEventListener("DOMContentLoaded", () => {
     img.setAttribute("data-lazy-src", `img/gallery/${elm}-thumb.webp`);
     createNew.appendChild(img);
     fragment.appendChild(createNew);
-  })
-  container.appendChild(fragment)
+  });
+  container.appendChild(fragment);
 
-  
-Fancybox.bind('[data-fancybox]', {
+  Fancybox.bind("[data-fancybox]", {});
 
-});
-
-const mapRange = (inputLower, inputUpper, outputLower, outputUpper, value) => {
+  const mapRange = (
+    inputLower,
+    inputUpper,
+    outputLower,
+    outputUpper,
+    value
+  ) => {
     const INPUT_RANGE = inputUpper - inputLower;
     const OUTPUT_RANGE = outputUpper - outputLower;
     return (
-        outputLower + (((value - inputLower) / INPUT_RANGE) * OUTPUT_RANGE || 0)
+      outputLower + (((value - inputLower) / INPUT_RANGE) * OUTPUT_RANGE || 0)
     );
-};
+  };
   const options = {
     Autoplay: {
       timeout: 3000,

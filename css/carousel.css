@@ -41,6 +41,7 @@
   transform: scale(var(--f-scale, 1)) translateX(var(--f-translateX, 0));
   background: #fff;
   filter: blur(var(--f-blur, '0'));
+  min-width: 100%;
 }
 
 @media all and (max-width: 960px) {
