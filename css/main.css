@@ -69,6 +69,11 @@ body {
 .dropdown-item {
   color: var(--clr-dark);
 }
+.dropdown-item:hover,
+.dropdown-item:active {
+  background-color: var(--clr-tertiary-light);
+  color: var(--clr-dark-two);
+}
 /* navbar */
 
 section {

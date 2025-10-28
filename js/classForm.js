@@ -194,7 +194,7 @@ export class DynamicFormValidator {
             this.validateGroupSection(checkboxArr, isValid);
         }
         
-        const fields = section.querySelectorAll("input, select");
+        const fields = section.querySelectorAll("input, textarea, select");
         fields.forEach((field) => {
             let hasError = false;
             if (field.value.trim() === "" || field.value === "0") {

@@ -29,12 +29,18 @@
     <!-- aos css -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.css" />
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/about.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
 
 
 </head>
@@ -46,18 +52,18 @@
     </header>
 
     <section class="main-section">
-            <div class="container mt-5 pt-5">
-                <!-- <h1 class="sec-title"> About VirtuConf 2025: The Future of Virtual Connection</h1> -->
+        <div class="container mt-5 pt-5">
+            <!-- <h1 class="sec-title"> About VirtuConf 2025: The Future of Virtual Connection</h1> -->
 
-                <div class="content">
-                    <div class="title-wrap">
-                        <div class="title"> The </div>
-                        <div class="title"> Future </div>
-                        <div class="title"> of </div>
-                        <div class="title"> Virtual </div>
-                        <div class="title"> Connection </div>
-                    </div>
-                    <!-- <div class="title-wrap">
+            <div class="content">
+                <div class="title-wrap">
+                    <div class="title"> The </div>
+                    <div class="title"> Future </div>
+                    <div class="title"> of </div>
+                    <div class="title"> Virtual </div>
+                    <div class="title"> Connection </div>
+                </div>
+                <!-- <div class="title-wrap">
                         <div class="title">Welcome </div>
                         <div class="title"> to </div>
                         <div class="title"> the </div>
@@ -67,57 +73,65 @@
                         <div class="title"> Digital </div>
                         <div class="title"> Conferences </div>
                     </div> -->
-                    <h1 class="sec-title">  to the Next Generation of Digital Conferences </h1>
-                    <p class="sec-para">
-                        At VirtuConf 2025, we're redefining what it means to connect, learn, and grow in an increasingly
-                        digital
-                        world. Born from the need for meaningful virtual interactions during the global shift to remote
-                        work and
-                        learning, VirtuConf has evolved into much more than just another online event - it's a movement.
-                        Our
-                        platform brings together the brightest minds in technology, business, and innovation to create
-                        an
-                        immersive experience that transcends physical boundaries.
-                    </p>
+                <h1 class="sec-title"> to the Next Generation of Digital Conferences </h1>
+                <p class="sec-para">
+                    At VirtuConf 2025, we're redefining what it means to connect, learn, and grow in an increasingly
+                    digital
+                    world. Born from the need for meaningful virtual interactions during the global shift to remote
+                    work and
+                    learning, VirtuConf has evolved into much more than just another online event - it's a movement.
+                    Our
+                    platform brings together the brightest minds in technology, business, and innovation to create
+                    an
+                    immersive experience that transcends physical boundaries.
+                </p>
 
-                    <h2 class="sec-title">Our Origin Story: From Necessity to Revolution </h2>
-                    <p class="sec-para">
-                        The VirtuConf journey began in early 2020 when our founders - a group of tech entrepreneurs and
-                        educators - recognized a critical gap in the digital events space. While the world was rapidly
-                        moving
-                        online, most virtual conferences offered little more than glorified webinar experiences. We set
-                        out to
-                        change that.
+                <h2 class="sec-title">Our Origin Story: From Necessity to Revolution </h2>
+                <p class="sec-para">
+                    The VirtuConf journey began in early 2020 when our founders - a group of tech entrepreneurs and
+                    educators - recognized a critical gap in the digital events space. While the world was rapidly
+                    moving
+                    online, most virtual conferences offered little more than glorified webinar experiences. We set
+                    out to
+                    change that.
 
-                        From our humble beginnings as a 500-attendee niche event for web developers, VirtuConf has grown
-                        exponentially each year:
-                    <ul>
+                    From our humble beginnings as a 500-attendee niche event for web developers, VirtuConf has grown
+                    exponentially each year:
+                <ul>
 
-                        <li>
-                            2020: Launched with 3 tracks and 12 speakers
-                        </li>
+                    <li>
+                        2020: Launched with 3 tracks and 12 speakers
+                    </li>
 
-                        <li>
-                            2021: Expanded to 5,000 global attendees
-                        </li>
+                    <li>
+                        2021: Expanded to 5,000 global attendees
+                    </li>
 
-                        <li>
-                            2022: Introduced our AI-powered networking platform
-                        </li>
+                    <li>
+                        2022: Introduced our AI-powered networking platform
+                    </li>
 
-                        <li>
-                            2023: Won "Best Virtual Conference" at the TechEvents Awards
-                        </li>
+                    <li>
+                        2023: Won "Best Virtual Conference" at the TechEvents Awards
+                    </li>
 
-                        <li>
-                            2024: Preparing for our biggest event yet with 15,000+ expected attendees
-                        </li>
-                    </ul>
-                    </p>
-                </div>
+                    <li>
+                        2024: Preparing for our biggest event yet with 15,000+ expected attendees
+                    </li>
+                </ul>
+                </p>
             </div>
+        </div>
 
+    </section>
 
+    <section>
+        <div class="container mt-5 pt-5">
+              <div class="">
+                    <div class="f-carousel" id="myCarousel">
+                    </div>
+              </div>
+        </div>
     </section>
 
 
@@ -142,6 +156,10 @@
 
     <!-- aos JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js"></script>
 
     <!-- Swiper Slider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js"></script>

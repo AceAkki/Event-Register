@@ -3,10 +3,12 @@ import { animate, createTimeline, createTimer, text, stagger} from "https://cdn.
 import { URLParam } from "./classURLParam.js";
 import { URLBasedContent } from "./classURLBasedContent.js";
 import { animeIntiate } from "./animeInIt.js";
+import { AnimeMain } from "./classAnime.js";
 import { DynamicFormValidator } from "./classForm.js";
 import { Pagination } from "./classPagination.js";
 
 const classURLParam = new URLParam();
+const classAnimate = new AnimeMain();
 
 (function init() {
   
@@ -79,6 +81,18 @@ const classURLParam = new URLParam();
         hideClass: "hide",
       });
     })
+
+    Array.from(document.querySelectorAll(".form-img-wrap")).forEach(grp => {
+      let bgImg;
+      let mainImg; 
+      grp.querySelectorAll("img").forEach((img, index) => {
+        if (index === 0) bgImg = img;
+        if (index === 1 ) mainImg = img; 
+      })
+      console.log(bgImg, mainImg)
+      classAnimate.animeMainImg(bgImg, mainImg)
+
+    })
   });
 
 
@@ -93,8 +107,9 @@ function initForms({param = "track", addOptionsSelector, checkboxSelector, socia
   let [windowPath, params] = classURLParam.getURL();
   if (!params.has(param)) return;
   let formID = params.get(param).toLowerCase();
+  let idForm = `#application-form-${formID}`;
   const formClass = new DynamicFormValidator({
-    formElem: document.querySelector(`#application-form-${formID}`),
+    formElem: document.querySelector(idForm),
     progressSection: document.querySelector(`#application-form-${formID} .comm-form`),
     progressSelector: ".form-section",
   });
@@ -129,23 +144,20 @@ function initForms({param = "track", addOptionsSelector, checkboxSelector, socia
     });
   }
   if (document.querySelector(socialSelector) && document.querySelector(socialParent) ? true : false) {
-    console.log(document.querySelector(socialSelector) && document.querySelector(socialParent) ? true : false)
     formClass.initializeSelectEvent({
       selectElem: document.querySelector(socialSelector),
       parentElem: document.querySelector(socialParent),
     });
   }
-  // formClass.addOptions(document.querySelector("#formIndustry"), industryOpt);
-  // formClass.addCheckBox({
-  //   checkboxGrp: document.querySelector("#keyFocus"),
-  //   array: focusAreaOpt,
-  //   name: "focusArea",
-  // });
 
-  // formClass.initializeSelectEvent({
-  //   selectElem: document.querySelector("#socialHandle"),
-  //   parentElem: document.querySelector("#socialGrp"),
-  // });
+  document.querySelectorAll(".register-sec").forEach(sec => {
+    let endBtn = document.createElement("a");
+    endBtn.classList.add("btn", "end-btn");
+    endBtn.textContent = "Join Now";
+    endBtn.setAttribute("href", idForm);
+    sec.appendChild(endBtn);
+
+  })
 }
 
 async function fetchFile(apiURL) {
@@ -164,7 +176,7 @@ async function fetchFile(apiURL) {
 // callback function to create Items
 function generateItems(data) {
   let item = document.createElement("div");
-  item.classList.add("col", "col-lg-3", "col-med-3", "col-sm-12", "my-3");
+  item.classList.add("col-lg-3", "col-med-3", "col-sm-12", "my-3");
   item.innerHTML = `
   <div class="event-item-card">
     <h3 class="event-title"> ${data.title}</h3>
@@ -236,50 +248,49 @@ function animateFAQ({ faqElem, selectorClass, answerClass, hideClass }) {
   faqElem.addEventListener("click", (event) => {
     let baseHeight = 20;
     let clickedFAQ = event.target.closest(`.${selectorClass}`);
-    //console.log(clickedFAQ, !clickedFAQ.getElementsByClassName(hideClass)[0], hideClass)
-    if (clickedFAQ) {
-      let mainHeight = Math.round(clickedFAQ.getBoundingClientRect().height);
-      let ansElm = clickedFAQ.getElementsByClassName(answerClass)[0];
-      let ansHeight;
-      let targetHeight = mainHeight + baseHeight;
-      // with animejs animates the answer and parent
-      if (ansElm.classList.contains(hideClass)) {
-        ansElm.classList.remove(hideClass);
-        ansHeight = Math.round(ansElm.getBoundingClientRect().height);
-        animate(ansElm, {
-          opacity: [{ from: 0, to: 1, ease: "inOutCirc", duration: 900 }],
-        });
-        animate(clickedFAQ, {
+    if (!clickedFAQ) return 
+    let mainHeight = Math.round(clickedFAQ.getBoundingClientRect().height);
+    let ansElm = clickedFAQ.getElementsByClassName(answerClass)[0];
+    let ansHeight;
+    let targetHeight = mainHeight + baseHeight;
+    // with animejs animates the answer and parent
+    if (ansElm.classList.contains(hideClass)) {
+      ansElm.classList.remove(hideClass);
+      ansHeight = Math.round(ansElm.getBoundingClientRect().height);
+      animate(ansElm, {
+        opacity: [{ from: 0, to: 1, ease: "inOutCirc", duration: 900 }],
+      });
+      animate(clickedFAQ, {
+        height: [
+          {
+            from: mainHeight,
+            to: targetHeight + ansHeight,
+            ease: "inOutSine",
+            duration: 700,
+          },
+        ],
+      });
+    } 
+
+    Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem) => {
+      let faqItem = elem.closest(`.${selectorClass}`);
+      // hides other faq that were open
+      if (clickedFAQ !== faqItem) {
+        let faqHeight = faqItem.getBoundingClientRect().height;
+        let ansHeight = elem.getBoundingClientRect().height;
+        let targetHeight = ansHeight === 0 ? faqHeight : faqHeight - ansHeight - baseHeight;
+        elem.classList.add(hideClass);
+        animate(faqItem, {
           height: [
             {
-              from: mainHeight,
-              to: targetHeight + ansHeight,
+              to: targetHeight,
               ease: "inOutSine",
               duration: 700,
             },
           ],
         });
-      } 
-
-      Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem) => {
-        let faqItem = elem.closest(`.${selectorClass}`);
-        // hides other faq that were open
-        if (clickedFAQ !== faqItem) {
-          let faqHeight = faqItem.getBoundingClientRect().height;
-          let ansHeight = elem.getBoundingClientRect().height;
-          let targetHeight = ansHeight === 0 ? faqHeight : faqHeight - ansHeight - baseHeight;
-          elem.classList.add(hideClass);
-          animate(faqItem, {
-            height: [
-              {
-                to: targetHeight,
-                ease: "inOutSine",
-                duration: 700,
-              },
-            ],
-          });
-        }
-      });
-    }
+      }
+    });
+    
   });
 }
