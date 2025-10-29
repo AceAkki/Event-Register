@@ -25,9 +25,47 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  var journeySwiper = new Swiper(".journey-wrap", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    speed: 1200,
+    grabCursor: true,
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+    },
+
+    breakpoints: {
+      360: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+
+      565: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      835: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+
+      1025: {
+        slidesPerView: 3.5,
+        spaceBetween: 30,
+      },
+    },
+  });
   var coreSwiper = new Swiper(".core-wrap", {
     slidesPerView: 1,
     spaceBetween: 10,
+    speed: 1200,
+    grabCursor: true,
+    loop: true,
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+    },
 
     breakpoints: {
       360: {
