@@ -27,20 +27,23 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
+  text-decoration: underline;
 }
 
 .journey-title h5 {
     color: var(--clr-tertiary-light);
     font-weight: 600;
     font-size: 2.2rem;
+    border-bottom: 2px solid var(--clr-tertiary-light);
+    padding-bottom: 5px;
 }
 
 .journey-icon {
-  background: var(--clr-tertiary-light);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* background: var(--clr-tertiary-light); */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(14.2px);
   -webkit-backdrop-filter: blur(14.2px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--clr-tertiary-light);
   border-radius: 100%;
   height: 10rem;
   width: 10rem;
@@ -58,12 +61,13 @@
   width: 100%;
   height: 100%;
   border-radius: 100%;
-  background: var(--clr-tertiary);
+  background: var(--clr-secondary);
   filter: blur(30px);
 }
 
 .journey-icon i {
   position: relative;
+  color: var(--clr-dark-two);
   font-size: 5rem;
   z-index: 1;
 }
