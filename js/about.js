@@ -1,37 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const swiperteam = new Swiper(".team-wrap", {
-    slidesPerView: 3,
-    spaceBetween: 40,
-    speed: 1200,
-    grabCursor: true,
-    loop: true,
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: false,
-    },
-    breakpoints: {
-      360: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      1024: {
-        slidesPerView: 3.5,
-        spaceBetween: 50,
-      },
-    },
-  });
-
   var journeySwiper = new Swiper(".journey-wrap", {
     slidesPerView: 1,
     spaceBetween: 10,
-    speed: 1200,
+    speed: 5200,
     grabCursor: true,
+    loop: true,
     autoplay: {
-      delay: 1000,
+      delay: 2000,
       disableOnInteraction: false,
     },
 

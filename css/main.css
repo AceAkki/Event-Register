@@ -13,6 +13,7 @@
   --clr-secondary-light: #b3b6ff;
   --clr-tertiary: #e5d9f2;
   --clr-tertiary-light: #f5efff;
+  --header-height: 0;
 }
 
 * {
@@ -82,7 +83,7 @@ body {
 
 section {
   margin: 6vh 0;
-  padding: 20px;
+  padding: 0 2vh;
 }
 
 .main-container {
@@ -126,15 +127,20 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.glow {
+  box-shadow: 0 0 5px #cdc1ff, 0 0 10px #cdc1ff, 0 0 20px #cdc1ff,
+    0 0 40px #cdc1ff;
+  transition: all 0.7s ease-in-out;
+}
+
 .scroll-nav {
   border-radius: 1rem;
   margin: 1rem 2rem;
 }
 
-.glow {
-  box-shadow: 0 0 5px #cdc1ff, 0 0 10px #cdc1ff, 0 0 20px #cdc1ff,
-    0 0 40px #cdc1ff;
-  transition: all 0.7s ease-in-out;
+.sticky-div {
+  position: sticky;
+  top: var(--header-height);
 }
 
 .hide {
