@@ -14,7 +14,7 @@
 }
 
 .swiper-slide:has(.journey-card) {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .journey-card {
@@ -126,6 +126,7 @@
 
 .core-card {
   background: var(--clr-tertiary-light);
+  border: 5px solid var(--clr-secondary);
   border-radius: 1rem;
   padding: 2rem;
   display: flex;
@@ -154,7 +155,12 @@
   gap: 1rem;
 }
 .core-title {
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.core-content p {
+  font-weight: 300;
 }
 
 .meet-team-card {
