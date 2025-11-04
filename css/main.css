@@ -383,7 +383,7 @@ section.logo-sec {
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
   backdrop-filter: blur(18.1px);
   -webkit-backdrop-filter: blur(18.1px);
-  border: 1px solid var(--clr-secondary-light);
+  border: 2px solid var(--clr-secondary-light);
   color: var(--clr-dark-two);
 
   margin: 20px 0;
@@ -392,7 +392,12 @@ section.logo-sec {
 }
 
 .hightlight-cards .text-card h4{
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.hightlight-cards .text-card p {
+  margin: 1rem 0;
+  font-weight: 300;
 }
 
 .hightlight-cards .bg {
@@ -432,11 +437,16 @@ section.logo-sec {
 }
 
 .who-wrap .text-card h4{ 
-  font-weight: 600;
+  margin: 1rem 0;
+  font-weight: 700;
 }
 
+.who-wrap .text-card ul {
+  margin: 1rem 0;
+}
 .who-wrap .text-card p{ 
   margin: 0 0 0.5rem;
+  font-weight: 300;
 }
 .who-wrap .bg {
   background-image: url("../img/virtuconf-bg-dark.svg");

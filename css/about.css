@@ -176,7 +176,7 @@
 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
   position: relative;
-  border: 1px solid var(--clr-tertiary-light);
+  border: 2px solid var(--clr-tertiary-light);
 }
 
 .meet-team-card::after {
@@ -186,8 +186,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--clr-tertiary-light);
-  filter: blur(15px);
+  background: rgba(255, 255, 255, 0.8);
+  filter: blur(50px);
 }
 
 .team-img-wrap {
@@ -197,7 +197,7 @@
 .team-img-wrap img {
   width: 100%;
   border-radius: 0.8rem;
-  border: 2px solid var(--clr-dark-two);
+  border: 2px solid var(--clr-tertiary-light);
 }
 
 .team-content-wrap {
