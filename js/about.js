@@ -119,6 +119,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }),
   });
 
+  document.querySelectorAll(".meet-team-card").forEach(card => {
+    ["mouseenter", "mouseleave", "touchstart", "touchend"].forEach(event => {
+      card.addEventListener(event, () => {
+        if (event === "mouseenter" || event === "touchstart") {
+          card.querySelector("img").classList.add("filter-none");
+          card.querySelector(".team-content-wrap").style.scale = "105%"
+          
+        } else if (event === "mouseleave" || event === "touchend") { 
+          card.querySelector("img").classList.remove("filter-none");
+          card.querySelector(".team-content-wrap").style.scale = "100%"
+
+        }
+      })
+    })
+  })
+
   const container = document.getElementById("myCarousel");
   let arr = Array.from({ length: 13 }, (value, index) => index + 2);
   const fragment = new DocumentFragment();
