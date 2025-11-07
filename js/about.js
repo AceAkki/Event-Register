@@ -123,11 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ["mouseenter", "mouseleave", "touchstart", "touchend"].forEach(event => {
       card.addEventListener(event, () => {
         if (event === "mouseenter" || event === "touchstart") {
-          card.querySelector("img").classList.add("filter-none");
+          // card.querySelector("img").classList.add("filter-none");
           card.querySelector(".team-content-wrap").style.scale = "105%"
           
         } else if (event === "mouseleave" || event === "touchend") { 
-          card.querySelector("img").classList.remove("filter-none");
+          // card.querySelector("img").classList.remove("filter-none");
           card.querySelector(".team-content-wrap").style.scale = "100%"
 
         }
