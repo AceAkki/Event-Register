@@ -1,3 +1,13 @@
+.about-sec {
+  background: #f0f0f0 url("../img/gallery/14.webp") no-repeat center right /
+    cover padding-box border-box;
+  min-height: 120vh;
+
+  display: flex;
+  align-items: flex-end;
+  margin: cal(var(--header-height) + 1rem) 0 0;
+}
+
 .mission-sec {
   background: #f0f0f0 url("../img/gallery/8.webp") no-repeat center right /
     cover padding-box border-box;
@@ -5,17 +15,6 @@
 
   display: flex;
   align-items: flex-end;
-}
-
-.mission-sec .sec-title {
-  font-size: 3.5rem;
-}
-
-.mission-sec .content-wrap {
-  width: 100%;
-  /* background: var(--clr-secondary); */
-  padding: 2rem 1rem;
-  border-radius: 1rem;
 }
 
 .vision-sec {
@@ -27,10 +26,12 @@
   align-items: flex-end;
 }
 
+.mission-sec .sec-title,
 .vision-sec .sec-title {
   font-size: 3.5rem;
 }
 
+.mission-sec .content-wrap,
 .vision-sec .content-wrap {
   width: 100%;
   /* background: var(--clr-secondary); */
@@ -269,16 +270,29 @@
 }
 
 @media screen and (min-width: 1080px) {
-  .mission-sec, .vision-sec {
+  .about-sec {
+    background: #f0f0f0 url("../img/night-view-victoria-harbor-hong-kong.webp") no-repeat center center /
+      cover padding-box border-box;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .mission-sec,
+  .vision-sec {
     align-items: center;
     margin: 0;
   }
 
+
+  /* .about-sec .sec-title, */
   .mission-sec .sec-title,
   .vision-sec .sec-title {
     font-size: 5.5rem;
   }
-  
+
+  .about-sec .content-wrap,
   .mission-sec .content-wrap,
   .vision-sec .content-wrap {
     width: 90%;
