@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let navSecs = Array.from(document.querySelectorAll(".nav"));
 navSecs.forEach(sec => {
  let navLink = document.createElement("a");
- navLink.setAttribute("href", ,`#${sec.getAttribute("id")}`);
+ navLink.setAttribute("href",`#${sec.getAttribute("id")}`);
   navLink.textContent = sec.getAttribute("id");
   nav.appendChild(navLink)
   
@@ -203,4 +203,5 @@ navSecs.forEach(sec => {
 
   new Carousel(container, options, { Autoplay });
 });
+
 
