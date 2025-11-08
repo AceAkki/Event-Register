@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let nav = document.querySelector(".navigation-wrap");
+  let navSecs = Array.from(document.querySelectorAll(".nav"));
+navSecs.forEach(sec => {
+ let navLink = document.createElement("a");
+ navLink.setAttribute("href", ,`#${sec.getAttribute("id")}`);
+  navLink.textContent = sec.getAttribute("id");
+  nav.appendChild(navLink)
+  
+})
+  
   var journeySwiper = new Swiper(".journey-wrap", {
     slidesPerView: 1,
     spaceBetween: 10,
@@ -193,3 +203,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   new Carousel(container, options, { Autoplay });
 });
+
