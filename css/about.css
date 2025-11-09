@@ -1,11 +1,15 @@
 .about-sec {
-  background: #f0f0f0 url("../img/gallery/14.webp") no-repeat center right /
+  background: #f0f0f0 url("../img/about/wavy_bg.webp") no-repeat center center /
     cover padding-box border-box;
-  min-height: 120vh;
+  min-height: 100vh;
 
   display: flex;
-  align-items: flex-end;
-  margin: cal(var(--header-height) + 1rem) 0 0;
+  align-items: center;
+  margin: var(--header-height) 0 0;
+}
+
+.about-sec .container {
+  margin-top: 5rem;
 }
 
 .mission-sec {
@@ -15,6 +19,7 @@
 
   display: flex;
   align-items: flex-end;
+  margin: 0;
 }
 
 .vision-sec {
@@ -24,6 +29,7 @@
 
   display: flex;
   align-items: flex-end;
+  margin: 0;
 }
 
 .mission-sec .sec-title,
@@ -36,18 +42,49 @@
   width: 100%;
   /* background: var(--clr-secondary); */
   padding: 2rem 1rem;
+  margin: 0 0 2rem;
   border-radius: 1rem;
 }
 
-.title-wrap {
+.navigation-wrap {
+  position: sticky;
+  top: 0;
+  bottom: 1rem;
+  margin-top: var(--header-height);
+  padding: 0.5rem 2rem;
+  margin-bottom: 1rem;
+  z-index: 10;
+
+  display: flex;
+  gap: 0.2rem;
+  overflow: scroll;
+}
+
+.navigation-wrap div {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  /* background: var(--clr-secondary); */
+
+}
+
+.navigation-wrap a {
+  color: var(--clr-dark-two);
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+
+/* .title-wrap {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
-}
-.title-wrap .title {
+} */
+.title {
   color: var(--clr-tertiary-light);
-  font-size: 4.2rem;
-  font-weight: 700;
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 4.5rem;
 }
 
 .swiper-slide {
@@ -271,12 +308,17 @@
 
 @media screen and (min-width: 1080px) {
   .about-sec {
-    background: #f0f0f0 url("../img/night-view-victoria-harbor-hong-kong.webp") no-repeat center center /
+    background: #f0f0f0 url("../img/about/wavy_bg.webp") no-repeat center center /
       cover padding-box border-box;
     min-height: 100vh;
 
     display: flex;
     align-items: center;
+  }
+
+  .title {
+    font-size: 7.2rem;
+    line-height: 7.8rem;
   }
 
   .mission-sec,
@@ -285,14 +327,11 @@
     margin: 0;
   }
 
-
-  /* .about-sec .sec-title, */
   .mission-sec .sec-title,
   .vision-sec .sec-title {
     font-size: 5.5rem;
   }
 
-  .about-sec .content-wrap,
   .mission-sec .content-wrap,
   .vision-sec .content-wrap {
     width: 90%;
@@ -300,6 +339,12 @@
     padding: 2rem 3rem;
     border-radius: 1rem;
   }
+
+  .navigation-wrap {
+    width: max-content;
+    margin: auto;
+  }
+
   .why-wrap {
     flex-direction: row;
   }

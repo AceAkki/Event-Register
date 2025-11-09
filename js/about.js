@@ -1,15 +1,52 @@
+import { AnimeMain } from "./classAnime.js";
+const classAnime = new AnimeMain();
+
 document.addEventListener("DOMContentLoaded", () => {
-  let nav = document.querySelector(".navigation-wrap");
-  let navSecs = Array.from(document.querySelectorAll(".nav"));
-navSecs.forEach(sec => {
- let navLink = document.createElement("a");
- navLink.setAttribute("href",`#${sec.getAttribute("id")}`);
-  navLink.textContent = sec.getAttribute("id");
-  nav.appendChild(navLink)
-  
-})
-  
-  var journeySwiper = new Swiper(".journey-wrap", {
+
+initSecNavigation();
+
+  classAnime.animateTextShow(document.querySelector(".about-sec .title"));
+  classAnime.horizontalSplit(document.querySelector(".about-sec .sec-sub-title"))
+
+  // animate(".title-wrap .title", {
+  //   y: [
+  //     { to: "-2.75rem", ease: "outExpo", duration: 600 },
+  //     { to: 0, ease: "outBounce", duration: 800, delay: 100 },
+  //   ],
+  //   scale: { from: 0, to: 1 },
+  //   ease: "inOutCirc",
+  //   duration: 2000,
+  //   delay: stagger(100),
+  //   autoplay: onScroll({
+  //     enter: "bottom top",
+  //     leave: "top bottom",
+  //     sync: "resume reset",
+  //   }),
+  // });
+
+  document.querySelectorAll(".meet-team-card").forEach(card => {
+    ["mouseenter", "mouseleave", "touchstart", "touchend"].forEach(event => {
+      card.addEventListener(event, () => {
+        if (event === "mouseenter" || event === "touchstart") {
+          // card.querySelector("img").classList.add("filter-none");
+          card.querySelector(".team-content-wrap").style.scale = "105%"
+          
+        } else if (event === "mouseleave" || event === "touchend") { 
+          // card.querySelector("img").classList.remove("filter-none");
+          card.querySelector(".team-content-wrap").style.scale = "100%"
+
+        }
+      })
+    })
+  })
+  initSwiper();
+  initCarousel ();
+
+ 
+});
+
+function initSwiper() {
+    var journeySwiper = new Swiper(".journey-wrap", {
     slidesPerView: 1,
     spaceBetween: 10,
     speed: 5200,
@@ -73,78 +110,10 @@ navSecs.forEach(sec => {
       },
     },
   });
+}
 
-  const {
-    animate,
-    utils,
-    createDraggable,
-    createSpring,
-    createTimer,
-    createTimeline,
-    onScroll,
-    stagger,
-    engine,
-  } = anime;
-  // (async function() {
-  //   const data = {
-  //     labels: [
-  //       'Industry Professionals',
-  //       'Academic Community',
-  //       'Entrepreneurs & Innovators'
-  //     ],
-  //     datasets: [{
-  //       data: [45, 30, 25],
-  //       backgroundColor: [
-  //         '#474e93',
-  //         '#7e5cad',
-  //         '#a294f9'
-  //       ],
-  //       hoverOffset: 4
-  //     }]
-  //   };
 
-  //   new Chart(
-  //     document.getElementById('who-chart'),
-  //     {
-  //       type: 'pie',
-  //       data: data,
-  //     }
-  //   );
-
-  // })();
-
-  animate(".title-wrap .title", {
-    y: [
-      { to: "-2.75rem", ease: "outExpo", duration: 600 },
-      { to: 0, ease: "outBounce", duration: 800, delay: 100 },
-    ],
-    scale: { from: 0, to: 1 },
-    ease: "inOutCirc",
-    duration: 2000,
-    delay: stagger(100),
-    autoplay: onScroll({
-      enter: "bottom top",
-      leave: "top bottom",
-      sync: "resume reset",
-    }),
-  });
-
-  document.querySelectorAll(".meet-team-card").forEach(card => {
-    ["mouseenter", "mouseleave", "touchstart", "touchend"].forEach(event => {
-      card.addEventListener(event, () => {
-        if (event === "mouseenter" || event === "touchstart") {
-          // card.querySelector("img").classList.add("filter-none");
-          card.querySelector(".team-content-wrap").style.scale = "105%"
-          
-        } else if (event === "mouseleave" || event === "touchend") { 
-          // card.querySelector("img").classList.remove("filter-none");
-          card.querySelector(".team-content-wrap").style.scale = "100%"
-
-        }
-      })
-    })
-  })
-
+function initCarousel () {
   const container = document.getElementById("myCarousel");
   let arr = Array.from({ length: 13 }, (value, index) => index + 2);
   const fragment = new DocumentFragment();
@@ -202,6 +171,25 @@ navSecs.forEach(sec => {
   };
 
   new Carousel(container, options, { Autoplay });
-});
+}
 
-
+function initSecNavigation() {
+  let aboutSecHeight = document.querySelector(".about-sec").getBoundingClientRect().height;
+  let navWrap = document.querySelector(".navigation-wrap");
+  window.addEventListener("scroll", ()=> {
+    console.log(scrollY > aboutSecHeight, navWrap.children.length <= 0)
+    if (scrollY > aboutSecHeight && navWrap.children.length <= 0) {
+      navWrap.classList.add("glass-white", "scroll-nav");
+      let navSec = Array.from(document.querySelectorAll(".nav"));
+    
+      navSec.forEach(sec => {
+        let navDiv = document.createElement("div");
+        let navLink = document.createElement("a");
+        navLink.setAttribute("href", `#${sec.getAttribute("id")}`);
+        navLink.textContent = sec.getAttribute("id");
+        navDiv.appendChild(navLink);
+        navWrap.appendChild(navDiv);
+      })
+    }
+  })
+}

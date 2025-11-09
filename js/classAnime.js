@@ -27,7 +27,7 @@ export class AnimeMain {
     
         const rotateAnim = createTimeline({
             autoplay: true,
-            loop: true,
+            // loop: true,
             defaults: { ease: 'inOutQuad', duration: 1000, }
         })
             .add('.char > span', { x: '100%' }, stagger(5, { use: 'data-char' }));
