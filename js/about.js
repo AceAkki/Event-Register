@@ -177,11 +177,10 @@ function initSecNavigation() {
   let aboutSecHeight = document.querySelector(".about-sec").getBoundingClientRect().height;
   let navWrap = document.querySelector(".navigation-wrap");
   window.addEventListener("scroll", ()=> {
-    console.log(scrollY > aboutSecHeight, navWrap.children.length <= 0)
     if (scrollY > aboutSecHeight && navWrap.children.length <= 0) {
       navWrap.classList.add("glass-white", "scroll-nav");
-      let navSec = Array.from(document.querySelectorAll(".nav"));
-    
+      let navSec = Array.from(document.querySelectorAll(".nav-sec"));
+      
       navSec.forEach(sec => {
         let navDiv = document.createElement("div");
         let navLink = document.createElement("a");
@@ -190,6 +189,15 @@ function initSecNavigation() {
         navDiv.appendChild(navLink);
         navWrap.appendChild(navDiv);
       })
+      classAnime.animateFadeIn(navWrap, 1000)
+    } else if (scrollY < aboutSecHeight && navWrap.children.length > 0) {
+      
+      classAnime.animateFadeOut(navWrap, 100);
+      setTimeout( () => {
+        navWrap.classList.remove("glass-white", "scroll-nav");
+        navWrap.innerHTML = "";
+
+      }, 400)
     }
   })
 }
