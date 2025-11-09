@@ -187,7 +187,7 @@ function generateItems(data) {
         <strong> Date:</strong>
         <span class="event-date"> ${data.date} </span>
       </p>
-      <div>
+      <div class="event-content">
         <h4 class="event-speaker">
           ${data.speaker} 
         </h4>

@@ -98,7 +98,7 @@
 
 
 
-    <section class="main-section mission-sec nav" id="mission">
+    <section class="main-section mission-sec nav-sec" id="mission">
         <div class="container mt-5 pt-5">
             <div class="content-wrap glass-light">
                 <h2 class="sec-title">
@@ -117,7 +117,7 @@
 
     </section>
 
-    <section class="main-section vision-sec nav" id="vision">
+    <section class="main-section vision-sec nav-sec" id="vision">
         <div class="container mt-5 pt-5">
             <div class="content-wrap glass-light">
                 <h2 class="sec-title">
@@ -135,7 +135,7 @@
 
     </section>
 
-    <section class="nav" id="origin">
+    <section class="nav-sec" id="origin">
         <div class="container mt-5 pt-5">
             <h2 class="sec-title">Our Origin Story: From Necessity to Revolution</h2>
             <p class="sec-para mt-2">
@@ -396,7 +396,7 @@
         </div>
     </section>
 
-    <section class="nav" id="why">
+    <section class="nav-sec" id="why">
         <div class="container mt-5 pt-5">
             <h2 class="sec-title">Why Choose VirtuConf?</h2>
             <p class="sec-para mt-2">At VirtuConf, we don’t just organize events; we create experiences. Whether you're
@@ -479,7 +479,7 @@
                 </div>
                 <div class="img-wrap">
                     <div class="sticky-div">
-                        <img src="img/model-girl-1-sqr.webp" alt="">
+                        <img src="img/model-girl-10-sqr.webp" alt="">
                     </div>
 
                 </div>
@@ -490,7 +490,7 @@
         </div>
     </section>
 
-    <section class="nav" id="core">
+    <section class="nav-sec" id="core">
         <div class="container mt-5 pt-5">
             <h2 class="sec-title">
                 Our Core Values
@@ -652,7 +652,7 @@
         </div>
     </section>
 
-    <section class="nav" id="visionaries">
+    <section class="nav-sec" id="visionaries">
         <div class="container mt-5 pt-5">
             <h2 class="sec-title">
                 The Visionaries Behind the Magic
@@ -751,7 +751,7 @@
     </section>
 
 
-    <section class="nav" id="gallery">
+    <section class="nav-sec" id="moments">
         <div class="container mt-5 pt-5">
             <h2 class="sec-title">
                 Moments That Matter
@@ -769,37 +769,227 @@
     </section>
 
 
-    <section class="nav" id="connect">
+    <section class="nav-sec" id="connect">
         <div class="container mt-5 pt-5">
             <h2 class="sec-title"> How to Connect</h2>
             <p class="sec-para mt-2">
                 Have questions? Drop us a line and we'll get back to you within 1–2 business days.
             </p>
 
-            <div class="contact-list" aria-hidden="false">
-                <p class="sec-para mt-2"><strong>Address:</strong>&nbsp;123 Demo Street, Testville, TX 75201</p>
-                <p class="sec-para mt-2"><strong>Phone:</strong>&nbsp;<a href="tel:+15551234567">+1 (555) 123-4567</a>
-                </p>
-                <p class="sec-para mt-2"><strong>Email:</strong>&nbsp;<a
-                        href="mailto:contact@acme-widgets.example">contact@acme-widgets.example</a></p>
-                <p class="sec-para mt-2"><strong>Hours:</strong>&nbsp;Mon–Fri 9:00–17:00</p>
+            <div class="contact-wrap">
+                <div class="img-wrap">
+                    <div class="sticky-div">
+                        <img src="img/model-girl-11-sqr.webp" alt="">
+                    </div>
+
+                </div>
+                <div class="contact-content">
+                    <div class="contact-form-wrapper">
+                        <!-- form validation handle through JS -->
+                        <form id="contact-form" class="form" action="" method="post">
+                            <div class="contact-form">
+                                <div class="comm-form">
+                                    <div class="row form-section">
+                                        <!-- First Name and Last Name -->
+                                        <div class="col col-sm-12 col-lg-6">
+                                            <label for="summaryFName">First Name</label>
+                                            <div class="form-grp">
+                                                <input type="text" class="form-field" id="summaryFName"
+                                                    name="summaryFName" placeholder="Type First Name" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col col-sm-12 col-lg-6">
+                                            <label for="summaryLName">Last Name</label>
+                                            <div class="form-grp">
+                                                <input type="text" class="form-field" id="summaryLName"
+                                                    name="summaryLName" placeholder="Type Last Name" />
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <!-- Email and Mobile Number -->
+                                        <div class="col col-sm-12 col-lg-6">
+                                            <label for="formEmail">Email ID</label>
+                                            <div class="form-grp">
+                                                <input type="email" class="form-field" id="formEmail" name="formEmail"
+                                                    placeholder="Type Email ID" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col col-sm-12 col-lg-6">
+                                            <label for="formMobile">Mobile Number</label>
+                                            <div class="form-grp">
+                                                <input type="tel" class="form-field" id="formMobile" name="formMobile"
+                                                    maxlength="12" placeholder="Type Mobile Number" />
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <!-- Reason for Joining -->
+                                        <div class="col col-sm-12 col-lg-12">
+                                            <label for="whyWant">What do you hope to gain from the Student
+                                                Track?</label>
+                                            <div class="form-grp">
+                                                <input type="text" class="form-field" id="whyWant" name="whyWant"
+                                                    placeholder="Type your Reason" />
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <!-- Submit Button -->
+                                        <div class="w100">
+                                            <div class="btn-grp">
+                                                <button type="submit" id="submitApplication" class="btn submit-btn"><i
+                                                        class="ph ph-paper-plane-tilt"></i>
+                                                    &nbsp; Apply Now</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="contact-dets">
+                        <div class="contact-info">
+                            <div class="contact-title">
+                                <strong>Address:</strong>
+                            </div>
+                            <div class="sec-para">
+                                Acme Widgets Inc.<br>
+                                1234 Mockingbird Lane, Suite 100<br>
+                                Industrial Park, Building C<br>
+                                Testville, TX 75201<br>
+                                United States of America<br>
+                                <strong>Attn: Sales and Customer Service Department</strong>
+                            </div>
+                        </div>
+
+                        <div class="contact-info">
+                            <div class="contact-title">
+                                <strong>Phone:</strong>
+                            </div>
+                            <div class="sec-para">
+                                <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info">
+                            <div class="contact-title">
+                                <strong>Email:</strong>
+                            </div>
+                            <div class="sec-para">
+                                <a href="mailto:contact@acme-widgets.example">contact@acme-widgets.example</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info">
+                            <div class="contact-title">
+                                <strong>Operating Hours:</strong>
+                            </div>
+                            <div class="sec-para">
+                                Mon–Fri: 9:00 AM – 5:00 PM CST
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
 
     </section>
 
-    <section class="nav" id="careers">
+    <section class="nav-sec" id="careers">
         <div class="container mt-5 pt-5">
             <h2 class="sec-title">Join Our Team</h2>
-            <p class="sec-para">We’re always looking for passionate individuals to join our growing team. If you’re
-                interested in shaping the
-                future of virtual events, check out our open positions below:</p>
-            <ul>
-                <li><strong>Product Manager</strong> - Location: Remote</li>
-                <li><strong>Event Coordinator</strong> - Location: New York, NY</li>
-            </ul>
-            <a href="/careers" class="cta-button">See All Open Positions</a>
+            <p class="sec-para">At VirtuConf, we're always on the lookout for passionate and driven individuals to help
+                us shape the future of virtual events. As we continue to innovate and grow, we invite talented people to
+                bring their unique skills and ideas to the table. If you’re ready to make a meaningful impact and be
+                part of an exciting journey in the world of digital events, check out our open positions below and apply
+                today!</p>
 
+            <div class="career-wrap">
+                <div class="job-profile-card">
+                    <div class="job-designation">
+                        Product Manager - Virtual Events Platform
+                    </div>
+                    <div class="job-location">
+                        Remote
+                    </div>
+                    <div class="job-profile">
+                        As a Product Manager, you will be responsible for driving the vision, strategy, and execution of
+                        our virtual event platform. You’ll collaborate with cross-functional teams to deliver innovative
+                        solutions that enhance user experience and ensure the product meets business objectives.
+                        Experience in product lifecycle management and strong technical skills are required.
+                    </div>
+                </div>
+
+                <div class="job-profile-card">
+                    <div class="job-designation">
+                        Event Coordinator - Hybrid & Virtual Events
+                    </div>
+                    <div class="job-location">
+                        New York, NY
+                    </div>
+                    <div class="job-profile">
+                        The Event Coordinator will play a key role in planning, organizing, and executing both virtual
+                        and hybrid events. You will coordinate logistics, collaborate with vendors, and ensure seamless
+                        event experiences for attendees. Experience with event management software and a passion for
+                        live events is essential.
+                    </div>
+                </div>
+
+                <div class="job-profile-card">
+                    <div class="job-designation">
+                        UI/UX Designer
+                    </div>
+                    <div class="job-location">
+                        Remote
+                    </div>
+                    <div class="job-profile">
+                        The UI/UX Designer will be responsible for designing intuitive, engaging, and user-friendly
+                        interfaces for our virtual event platform. You’ll work closely with product managers and
+                        developers to create exceptional experiences for our users. A portfolio of previous design work
+                        is required.
+                    </div>
+                </div>
+
+                <div class="job-profile-card">
+                    <div class="job-designation">
+                        Customer Success Manager
+                    </div>
+                    <div class="job-location">
+                        Remote
+                    </div>
+                    <div class="job-profile">
+                        As a Customer Success Manager, you will work directly with clients to ensure they are getting
+                        the most out of our virtual event platform. You’ll onboard new customers, offer ongoing support,
+                        and drive customer retention through personalized engagement. Strong communication and
+                        problem-solving skills are essential.
+                    </div>
+                </div>
+
+                <div class="job-profile-card">
+                    <div class="job-designation">
+                        Sales Development Representative (SDR)
+                    </div>
+                    <div class="job-location">
+                        Remote
+                    </div>
+                    <div class="job-profile">
+                        The SDR will be responsible for generating new business opportunities by qualifying leads and
+                        setting up meetings for the sales team. You’ll research and engage potential clients in the
+                        virtual event space, driving interest and initiating the sales process. Experience in
+                        cold-calling and CRM software is preferred.
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
