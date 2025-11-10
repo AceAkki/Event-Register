@@ -6,6 +6,7 @@ import { animeIntiate } from "./animeInIt.js";
 import { AnimeMain } from "./classAnime.js";
 import { DynamicFormValidator } from "./classForm.js";
 import { Pagination } from "./classPagination.js";
+import { SectionNav } from "./classSectionNav.js";
 
 const classURLParam = new URLParam();
 const classAnimate = new AnimeMain();
@@ -82,17 +83,17 @@ const classAnimate = new AnimeMain();
       });
     })
 
-    Array.from(document.querySelectorAll(".form-img-wrap")).forEach(grp => {
-      let bgImg;
-      let mainImg; 
-      grp.querySelectorAll("img").forEach((img, index) => {
-        if (index === 0) bgImg = img;
-        if (index === 1 ) mainImg = img; 
-      })
-      console.log(bgImg, mainImg)
-      classAnimate.animeMainImg(bgImg, mainImg)
-
-    })
+    initSecNav()
+    
+    // Array.from(document.querySelectorAll(".form-img-wrap")).forEach(grp => {
+    //   let bgImg;
+    //   let mainImg; 
+    //   grp.querySelectorAll("img").forEach((img, index) => {
+    //     if (index === 0) bgImg = img;
+    //     if (index === 1 ) mainImg = img; 
+    //   })
+    //   classAnimate.animeMainImg(bgImg, mainImg)
+    // })
   });
 
 
@@ -101,6 +102,17 @@ const classAnimate = new AnimeMain();
 async function loadHTML(apiURL, selector) {
   let htmlTxt = await fetchFile(apiURL);
   document.querySelector(selector).innerHTML = htmlTxt;
+}
+
+function initSecNav(param = "track"){
+  let [windowPath, params] = classURLParam.getURL();
+  if (!params.has(param)) return;
+  const classSectionNav = new SectionNav({
+    heroSelector:`.${params.get(param).toLowerCase()} .hero-container`, 
+    navSelector:".navigation-wrap", 
+    sectionsSelector:`.${params.get(param).toLowerCase()} .nav-sec`
+  });
+  classSectionNav.initSecNavigation();
 }
 
 function initForms({param = "track", addOptionsSelector, checkboxSelector, socialSelector, socialParent }) {
@@ -156,7 +168,6 @@ function initForms({param = "track", addOptionsSelector, checkboxSelector, socia
     endBtn.textContent = "Join Now";
     endBtn.setAttribute("href", idForm);
     sec.appendChild(endBtn);
-
   })
 }
 
@@ -240,7 +251,9 @@ function searchFeature(data, parameter, inputElem, buttonElem) {
 function animateFAQ({ faqElem, selectorClass, answerClass, hideClass }) {
   //selects all answer class and except the first one rest are hidden
   Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem, index) => {
+    elem.closest(`.${selectorClass}`).style.cursor = "pointer";
       if (index > 0) elem.classList.add(hideClass);
+      console.log(elem)
     }
   );
 

@@ -1,13 +1,26 @@
 import { AnimeMain } from "./classAnime.js";
+import { DynamicFormValidator } from "./classForm.js";
+import { SectionNav } from "./classSectionNav.js";
+
 const classAnime = new AnimeMain();
 
 document.addEventListener("DOMContentLoaded", () => {
-
-initSecNavigation();
+  const classSectionNav = new SectionNav({
+    heroSelector:".about-sec" , 
+    navSelector:".navigation-wrap", 
+    sectionsSelector:".nav-sec"
+  });
+  classSectionNav.initSecNavigation();
 
   classAnime.animateTextShow(document.querySelector(".about-sec .title"));
-  classAnime.horizontalSplit(document.querySelector(".about-sec .sec-sub-title"))
-
+  classAnime.horizontalSplit(
+    document.querySelector(".about-sec .sec-sub-title")
+  );
+  const formClass = new DynamicFormValidator({
+     formElem: document.querySelector("#contact-form"),
+   });
+   formClass.initForm();
+  
   // animate(".title-wrap .title", {
   //   y: [
   //     { to: "-2.75rem", ease: "outExpo", duration: 600 },
@@ -24,29 +37,28 @@ initSecNavigation();
   //   }),
   // });
 
-  document.querySelectorAll(".meet-team-card").forEach(card => {
-    ["mouseenter", "mouseleave", "touchstart", "touchend"].forEach(event => {
+  document.querySelectorAll(".meet-team-card").forEach((card) => {
+    ["mouseenter", "mouseleave", "touchstart", "touchend"].forEach((event) => {
       card.addEventListener(event, () => {
         if (event === "mouseenter" || event === "touchstart") {
           // card.querySelector("img").classList.add("filter-none");
-          card.querySelector(".team-content-wrap").style.scale = "105%"
-          
-        } else if (event === "mouseleave" || event === "touchend") { 
+          card.querySelector(".team-content-wrap").style.scale = "105%";
+        } else if (event === "mouseleave" || event === "touchend") {
           // card.querySelector("img").classList.remove("filter-none");
-          card.querySelector(".team-content-wrap").style.scale = "100%"
-
+          card.querySelector(".team-content-wrap").style.scale = "100%";
         }
-      })
-    })
-  })
+      });
+    });
+  });
   initSwiper();
-  initCarousel ();
-
- 
+  initCarousel();
 });
 
+
+
+
 function initSwiper() {
-    var journeySwiper = new Swiper(".journey-wrap", {
+  var journeySwiper = new Swiper(".journey-wrap", {
     slidesPerView: 1,
     spaceBetween: 10,
     speed: 5200,
@@ -112,8 +124,7 @@ function initSwiper() {
   });
 }
 
-
-function initCarousel () {
+function initCarousel() {
   const container = document.getElementById("myCarousel");
   let arr = Array.from({ length: 13 }, (value, index) => index + 2);
   const fragment = new DocumentFragment();
@@ -173,31 +184,3 @@ function initCarousel () {
   new Carousel(container, options, { Autoplay });
 }
 
-function initSecNavigation() {
-  let aboutSecHeight = document.querySelector(".about-sec").getBoundingClientRect().height;
-  let navWrap = document.querySelector(".navigation-wrap");
-  window.addEventListener("scroll", ()=> {
-    if (scrollY > aboutSecHeight && navWrap.children.length <= 0) {
-      navWrap.classList.add("glass-white", "scroll-nav");
-      let navSec = Array.from(document.querySelectorAll(".nav-sec"));
-      
-      navSec.forEach(sec => {
-        let navDiv = document.createElement("div");
-        let navLink = document.createElement("a");
-        navLink.setAttribute("href", `#${sec.getAttribute("id")}`);
-        navLink.textContent = sec.getAttribute("id");
-        navDiv.appendChild(navLink);
-        navWrap.appendChild(navDiv);
-      })
-      classAnime.animateFadeIn(navWrap, 1000)
-    } else if (scrollY < aboutSecHeight && navWrap.children.length > 0) {
-      
-      classAnime.animateFadeOut(navWrap, 100);
-      setTimeout( () => {
-        navWrap.classList.remove("glass-white", "scroll-nav");
-        navWrap.innerHTML = "";
-
-      }, 400)
-    }
-  })
-}
