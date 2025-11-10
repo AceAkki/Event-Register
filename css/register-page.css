@@ -285,17 +285,15 @@ content: "";
   color: var(--clr-tertiary);
 }
 
-.form-img-wrap {
+.img-wrap {
   display: none;
-  margin-top: 20vh;
+  margin-top: var(--header-height);
 }
 
-.form-img-wrap img {
-  max-width: 100%;
-  position: absolute;
+.img-wrap img {
+  width: 100%;
+  height: 100%;
 }
-
-
 
 
 #application-form-students, #application-form-startups, #application-form-pros{
@@ -518,16 +516,11 @@ content: "";
     flex-direction: row;
   }
 
-  .form-img-wrap {
+  .img-wrap {
     display: block;
   }
-  /* .form-img-wrap img {
-    max-width: 50%;
-  } */
 }
 
 @media (min-width: 1400px) {
-  /* .form-img-wrap img {
-    max-width: 43%;
-  } */
+
 }
