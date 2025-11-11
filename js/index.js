@@ -1,4 +1,5 @@
 import { animeIntiate } from "./animeInIt.js";
+import { SectionNav } from "./classSectionNav.js";
 
 class ElementViewport {
   values(el) {
@@ -27,8 +28,13 @@ const getViewPort = new ElementViewport();
 (function init() {
   document.addEventListener("DOMContentLoaded", (fn) => {
     animeIntiate.initiateAnimation();
-
-  
+    const classSectionNav = new SectionNav({
+       heroSelector:".hero-section" , 
+       navSelector:".navigation-wrap", 
+       sectionsSelector:".nav-sec"
+     });
+     classSectionNav.initSecNavigation();
+    
   });
 
     window.addEventListener("load", (event) => {

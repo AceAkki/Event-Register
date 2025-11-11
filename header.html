@@ -10,15 +10,33 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="about.html">About</a>
+          <a class="nav-link" aria-current="page" href="about.html">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html#highlights">Highlights</a>
+          <a class="nav-link" aria-current="page" href="register.html">Explore Our Schedule</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="register.html?track=Pros">Professionals</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html#sectionJoin">Conference Benefits</a>
+          <a class="nav-link" aria-current="page" href="register.html?track=Students">Students</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="register.html?track=StartUps">StartUps</a>
+        </li> -->
+        <div class="dropdown">
+          <button id="dropdownMenuButton" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Choose Your Path
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="register.html?track=Pros">Professionals</a>
+            <a class="dropdown-item" href="register.html?track=Students">Students</a>
+            <a class="dropdown-item" href="register.html?track=StartUps">StartUps</a>
+          </div>
+        </div>
+
+        <!-- <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Join Now
@@ -30,7 +48,7 @@
             <li><a class="dropdown-item" href="register.html?track=Students">For Students </a></li>
             <li><a class="dropdown-item" href="register.html?track=StartUps">For Startups</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
       <!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

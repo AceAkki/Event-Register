@@ -248,7 +248,7 @@ function searchFeature(data, parameter, inputElem, buttonElem) {
   });
 }
 
-function animateFAQ({ faqElem, selectorClass, answerClass, hideClass }) {
+function animateFAQ({ faqElem, selectorClass, answerClass, hideClass, timeCero = 700, timeOne = 900}) {
   //selects all answer class and except the first one rest are hidden
   Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem, index) => {
     elem.closest(`.${selectorClass}`).style.cursor = "pointer";
@@ -257,8 +257,12 @@ function animateFAQ({ faqElem, selectorClass, answerClass, hideClass }) {
     }
   );
 
+  let inMotion = false;
+
   // event is deleagated to parent element of faq container
   faqElem.addEventListener("click", (event) => {
+    if (inMotion) return
+    inMotion = true;
     let baseHeight = 20;
     let clickedFAQ = event.target.closest(`.${selectorClass}`);
     if (!clickedFAQ) return 
@@ -271,7 +275,7 @@ function animateFAQ({ faqElem, selectorClass, answerClass, hideClass }) {
       ansElm.classList.remove(hideClass);
       ansHeight = Math.round(ansElm.getBoundingClientRect().height);
       animate(ansElm, {
-        opacity: [{ from: 0, to: 1, ease: "inOutCirc", duration: 900 }],
+        opacity: [{ from: 0, to: 1, ease: "inOutCirc", duration: timeOne }],
       });
       animate(clickedFAQ, {
         height: [
@@ -279,7 +283,7 @@ function animateFAQ({ faqElem, selectorClass, answerClass, hideClass }) {
             from: mainHeight,
             to: targetHeight + ansHeight,
             ease: "inOutSine",
-            duration: 700,
+            duration: timeCero,
           },
         ],
       });
@@ -298,12 +302,16 @@ function animateFAQ({ faqElem, selectorClass, answerClass, hideClass }) {
             {
               to: targetHeight,
               ease: "inOutSine",
-              duration: 700,
+              duration: timeCero,
             },
           ],
         });
       }
     });
+
+    setTimeout( ()=> {
+      inMotion = false;
+    }, timeOne + timeCero + timeCero)
     
   });
 }
