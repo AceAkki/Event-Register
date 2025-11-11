@@ -13,7 +13,7 @@
 }
 
 .mission-sec {
-  background: #f0f0f0 url("../img/gallery/8.webp") no-repeat center right /
+  background: #f0f0f0 url("../img/about/mission.webp") no-repeat center center /
     cover padding-box border-box;
   min-height: 120vh;
 
@@ -23,9 +23,9 @@
 }
 
 .vision-sec {
-  background: #f0f0f0 url("../img/gallery/6.webp") no-repeat center center /
+  background: #f0f0f0 url("../img/about/vision.webp") no-repeat center center /
     cover padding-box border-box;
-  min-height: 120vh;
+  min-height: 100vh;
 
   display: flex;
   align-items: flex-end;

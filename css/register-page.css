@@ -1,3 +1,7 @@
+.main-section {
+  margin: calc(var(--header-height) + 2rem) 0;
+}
+
 /* Select section */
 .select-card {
   background: var(--clr-primary);
@@ -285,6 +289,7 @@ content: "";
   color: var(--clr-tertiary);
 }
 
+.container-sec-wrapper
 .img-wrap {
   display: none;
   margin-top: var(--header-height);
