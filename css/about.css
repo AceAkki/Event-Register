@@ -46,7 +46,6 @@
   border-radius: 1rem;
 }
 
-
 /* .title-wrap {
   display: flex;
   gap: 0.8rem;
@@ -135,7 +134,8 @@
   flex-grow: 1;
 }
 
-.why-wrap, .contact-wrap {
+.why-wrap,
+.contact-wrap {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -286,7 +286,6 @@
   gap: 5rem;
 }
 
-
 .contact-form-wrap {
   display: flex;
   flex-direction: column;
@@ -340,24 +339,22 @@
   max-width: 100%;
 }
 
-.contact-form
-.btn-wrap {
+.contact-form .btn-wrap {
   display: flex;
   flex-direction: row-reverse;
   gap: 1rem;
 }
 
-.contact-form
-.btn-wrap .btn {
+.contact-form .btn-wrap .btn {
   background: var(--clr-tertiary-light);
 }
 
 .submit-btn {
-	background: var(--clr-tertiary-light);
-	color: var(--clr-primary);
+  background: var(--clr-tertiary-light);
+  color: var(--clr-primary);
   padding: 0.5rem 0.9rem;
-	font-weight: 500;
-	font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 1.1rem;
   transition: all 0.5s ease-in-out;
 }
 
@@ -381,42 +378,40 @@
 .contact-title {
   font-size: 1.2rem;
   color: var(--clr-tertiary-light);
-
 }
 
 .career-wrap {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
 .job-profile-card {
-	background: var(--clr-tertiary-light);
+  background: var(--clr-tertiary-light);
 
-	border-radius: 1rem;
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .job-designation {
   background: var(--clr-secondary);
-	font-size: 1.2rem;
-	font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 600;
   padding: 1.5rem;
 }
 
 .job-location {
-	font-weight: 500;
+  font-weight: 500;
   padding: 0 1.5rem;
 }
 
 .job-profile {
-	font-weight: 300;
+  font-weight: 300;
   padding: 0 1.5rem 1.5rem;
 }
-
 
 @media screen and (min-width: 1080px) {
   .about-sec {
@@ -426,6 +421,18 @@
 
     display: flex;
     align-items: center;
+  }
+
+  .mission-sec {
+    background: #f0f0f0 url("../img/gallery/4.webp") no-repeat center center /
+      cover padding-box border-box;
+    min-height: 120vh;
+  }
+
+  .vision-sec {
+    background: #f0f0f0 url("../img/gallery/6.webp") no-repeat center center /
+      cover padding-box border-box;
+    min-height: 100vh;
   }
 
   .title {
@@ -461,13 +468,12 @@
   .reasons-wrap {
     min-width: 50%;
   }
-  
+
   .contact-wrap .img-wrap,
   .why-wrap .img-wrap {
     min-width: 50%;
   }
 
-  
   .meet-team-card {
     flex-direction: row;
   }
