@@ -128,29 +128,28 @@
   flex-wrap: wrap;
 }
 
-
-.pagination li>a {
+.pagination li > a {
   background-color: var(--clr-tertiary-light);
   border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
   padding: 1rem;
   margin: 0.5rem;
   color: var(--clr-primary);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
 }
 
-.pagination a.active, .pagination a:hover {
+.pagination a.active,
+.pagination a:hover {
   background-color: var(--clr-primary);
   color: var(--clr-tertiary-light);
 }
-
 
 /* Professional Section */
 #Professional .hero-container {
@@ -158,7 +157,7 @@
   no-repeat center center / cover padding-box border-box; */
 }
 .hero-container::before {
-content: "";
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -166,11 +165,9 @@ content: "";
   height: 100%;
   max-height: 100%;
   background: #f0f0f0 url("../img/night-view-victoria-harbor-hong-kong.webp")
-  no-repeat center center / cover padding-box border-box;
+    no-repeat center center / cover padding-box border-box;
   filter: blur(30px);
 }
-
-
 
 .hero-container {
   padding: 0;
@@ -207,12 +204,11 @@ content: "";
   font-weight: 200;
 }
 
-
 .hero-banner-wrap {
   display: flex;
   align-items: center;
   flex-direction: column;
-    background: var(--clr-secondary-light);
+  background: var(--clr-secondary-light);
   border-radius: 1rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(14.2px);
@@ -263,7 +259,6 @@ content: "";
   color: var(--clr-secondary);
 }
 
-
 .container-sec-wrapper {
   display: flex;
   flex-direction: column;
@@ -289,9 +284,7 @@ content: "";
   color: var(--clr-tertiary);
 }
 
-
-.container-sec-wrapper
-.img-wrap {
+.container-sec-wrapper .img-wrap {
   display: none;
   margin-top: var(--header-height);
 }
@@ -301,8 +294,9 @@ content: "";
   height: 100%;
 }
 
-
-#application-form-students, #application-form-startups, #application-form-pros{
+#application-form-students,
+#application-form-startups,
+#application-form-pros {
   scroll-margin-top: var(--header-height);
 }
 
@@ -411,11 +405,11 @@ content: "";
 }
 
 .submit-btn {
-	background: var(--clr-tertiary-light);
-	color: var(--clr-primary);
+  background: var(--clr-tertiary-light);
+  color: var(--clr-primary);
   padding: 0.5rem 0.9rem;
-	font-weight: 500;
-	font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 1.1rem;
   transition: all 0.5s ease-in-out;
 }
 
@@ -424,18 +418,15 @@ content: "";
   color: var(--clr-tertiary-light);
 }
 
-.application-form
-.btn-wrap {
+.application-form .btn-wrap {
   display: flex;
   flex-direction: row-reverse;
   gap: 1rem;
 }
 
-.application-form
-.btn-wrap .btn {
+.application-form .btn-wrap .btn {
   background: var(--clr-tertiary-light);
 }
-
 
 .register-sec .end-btn {
   background: var(--clr-tertiary-light);
@@ -514,6 +505,12 @@ content: "";
     justify-content: center;
   }
 
+  .pagination li > a {
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.5rem;
+  }
+
   .who-cards-wrapper {
     margin: 3rem 2rem;
   }
@@ -521,13 +518,11 @@ content: "";
   .who-card {
     flex-direction: row;
   }
-  
-  .container-sec-wrapper
-  .img-wrap {
+
+  .container-sec-wrapper .img-wrap {
     display: block;
   }
 }
 
 @media (min-width: 1400px) {
-
 }
