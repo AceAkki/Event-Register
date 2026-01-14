@@ -18,7 +18,7 @@ A responsive and visually appealing landing page for a fictional virtual tech co
 
 * **HTML5:** For the page structure and semantic markup.
 * **CSS3:** For styling, including Flexbox and Grid for layout management.
-* **JavaScript (Planned Skill Demonstration):** The current structure is prepared for the seamless integration of **modern JavaScript techniques** for client-side form validation, API integration, and enhanced UI interactivity.
+* **JavaScript (Planned Skill Demonstration):** The current structure is prepared for the seamless integration of **modern JavaScript techniques** for client-side form validation and enhanced UI interactivity.
 
 ---
 
