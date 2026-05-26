@@ -1,5 +1,11 @@
 // importing methods from anime.js for smoother animated transitions
-import { animate, createTimeline, createTimer, text, stagger} from "https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.esm.min.js";
+import {
+  animate,
+  createTimeline,
+  createTimer,
+  text,
+  stagger,
+} from "https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.esm.min.js";
 import { URLParam } from "./classURLParam.js";
 import { URLBasedContent } from "./classURLBasedContent.js";
 import { animeIntiate } from "./animeInIt.js";
@@ -12,11 +18,17 @@ const classURLParam = new URLParam();
 const classAnimate = new AnimeMain();
 
 (function init() {
-  
   document.addEventListener("DOMContentLoaded", async (fn) => {
-    const classURLContent = new URLBasedContent({cardsElmSelector:"#select-cards",
-      proElmSelector:"#Professional", studElmSelector:"#Student", startElmSelector:"#Startup", hiddenClass:"hidden", 
-      proBtnSelector:"#Pros", studBtnSelector:"#Students", startBtnSelector:"#StartUps"});
+    const classURLContent = new URLBasedContent({
+      cardsElmSelector: "#select-cards",
+      proElmSelector: "#Professional",
+      studElmSelector: "#Student",
+      startElmSelector: "#Startup",
+      hiddenClass: "hidden",
+      proBtnSelector: "#Pros",
+      studBtnSelector: "#Students",
+      startBtnSelector: "#StartUps",
+    });
     classURLContent.initURLTracking();
 
     fetch(`json/data-JSON.json`)
@@ -37,7 +49,7 @@ const classAnimate = new AnimeMain();
         paginationMain.initiatePagination(
           data,
           document.querySelector(".pagination"),
-          document.querySelector(".event-wrap")
+          document.querySelector(".event-wrap"),
         );
       })
       .catch((err) => {
@@ -71,32 +83,40 @@ const classAnimate = new AnimeMain();
     await loadHTML("./pro-sec.html", "#Professional");
     await loadHTML("./stud-sec.html", "#Student");
     await loadHTML("./startup-sec.html", "#Startup");
-    
-    initForms({addOptionsSelector:"#formIndustry", checkboxSelector:"#keyFocus", socialSelector: "#socialHandle", socialParent:"#socialGrp"});
 
-    Array.from(document.querySelectorAll(".faq-container")).forEach(container => {
-      animateFAQ({
-        faqElem: container,
-        selectorClass: "faq-item",
-        answerClass: "faq-ans",
-        hideClass: "hide",
-      });
-    })
+    initForms({
+      addOptionsSelector: "#formIndustry",
+      checkboxSelector: "#keyFocus",
+      socialSelector: "#socialHandle",
+      socialParent: "#socialGrp",
+    });
 
-    initSecNav()
-    
+    Array.from(document.querySelectorAll(".faq-container")).forEach(
+      (container) => {
+        animateFAQ({
+          faqElem: container,
+          selectorClass: "faq-item",
+          answerClass: "faq-ans",
+          hideClass: "hide",
+        });
+      },
+    );
+
+    initSecNav();
+    // Array.from(document.querySelector(".testim-card")).forEach(card => {
+    //   card.querySelector(".card-image-wrap")
+    // })
+
     // Array.from(document.querySelectorAll(".form-img-wrap")).forEach(grp => {
     //   let bgImg;
-    //   let mainImg; 
+    //   let mainImg;
     //   grp.querySelectorAll("img").forEach((img, index) => {
     //     if (index === 0) bgImg = img;
-    //     if (index === 1 ) mainImg = img; 
+    //     if (index === 1 ) mainImg = img;
     //   })
     //   classAnimate.animeMainImg(bgImg, mainImg)
     // })
   });
-
-
 })();
 
 async function loadHTML(apiURL, selector) {
@@ -104,25 +124,33 @@ async function loadHTML(apiURL, selector) {
   document.querySelector(selector).innerHTML = htmlTxt;
 }
 
-function initSecNav(param = "track"){
+function initSecNav(param = "track") {
   let [windowPath, params] = classURLParam.getURL();
   if (!params.has(param)) return;
   const classSectionNav = new SectionNav({
-    heroSelector:`.${params.get(param).toLowerCase()} .hero-container`, 
-    navSelector:".navigation-wrap", 
-    sectionsSelector:`.${params.get(param).toLowerCase()} .nav-sec`
+    heroSelector: `.${params.get(param).toLowerCase()} .hero-container`,
+    navSelector: ".navigation-wrap",
+    sectionsSelector: `.${params.get(param).toLowerCase()} .nav-sec`,
   });
   classSectionNav.initSecNavigation();
 }
 
-function initForms({param = "track", addOptionsSelector, checkboxSelector, socialSelector, socialParent }) {
+function initForms({
+  param = "track",
+  addOptionsSelector,
+  checkboxSelector,
+  socialSelector,
+  socialParent,
+}) {
   let [windowPath, params] = classURLParam.getURL();
   if (!params.has(param)) return;
   let formID = params.get(param).toLowerCase();
   let idForm = `#application-form-${formID}`;
   const formClass = new DynamicFormValidator({
     formElem: document.querySelector(idForm),
-    progressSection: document.querySelector(`#application-form-${formID} .comm-form`),
+    progressSection: document.querySelector(
+      `#application-form-${formID} .comm-form`,
+    ),
     progressSelector: ".form-section",
   });
   formClass.initForm();
@@ -146,7 +174,10 @@ function initForms({param = "track", addOptionsSelector, checkboxSelector, socia
   ];
 
   if (document.querySelector(addOptionsSelector)) {
-    formClass.addOptions(document.querySelector(addOptionsSelector), industryOpt);
+    formClass.addOptions(
+      document.querySelector(addOptionsSelector),
+      industryOpt,
+    );
   }
   if (document.querySelector(checkboxSelector)) {
     formClass.addCheckBox({
@@ -155,20 +186,25 @@ function initForms({param = "track", addOptionsSelector, checkboxSelector, socia
       name: "focusArea",
     });
   }
-  if (document.querySelector(socialSelector) && document.querySelector(socialParent) ? true : false) {
+  if (
+    document.querySelector(socialSelector) &&
+    document.querySelector(socialParent)
+      ? true
+      : false
+  ) {
     formClass.initializeSelectEvent({
       selectElem: document.querySelector(socialSelector),
       parentElem: document.querySelector(socialParent),
     });
   }
 
-  document.querySelectorAll(".register-sec").forEach(sec => {
+  document.querySelectorAll(".register-sec").forEach((sec) => {
     let endBtn = document.createElement("a");
     endBtn.classList.add("btn", "end-btn");
     endBtn.textContent = "Join Now";
     endBtn.setAttribute("href", idForm);
     sec.appendChild(endBtn);
-  })
+  });
 }
 
 async function fetchFile(apiURL) {
@@ -215,7 +251,6 @@ function generateItems(data) {
   return item;
 }
 
-
 function searchFeature(data, parameter, inputElem, buttonElem) {
   let array = [];
   data.forEach((obj) => {
@@ -243,29 +278,37 @@ function searchFeature(data, parameter, inputElem, buttonElem) {
     paginationMain.initiatePagination(
       searchData,
       document.querySelector(".pagination"),
-      document.querySelector(".event-wrap")
+      document.querySelector(".event-wrap"),
     );
   });
 }
 
-function animateFAQ({ faqElem, selectorClass, answerClass, hideClass, timeCero = 700, timeOne = 900}) {
+function animateFAQ({
+  faqElem,
+  selectorClass,
+  answerClass,
+  hideClass,
+  timeCero = 700,
+  timeOne = 900,
+}) {
   //selects all answer class and except the first one rest are hidden
-  Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem, index) => {
-    elem.closest(`.${selectorClass}`).style.cursor = "pointer";
+  Array.from(faqElem.getElementsByClassName(answerClass)).forEach(
+    (elem, index) => {
+      elem.closest(`.${selectorClass}`).style.cursor = "pointer";
       if (index > 0) elem.classList.add(hideClass);
-      console.log(elem)
-    }
+      console.log(elem);
+    },
   );
 
   let inMotion = false;
 
   // event is deleagated to parent element of faq container
   faqElem.addEventListener("click", (event) => {
-    if (inMotion) return
+    if (inMotion) return;
     inMotion = true;
     let baseHeight = 20;
     let clickedFAQ = event.target.closest(`.${selectorClass}`);
-    if (!clickedFAQ) return 
+    if (!clickedFAQ) return;
     let mainHeight = Math.round(clickedFAQ.getBoundingClientRect().height);
     let ansElm = clickedFAQ.getElementsByClassName(answerClass)[0];
     let ansHeight;
@@ -287,7 +330,7 @@ function animateFAQ({ faqElem, selectorClass, answerClass, hideClass, timeCero =
           },
         ],
       });
-    } 
+    }
 
     Array.from(faqElem.getElementsByClassName(answerClass)).forEach((elem) => {
       let faqItem = elem.closest(`.${selectorClass}`);
@@ -295,7 +338,8 @@ function animateFAQ({ faqElem, selectorClass, answerClass, hideClass, timeCero =
       if (clickedFAQ !== faqItem) {
         let faqHeight = faqItem.getBoundingClientRect().height;
         let ansHeight = elem.getBoundingClientRect().height;
-        let targetHeight = ansHeight === 0 ? faqHeight : faqHeight - ansHeight - baseHeight;
+        let targetHeight =
+          ansHeight === 0 ? faqHeight : faqHeight - ansHeight - baseHeight;
         elem.classList.add(hideClass);
         animate(faqItem, {
           height: [
@@ -309,9 +353,11 @@ function animateFAQ({ faqElem, selectorClass, answerClass, hideClass, timeCero =
       }
     });
 
-    setTimeout( ()=> {
-      inMotion = false;
-    }, timeOne + timeCero + timeCero)
-    
+    setTimeout(
+      () => {
+        inMotion = false;
+      },
+      timeOne + timeCero + timeCero,
+    );
   });
 }
